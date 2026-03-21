@@ -40,6 +40,14 @@
         "env": []
     },
     {
+        "id": "ca02caf2fee7e7dd",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "a5c7b9ff1ed4302e",
         "type": "socketcan-config",
         "interface": "can0"
@@ -345,7 +353,9 @@
         "name": "FlowOutput",
         "mode": "link",
         "links": [
-            "e5fc8d99447198cf"
+            "5f6205f7b9db140c",
+            "e5fc8d99447198cf",
+            "1447be9c67830275"
         ],
         "x": 730,
         "y": 220,
@@ -3398,6 +3408,140 @@
         "wires": [
             [
                 "1d5e3fa638609392"
+            ]
+        ]
+    },
+    {
+        "id": "57c4a53c15e645e3",
+        "type": "influxdb out",
+        "z": "ca02caf2fee7e7dd",
+        "influxdb": "32dc719a9b082399",
+        "name": "",
+        "measurement": "",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "CPPSolarBoat",
+        "bucket": "testBucket2",
+        "x": 860,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1447be9c67830275",
+        "type": "link in",
+        "z": "ca02caf2fee7e7dd",
+        "name": "FlowInput",
+        "links": [
+            "3e88c9c9616022c2"
+        ],
+        "x": 240,
+        "y": 240,
+        "wires": [
+            [
+                "014e742626208cb4"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "014e742626208cb4",
+        "type": "switch",
+        "z": "ca02caf2fee7e7dd",
+        "name": "CAN-Routing",
+        "property": "payload.sensor",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "AS5600_1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "AS5600_2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ADXL345_1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ADXL345_2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "hall_rpm",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "encoder",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 6,
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "344334730fc9dfa2"
+            ],
+            [
+                "344334730fc9dfa2"
+            ],
+            [
+                "344334730fc9dfa2"
+            ],
+            [
+                "344334730fc9dfa2"
+            ],
+            [
+                "344334730fc9dfa2"
+            ],
+            [
+                "344334730fc9dfa2"
+            ]
+        ]
+    },
+    {
+        "id": "344334730fc9dfa2",
+        "type": "change",
+        "z": "ca02caf2fee7e7dd",
+        "name": "Format",
+        "rules": [
+            {
+                "t": "set",
+                "p": "fields.timestamp",
+                "pt": "msg",
+                "to": "iso",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "measurement",
+                "pt": "msg",
+                "to": "$append(fields,tags)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 240,
+        "wires": [
+            [
+                "57c4a53c15e645e3"
             ]
         ]
     }
