@@ -48,6 +48,14 @@
         "env": []
     },
     {
+        "id": "52b12b3249192cf1",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "a5c7b9ff1ed4302e",
         "type": "socketcan-config",
         "interface": "can0"
@@ -268,6 +276,48 @@
         "groupType": "default"
     },
     {
+        "id": "12867341.ed798d",
+        "type": "nodebot",
+        "name": "",
+        "username": "",
+        "password": "",
+        "boardType": "raspi-io",
+        "serialportName": "",
+        "connectionType": "local",
+        "mqttServer": "",
+        "pubTopic": "",
+        "subTopic": "",
+        "tcpHost": "",
+        "tcpPort": "",
+        "sparkId": "",
+        "sparkToken": "",
+        "beanId": "",
+        "impId": ""
+    },
+    {
+        "id": "4ad0596cc7b6f7c1",
+        "type": "ioplugin",
+        "name": "",
+        "username": "",
+        "password": "",
+        "boardType": "raspi-io",
+        "serialportName": "",
+        "connectionType": "local",
+        "mqttServer": "",
+        "pubTopic": "",
+        "subTopic": "",
+        "tcpHost": "",
+        "tcpPort": "",
+        "sparkId": "",
+        "sparkToken": "",
+        "beanId": "",
+        "impId": "",
+        "uuid": "",
+        "token": "",
+        "sendUuid": "",
+        "samplingInterval": "500"
+    },
+    {
         "id": "4e1fad2f0d2431d5",
         "type": "socketcan-out",
         "z": "a0ee866015175694",
@@ -353,7 +403,6 @@
         "name": "FlowOutput",
         "mode": "link",
         "links": [
-            "5f6205f7b9db140c",
             "e5fc8d99447198cf",
             "1447be9c67830275"
         ],
@@ -3660,5 +3709,121 @@
                 "57c4a53c15e645e3"
             ]
         ]
+    },
+    {
+        "id": "ed1b31d8.12e4d",
+        "type": "debug",
+        "z": "52b12b3249192cf1",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 597,
+        "y": 228,
+        "wires": []
+    },
+    {
+        "id": "7058226d.8fa7dc",
+        "type": "function",
+        "z": "52b12b3249192cf1",
+        "name": "process i2c",
+        "func": "var data = msg.payload;\nvar int16 = function(high, low) {\n  var result = (high << 8) | low;\n  // if highest bit is on, it is negative\n  return result >> 15 ? ((result ^ 0xFFFF) + 1) * -1 : result;\n};\n\n\nmsg.payload = {\n    accelerometer : {\n        x: int16(data[0], data[1]),\n        y: int16(data[2], data[3]),\n        z: int16(data[4], data[5])\n    },\n    temperature : int16(data[6], data[7]),\n    gyro : {\n        x: int16(data[8], data[9]),\n        y: int16(data[10], data[11]),\n        z: int16(data[12], data[13])\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "x": 510,
+        "y": 160,
+        "wires": [
+            [
+                "ed1b31d8.12e4d"
+            ]
+        ]
+    },
+    {
+        "id": "970b8ad3.68f478",
+        "type": "inject",
+        "z": "52b12b3249192cf1",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "14",
+        "payloadType": "string",
+        "x": 216,
+        "y": 158,
+        "wires": [
+            [
+                "f115c24a901533f8"
+            ]
+        ]
+    },
+    {
+        "id": "bd2a7e35.42d58",
+        "type": "inject",
+        "z": "52b12b3249192cf1",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "none",
+        "x": 187,
+        "y": 239,
+        "wires": [
+            [
+                "c625f941.39da08"
+            ]
+        ]
+    },
+    {
+        "id": "c625f941.39da08",
+        "type": "function",
+        "z": "52b12b3249192cf1",
+        "name": "i2c bytes",
+        "func": "msg.payload = [0x6B, 0x00];\nreturn msg;",
+        "outputs": 1,
+        "x": 236,
+        "y": 315,
+        "wires": [
+            [
+                "a56f019d4662d1c9"
+            ]
+        ]
+    },
+    {
+        "id": "f115c24a901533f8",
+        "type": "gpio out",
+        "z": "52b12b3249192cf1",
+        "name": "",
+        "state": "I2C_READ_REQUEST",
+        "pin": "40",
+        "i2cDelay": "0",
+        "i2cAddress": "",
+        "i2cRegister": "",
+        "outputs": 1,
+        "board": "4ad0596cc7b6f7c1",
+        "x": 350,
+        "y": 240,
+        "wires": [
+            [
+                "7058226d.8fa7dc"
+            ]
+        ]
+    },
+    {
+        "id": "a56f019d4662d1c9",
+        "type": "gpio out",
+        "z": "52b12b3249192cf1",
+        "name": "",
+        "state": "OUTPUT",
+        "pin": "40",
+        "i2cDelay": "0",
+        "i2cAddress": "",
+        "i2cRegister": "",
+        "outputs": 0,
+        "board": "4ad0596cc7b6f7c1",
+        "x": 390,
+        "y": 320,
+        "wires": []
     }
 ]
