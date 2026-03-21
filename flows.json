@@ -3,7 +3,7 @@
         "id": "a0ee866015175694",
         "type": "tab",
         "label": "CAN-Decoder",
-        "disabled": false,
+        "disabled": true,
         "info": "This flow will read CAN bus messages\r\ncoming from other microcontrollers\r\nit will then decode those custom \r\nmessages, store it into a database, and \r\noutput live readings into a dashboard.",
         "env": []
     },
@@ -11,7 +11,7 @@
         "id": "f62291b0924f1e70",
         "type": "tab",
         "label": "BoatDashboard",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -43,7 +43,7 @@
         "id": "ca02caf2fee7e7dd",
         "type": "tab",
         "label": "Flow 2",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -51,7 +51,7 @@
         "id": "64132469334a03d1",
         "type": "tab",
         "label": "Flow 4",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
