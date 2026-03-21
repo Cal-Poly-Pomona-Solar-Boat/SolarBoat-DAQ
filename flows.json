@@ -3610,5 +3610,55 @@
         "x": 1000,
         "y": 340,
         "wires": []
+    },
+    {
+        "id": "73e0df5a55ce905e",
+        "type": "inject",
+        "z": "ca02caf2fee7e7dd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{   \"frame\": \"0x000\",   \"sensor\": \"AS5600_1\",   \"degrees\": 45.3,   \"raw\": [\"0B\", \"D5\"] }",
+        "payloadType": "json",
+        "x": 490,
+        "y": 500,
+        "wires": [
+            [
+                "ee3592b4c52e0842"
+            ]
+        ]
+    },
+    {
+        "id": "ee3592b4c52e0842",
+        "type": "function",
+        "z": "ca02caf2fee7e7dd",
+        "name": "function 18",
+        "func": "const now = Date.now();\nconst p = msg.payload;\n\nmsg.payload = {\n  bucket: \"testBucket2\",\n  precision: \"ms\",\n  data: [{\n    measurement: \"steering_angle\",\n    tags: { sensor: p.sensor },\n    fields: { degrees: p.degrees },\n    timestamp: now\n  }]\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 500,
+        "wires": [
+            [
+                "24a9c309597a0fcf",
+                "57c4a53c15e645e3"
+            ]
+        ]
     }
 ]
