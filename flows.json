@@ -3730,6 +3730,31 @@
         ]
     },
     {
+        "id": "7a99641812156f8c",
+        "type": "change",
+        "z": "ca02caf2fee7e7dd",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "i2c-read-node",
         "type": "i2c in",
         "z": "64132469334a03d1",
