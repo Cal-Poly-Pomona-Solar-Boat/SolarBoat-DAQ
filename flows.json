@@ -3759,6 +3759,7 @@
         "type": "i2c in",
         "z": "64132469334a03d1",
         "name": "Read MPU6050",
+        "busno": "1",
         "address": 104,
         "command": 59,
         "count": 14,
