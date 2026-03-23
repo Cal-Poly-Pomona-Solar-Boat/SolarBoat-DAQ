@@ -158,17 +158,9 @@
         "groupType": "default"
     },
     {
-        "id": "4ee5305a00f257b6",
-        "type": "Stackhero-InfluxDB-v2-Server",
-        "name": "",
-        "host": "10.204.102.252",
-        "port": "8087",
-        "tls": false
-    },
-    {
         "id": "9afdf362c7955a7b",
         "type": "Stackhero-InfluxDB-v2-Server",
-        "name": "",
+        "name": "danielAPIToken",
         "host": "localhost",
         "port": "8087",
         "tls": false
