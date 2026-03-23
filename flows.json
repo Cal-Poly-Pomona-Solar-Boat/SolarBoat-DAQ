@@ -1952,7 +1952,7 @@
         "database": "database",
         "precisionV18FluxV20": "s",
         "retentionPolicyV18Flux": "",
-        "org": "organization",
+        "org": "test",
         "bucket": "testBucket2",
         "x": 440,
         "y": 240,
