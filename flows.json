@@ -1529,7 +1529,7 @@
         "z": "78df372cbc55454b",
         "name": "SteeringAngle1",
         "group": "6db9f9b4ba633596",
-        "order": 1,
+        "order": 2,
         "value": "payload.degrees",
         "valueType": "msg",
         "width": 3,
@@ -1572,7 +1572,7 @@
         "styleGlow": false,
         "className": "",
         "x": 600,
-        "y": 800,
+        "y": 780,
         "wires": [
             []
         ]
@@ -1585,7 +1585,7 @@
         "links": [
             "127d4be97d6951c7"
         ],
-        "x": 120,
+        "x": 80,
         "y": 840,
         "wires": [
             [
@@ -1614,6 +1614,11 @@
             },
             {
                 "t": "eq",
+                "v": "AS5600_3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
                 "v": "ADXL345_1",
                 "vt": "str"
             },
@@ -1624,14 +1629,24 @@
             },
             {
                 "t": "eq",
-                "v": "hall_rpm",
+                "v": "hall_rpm_1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "hall_rpm_2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "throttle",
                 "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 5,
-        "x": 330,
+        "outputs": 8,
+        "x": 250,
         "y": 840,
         "wires": [
             [
@@ -1641,6 +1656,9 @@
                 "2f116d7302809880"
             ],
             [
+                "c7d7f93d7c8c35ba"
+            ],
+            [
                 "bb7a2dbed301caf1"
             ],
             [
@@ -1648,6 +1666,12 @@
             ],
             [
                 "c4150f8241c24b1e"
+            ],
+            [
+                "c5128c03e92f2842"
+            ],
+            [
+                "d6f5ddd70474a574"
             ]
         ]
     },
@@ -1657,7 +1681,7 @@
         "z": "78df372cbc55454b",
         "name": "SteeringAngle2",
         "group": "6db9f9b4ba633596",
-        "order": 2,
+        "order": 3,
         "value": "payload.degrees",
         "valueType": "msg",
         "width": 3,
@@ -1700,7 +1724,7 @@
         "styleGlow": false,
         "className": "",
         "x": 600,
-        "y": 860,
+        "y": 820,
         "wires": [
             []
         ]
@@ -1713,7 +1737,7 @@
         "page": "",
         "ui": "",
         "name": "",
-        "order": 5,
+        "order": 8,
         "width": 0,
         "height": 0,
         "head": "",
@@ -1723,8 +1747,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 600,
-        "y": 920,
+        "x": 580,
+        "y": 900,
         "wires": [
             []
         ]
@@ -1737,7 +1761,7 @@
         "page": "",
         "ui": "",
         "name": "",
-        "order": 4,
+        "order": 7,
         "width": 0,
         "height": 0,
         "head": "",
@@ -1747,8 +1771,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 600,
-        "y": 980,
+        "x": 580,
+        "y": 940,
         "wires": [
             []
         ]
@@ -1757,16 +1781,16 @@
         "id": "c4150f8241c24b1e",
         "type": "ui-gauge",
         "z": "78df372cbc55454b",
-        "name": "RPM",
+        "name": "RPM1",
         "group": "6db9f9b4ba633596",
-        "order": 3,
+        "order": 5,
         "value": "payload.rpm",
         "valueType": "msg",
         "width": 3,
         "height": 3,
         "gtype": "gauge-half",
         "gstyle": "needle",
-        "title": "rpm",
+        "title": "rpm1",
         "alwaysShowTitle": false,
         "floatingTitlePosition": "top-left",
         "units": "RPM",
@@ -1801,8 +1825,158 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 590,
-        "y": 1040,
+        "x": 570,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7d7f93d7c8c35ba",
+        "type": "ui-gauge",
+        "z": "78df372cbc55454b",
+        "name": "SteeringAngle3",
+        "group": "6db9f9b4ba633596",
+        "order": 4,
+        "value": "payload.degrees",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Steering Angle3",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "deg",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "180",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "360",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "360",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 600,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c5128c03e92f2842",
+        "type": "ui-gauge",
+        "z": "78df372cbc55454b",
+        "name": "RPM2",
+        "group": "6db9f9b4ba633596",
+        "order": 6,
+        "value": "payload.rpm",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "rpm2",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "RPM",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 10,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 570,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d6f5ddd70474a574",
+        "type": "ui-gauge",
+        "z": "78df372cbc55454b",
+        "name": "throttle",
+        "group": "6db9f9b4ba633596",
+        "order": 1,
+        "value": "payload.voltage",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-tank",
+        "gstyle": "needle",
+        "title": "throttle",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#a8f5ff",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "5",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 570,
+        "y": 1060,
         "wires": [
             []
         ]
@@ -2104,7 +2278,7 @@
         "z": "37abbd0748bf298d",
         "name": "Rudder input",
         "group": "6db9f9b4ba633596",
-        "order": 6,
+        "order": 9,
         "value": "payload",
         "valueType": "msg",
         "width": 3,
@@ -2166,7 +2340,7 @@
         "z": "37abbd0748bf298d",
         "name": "Rudder postion",
         "group": "6db9f9b4ba633596",
-        "order": 7,
+        "order": 10,
         "value": "payload",
         "valueType": "msg",
         "width": 3,
@@ -2207,7 +2381,7 @@
         "type": "ui-text",
         "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
-        "order": 15,
+        "order": 18,
         "width": 2,
         "height": 0,
         "name": "Battery1 Temp",
@@ -2280,7 +2454,7 @@
         "type": "ui-text",
         "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
-        "order": 13,
+        "order": 16,
         "width": "3",
         "height": "3",
         "name": "Power Produced",
@@ -2353,7 +2527,7 @@
         "type": "ui-text",
         "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
-        "order": 9,
+        "order": 12,
         "width": "3",
         "height": "3",
         "name": "Motor L Power Draw",
@@ -2426,7 +2600,7 @@
         "type": "ui-text",
         "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
-        "order": 11,
+        "order": 14,
         "width": "3",
         "height": "3",
         "name": "Motor R Power Draw",
@@ -2499,7 +2673,7 @@
         "type": "ui-text",
         "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
-        "order": 10,
+        "order": 13,
         "width": "3",
         "height": "3",
         "name": "Avg Motor power draw",
@@ -2697,7 +2871,7 @@
         "type": "ui-text",
         "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
-        "order": 17,
+        "order": 20,
         "width": 2,
         "height": 0,
         "name": "Battery3 Temp",
@@ -2770,7 +2944,7 @@
         "type": "ui-text",
         "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
-        "order": 18,
+        "order": 21,
         "width": 2,
         "height": 0,
         "name": "Battery4 Temp",
@@ -2843,7 +3017,7 @@
         "type": "ui-text",
         "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
-        "order": 19,
+        "order": 22,
         "width": 2,
         "height": 0,
         "name": "Battery5 Temp",
@@ -2916,7 +3090,7 @@
         "type": "ui-text",
         "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
-        "order": 20,
+        "order": 23,
         "width": 2,
         "height": 0,
         "name": "Battery6 Temp",
@@ -2989,7 +3163,7 @@
         "type": "ui-text",
         "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
-        "order": 21,
+        "order": 24,
         "width": 3,
         "height": 0,
         "name": "Panel Temp:",
@@ -3064,7 +3238,7 @@
         "group": "6db9f9b4ba633596",
         "name": "Battery temperatures",
         "label": "Battery Temperatures",
-        "order": 16,
+        "order": 19,
         "chartType": "bar",
         "category": "series",
         "categoryType": "property",
@@ -3145,7 +3319,7 @@
         "z": "37abbd0748bf298d",
         "name": "Motor L  Speed",
         "group": "6db9f9b4ba633596",
-        "order": 12,
+        "order": 15,
         "width": "2",
         "height": "2",
         "min": 0,
@@ -3188,7 +3362,7 @@
         "z": "37abbd0748bf298d",
         "name": "Motor R  Speed",
         "group": "6db9f9b4ba633596",
-        "order": 8,
+        "order": 11,
         "width": "2",
         "height": "2",
         "min": 0,
@@ -3231,7 +3405,7 @@
         "z": "37abbd0748bf298d",
         "name": "RPM",
         "group": "6db9f9b4ba633596",
-        "order": 14,
+        "order": 17,
         "width": "2",
         "height": "2",
         "min": 0,
