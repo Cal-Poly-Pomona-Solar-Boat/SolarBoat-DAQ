@@ -16,10 +16,18 @@
         "env": []
     },
     {
+        "id": "9a918d2fcc176b74",
+        "type": "tab",
+        "label": "danyInfluxTEST",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "a2ab62117e01f9b3",
         "type": "tab",
         "label": "InfluxDB_Database",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -208,7 +216,7 @@
         "port": 8086,
         "protocol": "http",
         "database": "database",
-        "name": "",
+        "name": "testBucket2",
         "usetls": false,
         "tls": "",
         "influxdbVersion": "2.0",
@@ -252,6 +260,20 @@
         "token": "",
         "sendUuid": "",
         "samplingInterval": "500"
+    },
+    {
+        "id": "1c1a5edef41716e3",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "my_data",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "https://localhost",
+        "rejectUnauthorized": true
     },
     {
         "id": "361c8757b1843220",
@@ -1919,6 +1941,72 @@
         ]
     },
     {
+        "id": "8b1b0fdf977498d6",
+        "type": "influxdb out",
+        "z": "9a918d2fcc176b74",
+        "influxdb": "1c1a5edef41716e3",
+        "name": "InfluxDB",
+        "measurement": "temperature",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
+        "org": "organization",
+        "bucket": "my_data",
+        "x": 440,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "01bb08fd6a38a3f4",
+        "type": "inject",
+        "z": "9a918d2fcc176b74",
+        "name": "",
+        "props": [
+            {
+                "p": "measurement",
+                "v": "temperature",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"time\":1688987984,\"temperature\":24},{\"device\":\"dQBgXeWLRE\",\"deviceType\":\"Pi4\",\"deviceName\":\"demo-pi-rob\"}]",
+        "payloadType": "json",
+        "x": 270,
+        "y": 180,
+        "wires": [
+            [
+                "4d7c1f2da8f69083",
+                "8b1b0fdf977498d6"
+            ]
+        ]
+    },
+    {
+        "id": "4d7c1f2da8f69083",
+        "type": "debug",
+        "z": "9a918d2fcc176b74",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 180,
+        "wires": []
+    },
+    {
         "id": "7586e861fd841daf",
         "type": "change",
         "z": "a2ab62117e01f9b3",
@@ -1986,7 +2074,7 @@
         "type": "influxdb out",
         "z": "a2ab62117e01f9b3",
         "influxdb": "32dc719a9b082399",
-        "name": "testApi",
+        "name": "",
         "measurement": "",
         "precision": "",
         "retentionPolicy": "",
@@ -1995,8 +2083,74 @@
         "retentionPolicyV18Flux": "",
         "org": "CPPSolarBoat",
         "bucket": "testBucket2",
-        "x": 690,
+        "x": 730,
         "y": 200,
+        "wires": []
+    },
+    {
+        "id": "ecbb02face30cbcd",
+        "type": "influxdb out",
+        "z": "a2ab62117e01f9b3",
+        "influxdb": "1c1a5edef41716e3",
+        "name": "InfluxDB",
+        "measurement": "temperature",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
+        "org": "organization",
+        "bucket": "my_data",
+        "x": 520,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "de83c2b49ba249fd",
+        "type": "inject",
+        "z": "a2ab62117e01f9b3",
+        "name": "",
+        "props": [
+            {
+                "p": "measurement",
+                "v": "temperature",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"time\":1688987984,\"temperature\":24},{\"device\":\"dQBgXeWLRE\",\"deviceType\":\"Pi4\",\"deviceName\":\"demo-pi-rob\"}]",
+        "payloadType": "json",
+        "x": 350,
+        "y": 340,
+        "wires": [
+            [
+                "aad6353f2f00333e",
+                "ecbb02face30cbcd"
+            ]
+        ]
+    },
+    {
+        "id": "aad6353f2f00333e",
+        "type": "debug",
+        "z": "a2ab62117e01f9b3",
+        "name": "debug 31",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 340,
         "wires": []
     },
     {
