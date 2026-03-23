@@ -1950,7 +1950,7 @@
         "valueType": "msg",
         "width": 3,
         "height": 3,
-        "gtype": "gauge-half",
+        "gtype": "gauge-tank",
         "gstyle": "needle",
         "title": "throttle",
         "alwaysShowTitle": false,
