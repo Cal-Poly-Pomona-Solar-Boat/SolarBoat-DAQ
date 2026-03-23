@@ -1944,7 +1944,7 @@
         "id": "8b1b0fdf977498d6",
         "type": "influxdb out",
         "z": "9a918d2fcc176b74",
-        "influxdb": "1c1a5edef41716e3",
+        "influxdb": "32dc719a9b082399",
         "name": "InfluxDB",
         "measurement": "temperature",
         "precision": "",
@@ -1953,7 +1953,7 @@
         "precisionV18FluxV20": "s",
         "retentionPolicyV18Flux": "",
         "org": "organization",
-        "bucket": "my_data",
+        "bucket": "testBucket2",
         "x": 440,
         "y": 240,
         "wires": []
