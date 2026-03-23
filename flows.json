@@ -1942,18 +1942,29 @@
         ]
     },
     {
-        "id": "01bb08fd6a38a3f4",
+        "id": "68c540f1a29aaed8",
+        "type": "Stackhero-InfluxDB-v2-write",
+        "z": "9a918d2fcc176b74",
+        "server": "9afdf362c7955a7b",
+        "name": "",
+        "x": 550,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "33628f320551a57f",
         "type": "inject",
         "z": "9a918d2fcc176b74",
         "name": "",
         "props": [
             {
-                "p": "measurement",
-                "v": "temperature",
-                "vt": "str"
+                "p": "payload"
             },
             {
-                "p": "payload"
+                "p": "topic",
+                "vt": "str"
             }
         ],
         "repeat": "",
@@ -1961,44 +1972,34 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "[{\"time\":1688987984,\"temperature\":24},{\"device\":\"dQBgXeWLRE\",\"deviceType\":\"Pi4\",\"deviceName\":\"demo-pi-rob\"}]",
-        "payloadType": "json",
-        "x": 270,
-        "y": 180,
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 160,
         "wires": [
             [
-                "4d7c1f2da8f69083",
-                "68c540f1a29aaed8"
+                "6f22e812603bf737"
             ]
         ]
     },
     {
-        "id": "4d7c1f2da8f69083",
-        "type": "debug",
+        "id": "6f22e812603bf737",
+        "type": "function",
         "z": "9a918d2fcc176b74",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 440,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "68c540f1a29aaed8",
-        "type": "Stackhero-InfluxDB-v2-write",
-        "z": "9a918d2fcc176b74",
-        "server": "9afdf362c7955a7b",
-        "name": "",
-        "x": 490,
-        "y": 240,
+        "name": "function 20",
+        "func": "// Generate a random temperature value for testing\nconst testValue = Math.floor(Math.random() * (30 - 18 + 1)) + 18;\n\nmsg.payload = {\n    // The bucket/measurement name\n    bucket: \"testBucket\",\n    precision: \"s\", // precision: s, ms, us, ns\n    data: {\n        measurement: \"sensor_test\",\n        tags: {\n            location: \"office\",\n            sensor_id: \"DHT22\"\n        },\n        fields: {\n            temp: testValue,\n            status: \"online\"\n        },\n        timestamp: Math.floor(Date.now() / 1000)\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 160,
         "wires": [
-            []
+            [
+                "68c540f1a29aaed8"
+            ]
         ]
     },
     {
