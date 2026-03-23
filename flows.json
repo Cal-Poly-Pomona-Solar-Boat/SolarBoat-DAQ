@@ -264,7 +264,7 @@
     {
         "id": "6db9f9b4ba633596",
         "type": "ui-group",
-        "name": "Group 2",
+        "name": "testLiveData",
         "page": "2e11342c403dec52",
         "width": 6,
         "height": 1,
