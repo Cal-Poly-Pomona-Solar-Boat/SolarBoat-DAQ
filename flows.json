@@ -11,14 +11,6 @@
         "id": "78df372cbc55454b",
         "type": "tab",
         "label": "BoatDashboard",
-        "disabled": true,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "37abbd0748bf298d",
-        "type": "tab",
-        "label": "BoatDashboard",
         "disabled": false,
         "info": "",
         "env": []
@@ -27,6 +19,14 @@
         "id": "a2ab62117e01f9b3",
         "type": "tab",
         "label": "InfluxDB_Database",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "37abbd0748bf298d",
+        "type": "tab",
+        "label": "testBoatDashboard",
         "disabled": true,
         "info": "",
         "env": []
@@ -1964,6 +1964,87 @@
         ]
     },
     {
+        "id": "7586e861fd841daf",
+        "type": "change",
+        "z": "a2ab62117e01f9b3",
+        "name": "Format",
+        "rules": [
+            {
+                "t": "set",
+                "p": "fields.timestamp",
+                "pt": "msg",
+                "to": "iso",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "measurement",
+                "pt": "msg",
+                "to": "$append(fields,tags)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 200,
+        "wires": [
+            [
+                "030059d59bc72915"
+            ]
+        ]
+    },
+    {
+        "id": "0e32f1b455743bee",
+        "type": "inject",
+        "z": "a2ab62117e01f9b3",
+        "name": "datapoint point",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "50* $random()",
+        "payloadType": "jsonata",
+        "x": 200,
+        "y": 200,
+        "wires": [
+            [
+                "7586e861fd841daf"
+            ]
+        ]
+    },
+    {
+        "id": "030059d59bc72915",
+        "type": "influxdb out",
+        "z": "a2ab62117e01f9b3",
+        "influxdb": "32dc719a9b082399",
+        "name": "",
+        "measurement": "",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "CPPSolarBoat",
+        "bucket": "testBucket2",
+        "x": 750,
+        "y": 200,
+        "wires": []
+    },
+    {
         "id": "5efa1d3229928425",
         "type": "inject",
         "z": "37abbd0748bf298d",
@@ -3368,87 +3449,6 @@
                 "0f8ee7218aed003e"
             ]
         ]
-    },
-    {
-        "id": "7586e861fd841daf",
-        "type": "change",
-        "z": "a2ab62117e01f9b3",
-        "name": "Format",
-        "rules": [
-            {
-                "t": "set",
-                "p": "fields.timestamp",
-                "pt": "msg",
-                "to": "iso",
-                "tot": "date"
-            },
-            {
-                "t": "set",
-                "p": "measurement",
-                "pt": "msg",
-                "to": "$append(fields,tags)",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 460,
-        "y": 200,
-        "wires": [
-            [
-                "030059d59bc72915"
-            ]
-        ]
-    },
-    {
-        "id": "0e32f1b455743bee",
-        "type": "inject",
-        "z": "a2ab62117e01f9b3",
-        "name": "datapoint point",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "50* $random()",
-        "payloadType": "jsonata",
-        "x": 200,
-        "y": 200,
-        "wires": [
-            [
-                "7586e861fd841daf"
-            ]
-        ]
-    },
-    {
-        "id": "030059d59bc72915",
-        "type": "influxdb out",
-        "z": "a2ab62117e01f9b3",
-        "influxdb": "32dc719a9b082399",
-        "name": "",
-        "measurement": "",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "CPPSolarBoat",
-        "bucket": "testBucket2",
-        "x": 750,
-        "y": 200,
-        "wires": []
     },
     {
         "id": "47d29100538054e9",
