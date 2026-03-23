@@ -268,11 +268,12 @@
         "port": "8086",
         "protocol": "http",
         "database": "my_data",
-        "name": "",
+        "name": "danielAPI",
         "usetls": false,
         "tls": "",
         "influxdbVersion": "2.0",
-        "url": "https://localhost",
+        "url": "https://localhost:8087",
+        "timeout": "",
         "rejectUnauthorized": true
     },
     {
@@ -1944,7 +1945,7 @@
         "id": "8b1b0fdf977498d6",
         "type": "influxdb out",
         "z": "9a918d2fcc176b74",
-        "influxdb": "32dc719a9b082399",
+        "influxdb": "1c1a5edef41716e3",
         "name": "InfluxDB",
         "measurement": "temperature",
         "precision": "",
