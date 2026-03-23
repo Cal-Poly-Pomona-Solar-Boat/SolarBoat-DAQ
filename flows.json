@@ -1953,7 +1953,7 @@
         "precisionV18FluxV20": "s",
         "retentionPolicyV18Flux": "",
         "org": "test",
-        "bucket": "testBucket2",
+        "bucket": "testBucket",
         "x": 440,
         "y": 240,
         "wires": []
