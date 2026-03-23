@@ -19,7 +19,7 @@
         "id": "9a918d2fcc176b74",
         "type": "tab",
         "label": "danyInfluxTEST",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
