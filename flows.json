@@ -1942,24 +1942,6 @@
         ]
     },
     {
-        "id": "8b1b0fdf977498d6",
-        "type": "influxdb out",
-        "z": "9a918d2fcc176b74",
-        "influxdb": "1c1a5edef41716e3",
-        "name": "InfluxDB",
-        "measurement": "temperature",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "s",
-        "retentionPolicyV18Flux": "",
-        "org": "test",
-        "bucket": "testBucket",
-        "x": 440,
-        "y": 240,
-        "wires": []
-    },
-    {
         "id": "01bb08fd6a38a3f4",
         "type": "inject",
         "z": "9a918d2fcc176b74",
@@ -1986,7 +1968,7 @@
         "wires": [
             [
                 "4d7c1f2da8f69083",
-                "8b1b0fdf977498d6"
+                "68c540f1a29aaed8"
             ]
         ]
     },
@@ -2006,6 +1988,18 @@
         "x": 440,
         "y": 180,
         "wires": []
+    },
+    {
+        "id": "68c540f1a29aaed8",
+        "type": "Stackhero-InfluxDB-v2-write",
+        "z": "9a918d2fcc176b74",
+        "server": "9afdf362c7955a7b",
+        "name": "",
+        "x": 490,
+        "y": 240,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "7586e861fd841daf",
