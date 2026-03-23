@@ -1979,7 +1979,7 @@
         "type": "function",
         "z": "9a918d2fcc176b74",
         "name": "function 20",
-        "func": "// Generate a random temperature value for testing\nconst testValue = Math.floor(Math.random() * (30 - 18 + 1)) + 18;\n\nmsg.payload = {\n    // The bucket/measurement name\n    bucket: \"testBucket\",\n    precision: \"s\", // precision: s, ms, us, ns\n    data: {\n        measurement: \"sensor_test\",\n        tags: {\n            location: \"office\",\n            sensor_id: \"DHT22\"\n        },\n        fields: {\n            temp: testValue,\n            status: \"online\"\n        },\n        timestamp: Math.floor(Date.now() / 1000)\n    }\n};\n\nreturn msg;",
+        "func": "// Generate a random temperature value for testing\nconst testValue = Math.floor(Math.random() * (30 - 18 + 1)) + 18;\n\nmsg.payload = {\n    // The bucket/measurement name\n    bucket: \"testBucket\",\n    precision: \"s\", // precision: s, ms, us, ns\n    data: {\n        measurement: \"sensor_test\",\n        tags: {\n            location: \"office\",\n            sensor_id: \"DHT22\"\n        },\n        fields: {\n            temp: testValue,\n            // status: \"online\"\n        },\n        timestamp: Math.floor(Date.now() / 1000)\n    }\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2094,72 +2094,6 @@
         "wires": []
     },
     {
-        "id": "ecbb02face30cbcd",
-        "type": "influxdb out",
-        "z": "a2ab62117e01f9b3",
-        "influxdb": "1c1a5edef41716e3",
-        "name": "InfluxDB",
-        "measurement": "temperature",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "s",
-        "retentionPolicyV18Flux": "",
-        "org": "organization",
-        "bucket": "my_data",
-        "x": 520,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "de83c2b49ba249fd",
-        "type": "inject",
-        "z": "a2ab62117e01f9b3",
-        "name": "",
-        "props": [
-            {
-                "p": "measurement",
-                "v": "temperature",
-                "vt": "str"
-            },
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "[{\"time\":1688987984,\"temperature\":24},{\"device\":\"dQBgXeWLRE\",\"deviceType\":\"Pi4\",\"deviceName\":\"demo-pi-rob\"}]",
-        "payloadType": "json",
-        "x": 350,
-        "y": 340,
-        "wires": [
-            [
-                "aad6353f2f00333e",
-                "ecbb02face30cbcd"
-            ]
-        ]
-    },
-    {
-        "id": "aad6353f2f00333e",
-        "type": "debug",
-        "z": "a2ab62117e01f9b3",
-        "name": "debug 31",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 340,
-        "wires": []
-    },
-    {
         "id": "47d29100538054e9",
         "type": "function",
         "z": "e0a5a6191f37d3b7",
@@ -2240,7 +2174,7 @@
         "retentionPolicyV18Flux": "",
         "org": "CPPSolarBoat",
         "bucket": "testBucket2",
-        "x": 880,
+        "x": 850,
         "y": 220,
         "wires": []
     },
@@ -3664,7 +3598,7 @@
         "retentionPolicyV18Flux": "",
         "org": "CPPSolarBoat",
         "bucket": "testBucket2",
-        "x": 1040,
+        "x": 1020,
         "y": 240,
         "wires": []
     },
