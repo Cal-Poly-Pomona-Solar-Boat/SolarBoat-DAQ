@@ -1947,10 +1947,12 @@
         "z": "9a918d2fcc176b74",
         "server": "9afdf362c7955a7b",
         "name": "",
-        "x": 550,
+        "x": 510,
         "y": 160,
         "wires": [
-            []
+            [
+                "743eaca64132eb2b"
+            ]
         ]
     },
     {
@@ -1969,12 +1971,12 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
+        "once": true,
+        "onceDelay": "3",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
+        "x": 110,
         "y": 160,
         "wires": [
             [
@@ -2001,6 +2003,23 @@
                 "68c540f1a29aaed8"
             ]
         ]
+    },
+    {
+        "id": "743eaca64132eb2b",
+        "type": "debug",
+        "z": "9a918d2fcc176b74",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 280,
+        "wires": []
     },
     {
         "id": "7586e861fd841daf",
