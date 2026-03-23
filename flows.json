@@ -1947,7 +1947,7 @@
         "z": "9a918d2fcc176b74",
         "server": "9afdf362c7955a7b",
         "name": "",
-        "x": 510,
+        "x": 530,
         "y": 160,
         "wires": [
             []
@@ -1994,7 +1994,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
+        "x": 290,
         "y": 160,
         "wires": [
             [
@@ -2016,8 +2016,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 400,
-        "y": 320,
+        "x": 420,
+        "y": 260,
         "wires": []
     },
     {
