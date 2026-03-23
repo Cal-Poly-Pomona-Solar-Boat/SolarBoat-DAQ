@@ -272,7 +272,7 @@
         "usetls": false,
         "tls": "",
         "influxdbVersion": "2.0",
-        "url": "https://localhost:8087",
+        "url": "http://localhost:8087",
         "timeout": "",
         "rejectUnauthorized": true
     },
