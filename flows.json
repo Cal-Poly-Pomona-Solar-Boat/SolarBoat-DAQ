@@ -1,6 +1,6 @@
 [
     {
-        "id": "a0ee866015175694",
+        "id": "8c9a8d8b124faffc",
         "type": "tab",
         "label": "CAN-Decoder",
         "disabled": true,
@@ -8,7 +8,7 @@
         "env": []
     },
     {
-        "id": "f62291b0924f1e70",
+        "id": "78df372cbc55454b",
         "type": "tab",
         "label": "BoatDashboard",
         "disabled": true,
@@ -16,7 +16,7 @@
         "env": []
     },
     {
-        "id": "bcd522d09ac1f881",
+        "id": "a2ab62117e01f9b3",
         "type": "tab",
         "label": "InfluxDB_Database",
         "disabled": true,
@@ -24,7 +24,7 @@
         "env": []
     },
     {
-        "id": "06d4226aa203027f",
+        "id": "e0a5a6191f37d3b7",
         "type": "tab",
         "label": "Flow 1",
         "disabled": true,
@@ -32,7 +32,7 @@
         "env": []
     },
     {
-        "id": "f6ce0af4b3f21950",
+        "id": "37abbd0748bf298d",
         "type": "tab",
         "label": "BoatDashboard",
         "disabled": true,
@@ -40,7 +40,7 @@
         "env": []
     },
     {
-        "id": "ca02caf2fee7e7dd",
+        "id": "7abe22e951889c52",
         "type": "tab",
         "label": "Flow 2",
         "disabled": true,
@@ -48,7 +48,7 @@
         "env": []
     },
     {
-        "id": "64132469334a03d1",
+        "id": "74dc6e2c6f10530c",
         "type": "tab",
         "label": "Flow 4",
         "disabled": true,
@@ -299,61 +299,23 @@
         "samplingInterval": "500"
     },
     {
-        "id": "12867341.ed798d",
-        "type": "nodebot",
-        "name": "",
-        "username": "",
-        "password": "",
-        "boardType": "raspi-io",
-        "serialportName": "",
-        "connectionType": "local",
-        "mqttServer": "",
-        "pubTopic": "",
-        "subTopic": "",
-        "tcpHost": "",
-        "tcpPort": "",
-        "sparkId": "",
-        "sparkToken": "",
-        "beanId": "",
-        "impId": ""
-    },
-    {
-        "id": "62032ea60ab1bea0",
-        "type": "nodebot",
-        "name": "",
-        "username": "",
-        "password": "",
-        "boardType": "raspi-io",
-        "serialportName": "",
-        "connectionType": "local",
-        "mqttServer": "",
-        "pubTopic": "",
-        "subTopic": "",
-        "tcpHost": "",
-        "tcpPort": "",
-        "sparkId": "",
-        "sparkToken": "",
-        "beanId": "",
-        "impId": ""
-    },
-    {
-        "id": "4e1fad2f0d2431d5",
+        "id": "361c8757b1843220",
         "type": "socketcan-out",
-        "z": "a0ee866015175694",
+        "z": "8c9a8d8b124faffc",
         "name": "socketcan-out",
         "config": "a5c7b9ff1ed4302e",
         "x": 210,
         "y": 140,
         "wires": [
             [
-                "c3b925e5cd27f4ad"
+                "bbb7e0954f6062d4"
             ]
         ]
     },
     {
-        "id": "bd46c3cce38de69d",
+        "id": "f9cf4336bae02e3f",
         "type": "debug",
-        "z": "a0ee866015175694",
+        "z": "8c9a8d8b124faffc",
         "name": "debugOutput",
         "active": true,
         "tosidebar": true,
@@ -368,9 +330,9 @@
         "wires": []
     },
     {
-        "id": "4ca9fb179d77da6a",
+        "id": "a1a8a6e7b92a64ce",
         "type": "inject",
-        "z": "a0ee866015175694",
+        "z": "8c9a8d8b124faffc",
         "name": "AutoDeployFlow",
         "props": [
             {
@@ -395,9 +357,9 @@
         ]
     },
     {
-        "id": "c3b925e5cd27f4ad",
+        "id": "bbb7e0954f6062d4",
         "type": "function",
-        "z": "a0ee866015175694",
+        "z": "8c9a8d8b124faffc",
         "name": "CAN-Decoding",
         "func": "// ============================================================\n// CAN FD Frame Decoder — STM32 Sensor Hub\n// Runs on every incoming message from the socketcan-in node\n// ============================================================\n\nmsg.result = {};\n\n// msg.payload.canid  — the CAN frame ID as a number (e.g. 0, 1, 2...)\n// msg.payload.data   — array of bytes received\nconst id   = msg.payload.canid;\nconst data = msg.payload.data;\n\nswitch (id) {\n\n    // ----------------------------------------------------------\n    // Frame 0x000 — AS5600 #1 steering angle (I2C3)\n    // STM32 packs: deg * 10 as uint16, big-endian, 2 bytes\n    // Example: 359.9 deg → 3599 → [0x0E, 0x0F]\n    // ----------------------------------------------------------\n    case 0:\n        let deg_int_1 = (data[0] << 8) | data[1];\n        let degrees_1 = deg_int_1 / 10.0;\n        msg.result = {\n            frame:   \"0x000\",\n            sensor:  \"AS5600_1\",\n            degrees: degrees_1,\n            raw: [data[0].toString(16).toUpperCase(),\n                  data[1].toString(16).toUpperCase()]\n        };\n        break;\n\n    // ----------------------------------------------------------\n    // Frame 0x001 — dummy frame (proof of concept)\n    // STM32 packs: 0xDE 0xAD hardcoded\n    // ----------------------------------------------------------\n    case 1:\n        msg.result = {\n            frame:  \"0x001\",\n            sensor: \"dummy\",\n            raw: [data[0].toString(16).toUpperCase(),\n                  data[1].toString(16).toUpperCase()]\n        };\n        break;\n\n    // ----------------------------------------------------------\n    // Frame 0x002 — ADXL345 #1 motor 1 vibration\n    // STM32 packs: each axis * 100 as int16, big-endian, 8 bytes\n    // Bytes 0-1: X, 2-3: Y, 4-5: Z, 6-7: padding zeros\n    // Example: -0.98g → -98 → [0xFF, 0x9E]\n    //\n    // int16 sign extension: if raw > 32767, subtract 65536\n    // This converts the unsigned JS number back to signed\n    // e.g. 0xFF9E = 65438 → 65438 - 65536 = -98 → -0.98g\n    // ----------------------------------------------------------\n    case 2:\n        let x1_raw = (data[0] << 8) | data[1];\n        let y1_raw = (data[2] << 8) | data[3];\n        let z1_raw = (data[4] << 8) | data[5];\n        if (x1_raw > 32767) x1_raw -= 65536;\n        if (y1_raw > 32767) y1_raw -= 65536;\n        if (z1_raw > 32767) z1_raw -= 65536;\n        msg.result = {\n            frame:  \"0x002\",\n            sensor: \"ADXL345_1\",\n            x_g:    x1_raw / 100.0,\n            y_g:    y1_raw / 100.0,\n            z_g:    z1_raw / 100.0\n        };\n        break;\n\n    // ----------------------------------------------------------\n    // Frame 0x003 — ADXL345 #2 motor 2 vibration\n    // Same encoding as 0x002\n    // ----------------------------------------------------------\n    case 3:\n        let x2_raw = (data[0] << 8) | data[1];\n        let y2_raw = (data[2] << 8) | data[3];\n        let z2_raw = (data[4] << 8) | data[5];\n        if (x2_raw > 32767) x2_raw -= 65536;\n        if (y2_raw > 32767) y2_raw -= 65536;\n        if (z2_raw > 32767) z2_raw -= 65536;\n        msg.result = {\n            frame:  \"0x003\",\n            sensor: \"ADXL345_2\",\n            x_g:    x2_raw / 100.0,\n            y_g:    y2_raw / 100.0,\n            z_g:    z2_raw / 100.0\n        };\n        break;\n\n    // ----------------------------------------------------------\n    // Frame 0x004 — Hall sensor RPM\n    // STM32 packs: rpm * 10 as uint16, big-endian, 2 bytes\n    // Example: 123.4 RPM → 1234 → [0x04, 0xD2]\n    // ----------------------------------------------------------\n    case 4:\n        let rpm_int = (data[0] << 8) | data[1];\n        let rpm     = rpm_int / 10.0;\n        msg.result = {\n            frame:  \"0x004\",\n            sensor: \"hall_rpm\",\n            rpm:    rpm,\n            raw: [data[0].toString(16).toUpperCase(),\n                  data[1].toString(16).toUpperCase()]\n        };\n        break;\n\n    // ----------------------------------------------------------\n    // Frame 0x005 — Quadrature encoder\n    // STM32 packs: counts as int16 + angle*10 as int16, 4 bytes\n    // Bytes 0-1: counts (signed), 2-3: angle*10 (signed)\n    //\n    // Both values need int16 sign extension (same as ADXL above)\n    // Example: counts=-512 → [0xFE, 0x00]\n    //          angle=-45.2 → -452 → [0xFE, 0x3C]\n    // ----------------------------------------------------------\n    case 5:\n        let counts_raw = (data[0] << 8) | data[1];\n        let angle_raw  = (data[2] << 8) | data[3];\n        if (counts_raw > 32767) counts_raw -= 65536;\n        if (angle_raw  > 32767) angle_raw  -= 65536;\n        msg.result = {\n            frame:     \"0x005\",\n            sensor:    \"encoder\",\n            counts:    counts_raw,\n            angle_deg: angle_raw / 10.0\n        };\n        break;\n\n    // ----------------------------------------------------------\n    // Frame 0x006 — AS5600 #2 steering angle (I2C4)\n    // Same encoding as 0x000\n    // ----------------------------------------------------------\n    case 6:\n        let deg_int_2 = (data[0] << 8) | data[1];\n        let degrees_2 = deg_int_2 / 10.0;\n        msg.result = {\n            frame:   \"0x006\",\n            sensor:  \"AS5600_2\",\n            degrees: degrees_2,\n            raw: [data[0].toString(16).toUpperCase(),\n                  data[1].toString(16).toUpperCase()]\n        };\n        break;\n\n    // ----------------------------------------------------------\n    // Catch-all for any unrecognised frame ID\n    // ----------------------------------------------------------\n    default:\n        msg.result = {\n            frame:  id,\n            sensor: \"unknown\"\n        };\n        break;\n}\n\nmsg.payload = msg.result;\nreturn msg;",
         "outputs": 1,
@@ -410,20 +372,20 @@
         "y": 140,
         "wires": [
             [
-                "bd46c3cce38de69d",
-                "3e88c9c9616022c2"
+                "f9cf4336bae02e3f",
+                "127d4be97d6951c7"
             ]
         ]
     },
     {
-        "id": "3e88c9c9616022c2",
+        "id": "127d4be97d6951c7",
         "type": "link out",
-        "z": "a0ee866015175694",
+        "z": "8c9a8d8b124faffc",
         "name": "FlowOutput",
         "mode": "link",
         "links": [
-            "e5fc8d99447198cf",
-            "1447be9c67830275"
+            "ebfbf0ef82e34a01",
+            "dfd77bdc1c28e046"
         ],
         "x": 730,
         "y": 220,
@@ -431,9 +393,9 @@
         "l": true
     },
     {
-        "id": "8b52e4caa2337620",
+        "id": "44d47aa2831727d8",
         "type": "ui-text",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
         "order": 10,
         "width": "3",
@@ -455,9 +417,9 @@
         "wires": []
     },
     {
-        "id": "dbd660c1f18b1cf3",
+        "id": "90791f2d11201771",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -479,14 +441,14 @@
         "y": 520,
         "wires": [
             [
-                "e887087e98302ead"
+                "8560cf7b08b8c1be"
             ]
         ]
     },
     {
-        "id": "e887087e98302ead",
+        "id": "8560cf7b08b8c1be",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 1",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
         "outputs": 1,
@@ -499,14 +461,14 @@
         "y": 520,
         "wires": [
             [
-                "8b52e4caa2337620"
+                "44d47aa2831727d8"
             ]
         ]
     },
     {
-        "id": "c5ace8c2e171cd8b",
+        "id": "d58545593a60e720",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -528,14 +490,14 @@
         "y": 140,
         "wires": [
             [
-                "329a8c49fc763803"
+                "c5dea6a3a5042499"
             ]
         ]
     },
     {
-        "id": "329a8c49fc763803",
+        "id": "c5dea6a3a5042499",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 2",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
         "outputs": 1,
@@ -548,14 +510,14 @@
         "y": 140,
         "wires": [
             [
-                "2c9119752d8b03a7"
+                "8356ccf9aec69b4e"
             ]
         ]
     },
     {
-        "id": "f0a538d09359f923",
+        "id": "b2432f33f41ea48f",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -577,14 +539,14 @@
         "y": 40,
         "wires": [
             [
-                "448f573912b8a867"
+                "20190b800afc2723"
             ]
         ]
     },
     {
-        "id": "448f573912b8a867",
+        "id": "20190b800afc2723",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 7",
         "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
         "outputs": 1,
@@ -597,14 +559,14 @@
         "y": 40,
         "wires": [
             [
-                "e607d66b94ae08d8"
+                "58b63f04d768e2f5"
             ]
         ]
     },
     {
-        "id": "e607d66b94ae08d8",
+        "id": "58b63f04d768e2f5",
         "type": "ui-gauge",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "Rudder input",
         "group": "90ebb2c809166208",
         "order": 11,
@@ -644,9 +606,9 @@
         ]
     },
     {
-        "id": "20efbbaa93a41916",
+        "id": "6d18bfbddf553651",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -668,14 +630,14 @@
         "y": 100,
         "wires": [
             [
-                "3321d62c93dfc64a"
+                "5dba05bc19c5364f"
             ]
         ]
     },
     {
-        "id": "3321d62c93dfc64a",
+        "id": "5dba05bc19c5364f",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 8",
         "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
         "outputs": 1,
@@ -688,14 +650,14 @@
         "y": 100,
         "wires": [
             [
-                "03754648dc156b8b"
+                "d30d6cd302a4eed9"
             ]
         ]
     },
     {
-        "id": "03754648dc156b8b",
+        "id": "d30d6cd302a4eed9",
         "type": "ui-gauge",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "Rudder postion",
         "group": "90ebb2c809166208",
         "order": 7,
@@ -735,9 +697,9 @@
         ]
     },
     {
-        "id": "2c9119752d8b03a7",
+        "id": "8356ccf9aec69b4e",
         "type": "ui-text",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
         "order": 16,
         "width": 2,
@@ -759,9 +721,9 @@
         "wires": []
     },
     {
-        "id": "675e3d652f1da454",
+        "id": "938e6ec5de0b5ffb",
         "type": "ui-text",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
         "order": 6,
         "width": "3",
@@ -783,9 +745,9 @@
         "wires": []
     },
     {
-        "id": "02d58e37a84475bd",
+        "id": "df2a3419b78e26f8",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -807,14 +769,14 @@
         "y": 560,
         "wires": [
             [
-                "f314241c1464792c"
+                "eba959a7dc42729b"
             ]
         ]
     },
     {
-        "id": "f314241c1464792c",
+        "id": "eba959a7dc42729b",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 9",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
         "outputs": 1,
@@ -827,14 +789,14 @@
         "y": 560,
         "wires": [
             [
-                "675e3d652f1da454"
+                "938e6ec5de0b5ffb"
             ]
         ]
     },
     {
-        "id": "5fb63eaf24ae2a39",
+        "id": "3bd70ce4c1ddfccd",
         "type": "ui-text",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
         "order": 8,
         "width": "3",
@@ -856,9 +818,9 @@
         "wires": []
     },
     {
-        "id": "241d51c77b4cd494",
+        "id": "b45932cedc12bb4a",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -880,14 +842,14 @@
         "y": 600,
         "wires": [
             [
-                "01d176df6f7d4c44"
+                "a7c4ba2c0ec22ecc"
             ]
         ]
     },
     {
-        "id": "01d176df6f7d4c44",
+        "id": "a7c4ba2c0ec22ecc",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 10",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
         "outputs": 1,
@@ -900,14 +862,14 @@
         "y": 600,
         "wires": [
             [
-                "5fb63eaf24ae2a39"
+                "3bd70ce4c1ddfccd"
             ]
         ]
     },
     {
-        "id": "2a1f7a20def60f90",
+        "id": "c1bab29aca283719",
         "type": "ui-text",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
         "order": 9,
         "width": "3",
@@ -929,9 +891,9 @@
         "wires": []
     },
     {
-        "id": "c98cc73e8af1281b",
+        "id": "de4d624184adab8d",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -953,14 +915,14 @@
         "y": 640,
         "wires": [
             [
-                "43f57ff0765663c7"
+                "1dd03f0fad1ca695"
             ]
         ]
     },
     {
-        "id": "43f57ff0765663c7",
+        "id": "1dd03f0fad1ca695",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 11",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
         "outputs": 1,
@@ -973,14 +935,14 @@
         "y": 640,
         "wires": [
             [
-                "2a1f7a20def60f90"
+                "c1bab29aca283719"
             ]
         ]
     },
     {
-        "id": "0390d1f8cebd0305",
+        "id": "7b4b05fdc2fb966d",
         "type": "ui-text",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
         "order": 5,
         "width": "3",
@@ -1002,9 +964,9 @@
         "wires": []
     },
     {
-        "id": "7bef01d9f9b09f7f",
+        "id": "262af2c0a4a56512",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -1026,14 +988,14 @@
         "y": 680,
         "wires": [
             [
-                "61bcb8ee8aeef28c"
+                "e9ccc5d2667b16bf"
             ]
         ]
     },
     {
-        "id": "61bcb8ee8aeef28c",
+        "id": "e9ccc5d2667b16bf",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 12",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
         "outputs": 1,
@@ -1046,14 +1008,14 @@
         "y": 680,
         "wires": [
             [
-                "0390d1f8cebd0305"
+                "7b4b05fdc2fb966d"
             ]
         ]
     },
     {
-        "id": "b19be83c3e64f4fc",
+        "id": "e5bdf29ce516533a",
         "type": "ui-text",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
         "order": 4,
         "width": "3",
@@ -1075,9 +1037,9 @@
         "wires": []
     },
     {
-        "id": "69c4514bbe414f6b",
+        "id": "1dd8a847d3841e81",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -1099,14 +1061,14 @@
         "y": 720,
         "wires": [
             [
-                "2213fc042172f633"
+                "52baedc219093f55"
             ]
         ]
     },
     {
-        "id": "2213fc042172f633",
+        "id": "52baedc219093f55",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 13",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
         "outputs": 1,
@@ -1119,14 +1081,14 @@
         "y": 720,
         "wires": [
             [
-                "b19be83c3e64f4fc"
+                "e5bdf29ce516533a"
             ]
         ]
     },
     {
-        "id": "d8d1d53af995e3cf",
+        "id": "ed79ae8c5f5446af",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -1148,14 +1110,14 @@
         "y": 180,
         "wires": [
             [
-                "383e82d385469803"
+                "0c25e5fee36dd466"
             ]
         ]
     },
     {
-        "id": "383e82d385469803",
+        "id": "0c25e5fee36dd466",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 6",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
         "outputs": 1,
@@ -1168,14 +1130,14 @@
         "y": 180,
         "wires": [
             [
-                "39fb39a7c2624a6f"
+                "2baf27765d21501b"
             ]
         ]
     },
     {
-        "id": "39fb39a7c2624a6f",
+        "id": "2baf27765d21501b",
         "type": "ui-text",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
         "order": 15,
         "width": 2,
@@ -1197,9 +1159,9 @@
         "wires": []
     },
     {
-        "id": "802ce684e555f587",
+        "id": "275f924f183bf91a",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -1221,14 +1183,14 @@
         "y": 220,
         "wires": [
             [
-                "d3aa03c2d62c2ab9"
+                "2256a78ea05036f7"
             ]
         ]
     },
     {
-        "id": "d3aa03c2d62c2ab9",
+        "id": "2256a78ea05036f7",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 14",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
         "outputs": 1,
@@ -1241,14 +1203,14 @@
         "y": 220,
         "wires": [
             [
-                "24351805e844630f"
+                "8d7b43100c140fb2"
             ]
         ]
     },
     {
-        "id": "24351805e844630f",
+        "id": "8d7b43100c140fb2",
         "type": "ui-text",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
         "order": 1,
         "width": 2,
@@ -1270,9 +1232,9 @@
         "wires": []
     },
     {
-        "id": "0cc471163bd182a0",
+        "id": "4992cc07c7a67235",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -1294,14 +1256,14 @@
         "y": 260,
         "wires": [
             [
-                "0060471e3fe5cc6d"
+                "f6cfd6b0476c1008"
             ]
         ]
     },
     {
-        "id": "0060471e3fe5cc6d",
+        "id": "f6cfd6b0476c1008",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 15",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
         "outputs": 1,
@@ -1314,14 +1276,14 @@
         "y": 260,
         "wires": [
             [
-                "fb5e12a5f714e05d"
+                "568b7f20008c328c"
             ]
         ]
     },
     {
-        "id": "fb5e12a5f714e05d",
+        "id": "568b7f20008c328c",
         "type": "ui-text",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
         "order": 14,
         "width": 2,
@@ -1343,9 +1305,9 @@
         "wires": []
     },
     {
-        "id": "995d8b4148d45d12",
+        "id": "18f499ea9d66bb47",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -1367,14 +1329,14 @@
         "y": 300,
         "wires": [
             [
-                "f94c946618976903"
+                "b7e7203fcce4225d"
             ]
         ]
     },
     {
-        "id": "f94c946618976903",
+        "id": "b7e7203fcce4225d",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 16",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
         "outputs": 1,
@@ -1387,14 +1349,14 @@
         "y": 300,
         "wires": [
             [
-                "c8d9a799c6076d05"
+                "d7e272b8ea135176"
             ]
         ]
     },
     {
-        "id": "c8d9a799c6076d05",
+        "id": "d7e272b8ea135176",
         "type": "ui-text",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
         "order": 13,
         "width": 2,
@@ -1416,9 +1378,9 @@
         "wires": []
     },
     {
-        "id": "358bfa151ead376e",
+        "id": "4d1e4eceafeabc3c",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -1440,14 +1402,14 @@
         "y": 340,
         "wires": [
             [
-                "eaf15827eaa34afe"
+                "e2d2811fa61a6fd2"
             ]
         ]
     },
     {
-        "id": "eaf15827eaa34afe",
+        "id": "e2d2811fa61a6fd2",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 3",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
         "outputs": 1,
@@ -1460,14 +1422,14 @@
         "y": 340,
         "wires": [
             [
-                "16c109424df0eaa0"
+                "4227c8ea34818f1f"
             ]
         ]
     },
     {
-        "id": "16c109424df0eaa0",
+        "id": "4227c8ea34818f1f",
         "type": "ui-text",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
         "order": 12,
         "width": 2,
@@ -1489,9 +1451,9 @@
         "wires": []
     },
     {
-        "id": "335e09a150447e78",
+        "id": "4a504d0d0ea96f5d",
         "type": "inject",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "",
         "props": [
             {
@@ -1513,14 +1475,14 @@
         "y": 380,
         "wires": [
             [
-                "fe73c31d1d2c19ba"
+                "7b8101ec8476c541"
             ]
         ]
     },
     {
-        "id": "fe73c31d1d2c19ba",
+        "id": "7b8101ec8476c541",
         "type": "function",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "function 4",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
         "outputs": 1,
@@ -1533,14 +1495,14 @@
         "y": 380,
         "wires": [
             [
-                "958677bee67cbea9"
+                "a4806c7cb3b0f40f"
             ]
         ]
     },
     {
-        "id": "958677bee67cbea9",
+        "id": "a4806c7cb3b0f40f",
         "type": "ui-text",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
         "order": 3,
         "width": 3,
@@ -1562,9 +1524,9 @@
         "wires": []
     },
     {
-        "id": "59e126251b80f92b",
+        "id": "452f1135d92969b8",
         "type": "ui-gauge",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "SteeringAngle1",
         "group": "6db9f9b4ba633596",
         "order": 1,
@@ -1616,26 +1578,26 @@
         ]
     },
     {
-        "id": "e5fc8d99447198cf",
+        "id": "ebfbf0ef82e34a01",
         "type": "link in",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "FlowInput",
         "links": [
-            "3e88c9c9616022c2"
+            "127d4be97d6951c7"
         ],
         "x": 120,
         "y": 840,
         "wires": [
             [
-                "cf57565fec56c6d1"
+                "e139c25571fdb2c3"
             ]
         ],
         "l": true
     },
     {
-        "id": "cf57565fec56c6d1",
+        "id": "e139c25571fdb2c3",
         "type": "switch",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "CAN-Routing",
         "property": "payload.sensor",
         "propertyType": "msg",
@@ -1678,29 +1640,29 @@
         "y": 840,
         "wires": [
             [
-                "59e126251b80f92b"
+                "452f1135d92969b8"
             ],
             [
-                "e1cc25fa0f632bc6"
+                "2f116d7302809880"
             ],
             [
-                "62bbf8e706a34764"
+                "bb7a2dbed301caf1"
             ],
             [
-                "3db94bad9135ec2c"
+                "fefc5da8a7807613"
             ],
             [
-                "472cf0715c6be2d7"
+                "c4150f8241c24b1e"
             ],
             [
-                "d15892d16aa2dabd"
+                "e1483769ac563653"
             ]
         ]
     },
     {
-        "id": "e1cc25fa0f632bc6",
+        "id": "2f116d7302809880",
         "type": "ui-gauge",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "SteeringAngle2",
         "group": "6db9f9b4ba633596",
         "order": 2,
@@ -1752,9 +1714,9 @@
         ]
     },
     {
-        "id": "62bbf8e706a34764",
+        "id": "bb7a2dbed301caf1",
         "type": "ui-template",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "6db9f9b4ba633596",
         "page": "",
         "ui": "",
@@ -1776,9 +1738,9 @@
         ]
     },
     {
-        "id": "3db94bad9135ec2c",
+        "id": "fefc5da8a7807613",
         "type": "ui-template",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "group": "6db9f9b4ba633596",
         "page": "",
         "ui": "",
@@ -1800,9 +1762,9 @@
         ]
     },
     {
-        "id": "472cf0715c6be2d7",
+        "id": "c4150f8241c24b1e",
         "type": "ui-gauge",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "RPM",
         "group": "6db9f9b4ba633596",
         "order": 4,
@@ -1854,9 +1816,9 @@
         ]
     },
     {
-        "id": "d15892d16aa2dabd",
+        "id": "e1483769ac563653",
         "type": "ui-gauge",
-        "z": "f62291b0924f1e70",
+        "z": "78df372cbc55454b",
         "name": "encoder",
         "group": "6db9f9b4ba633596",
         "order": 3,
@@ -1908,9 +1870,9 @@
         ]
     },
     {
-        "id": "17c5a902ce589425",
+        "id": "7586e861fd841daf",
         "type": "change",
-        "z": "bcd522d09ac1f881",
+        "z": "a2ab62117e01f9b3",
         "name": "Format",
         "rules": [
             {
@@ -1937,14 +1899,14 @@
         "y": 200,
         "wires": [
             [
-                "67e6ad7c2b0216a1"
+                "030059d59bc72915"
             ]
         ]
     },
     {
-        "id": "d6a13a53d8b11468",
+        "id": "0e32f1b455743bee",
         "type": "inject",
-        "z": "bcd522d09ac1f881",
+        "z": "a2ab62117e01f9b3",
         "name": "datapoint point",
         "props": [
             {
@@ -1966,14 +1928,14 @@
         "y": 200,
         "wires": [
             [
-                "17c5a902ce589425"
+                "7586e861fd841daf"
             ]
         ]
     },
     {
-        "id": "67e6ad7c2b0216a1",
+        "id": "030059d59bc72915",
         "type": "influxdb out",
-        "z": "bcd522d09ac1f881",
+        "z": "a2ab62117e01f9b3",
         "influxdb": "32dc719a9b082399",
         "name": "",
         "measurement": "",
@@ -1989,9 +1951,9 @@
         "wires": []
     },
     {
-        "id": "457a4fd25e881fe1",
+        "id": "47d29100538054e9",
         "type": "function",
-        "z": "06d4226aa203027f",
+        "z": "e0a5a6191f37d3b7",
         "name": "Mock Data",
         "func": "const baseTags = {\n  deviceId: 'gyh43',\n  location: 'factory-1',\n  hardwareVersion: '1.0.2',\n  softwareVersion: '2.5.1',\n};\nconst now = Date.now();\n\nmsg.payload = {\n  bucket: \"testBucket2\",\n  precision: \"ms\",\n  data: [\n    {\n      measurement: \"motor\",\n      tags: baseTags,\n      fields: {\n        left_speed: Math.random() * 12,\n        left_power: Math.random() * 10,\n        right_speed: Math.random() * 12,\n        right_power: Math.random() * 20,\n        avg_power: Math.random() * 12,\n      },\n      timestamp: now\n    },\n    {\n      measurement: \"battery\",\n      tags: baseTags,\n      fields: {\n        battery1_temp: Math.random() * 10,\n        battery2_temp: Math.random() * 10,\n        battery3_temp: Math.random() * 10,\n        battery4_temp: Math.random() * 10,\n        battery5_temp: Math.random() * 10,\n        battery6_temp: Math.random() * 10,\n      },\n      timestamp: now\n    }\n  ]\n};\n\nreturn msg;",
         "outputs": 1,
@@ -2004,15 +1966,15 @@
         "y": 260,
         "wires": [
             [
-                "a4301df346c5e0f6",
-                "2a50b22a8fe60b1f"
+                "62696ff1baddb7db",
+                "dd91b9de403290a0"
             ]
         ]
     },
     {
-        "id": "5358e40fa998b423",
+        "id": "cedb0ce5d73118fa",
         "type": "inject",
-        "z": "06d4226aa203027f",
+        "z": "e0a5a6191f37d3b7",
         "name": "Inject",
         "props": [
             {
@@ -2034,14 +1996,14 @@
         "y": 260,
         "wires": [
             [
-                "457a4fd25e881fe1"
+                "47d29100538054e9"
             ]
         ]
     },
     {
-        "id": "a4301df346c5e0f6",
+        "id": "62696ff1baddb7db",
         "type": "debug",
-        "z": "06d4226aa203027f",
+        "z": "e0a5a6191f37d3b7",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -2056,9 +2018,9 @@
         "wires": []
     },
     {
-        "id": "2a50b22a8fe60b1f",
+        "id": "dd91b9de403290a0",
         "type": "influxdb out",
-        "z": "06d4226aa203027f",
+        "z": "e0a5a6191f37d3b7",
         "influxdb": "32dc719a9b082399",
         "name": "",
         "measurement": "battery",
@@ -2074,9 +2036,9 @@
         "wires": []
     },
     {
-        "id": "dfa0ef8dad7765ab",
+        "id": "5efa1d3229928425",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -2098,14 +2060,14 @@
         "y": 440,
         "wires": [
             [
-                "a18a37929722f478"
+                "42565b4ad20f9638"
             ]
         ]
     },
     {
-        "id": "527b699fb642e679",
+        "id": "845f23583ae29b60",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -2127,14 +2089,14 @@
         "y": 140,
         "wires": [
             [
-                "7d4d81db881c4255"
+                "f56a72f5e088a5b6"
             ]
         ]
     },
     {
-        "id": "7d4d81db881c4255",
+        "id": "f56a72f5e088a5b6",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 2",
         "func": "// msg.payload is temperature in °C\nconst t = Number(msg.payload);\nmsg.payload = t;\n\n// pick your colors\nmsg.ui_update = msg.ui_update || {};\nmsg.ui_update.style = msg.ui_update.style || {};\n\n// red if >= 60, otherwise normal\nmsg.ui_update.style.color = (t >= 60) ? \"#ff0000\" : \"#00bcd4\";      // text/needle color\nmsg.ui_update.style[\"--gauge-fill\"] = (t >= 60) ? \"#ff0000\" : \"#00bcd4\"; // some widgets use CSS vars\n\nreturn msg;",
         "outputs": 1,
@@ -2150,9 +2112,9 @@
         ]
     },
     {
-        "id": "dce26520d8fec93d",
+        "id": "ae0525a417125d07",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -2174,14 +2136,14 @@
         "y": 40,
         "wires": [
             [
-                "5ad8a19ce52b8044"
+                "d0ecacf9f90e8479"
             ]
         ]
     },
     {
-        "id": "5ad8a19ce52b8044",
+        "id": "d0ecacf9f90e8479",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 7",
         "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
         "outputs": 1,
@@ -2194,14 +2156,14 @@
         "y": 40,
         "wires": [
             [
-                "bf92dd07f90fda7a"
+                "293976aebc322465"
             ]
         ]
     },
     {
-        "id": "bf92dd07f90fda7a",
+        "id": "293976aebc322465",
         "type": "ui-gauge",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "Rudder input",
         "group": "6db9f9b4ba633596",
         "order": 7,
@@ -2241,9 +2203,9 @@
         ]
     },
     {
-        "id": "1ef3da6dc4fc0b40",
+        "id": "5fe497ad010f747c",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 8",
         "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
         "outputs": 1,
@@ -2256,14 +2218,14 @@
         "y": 100,
         "wires": [
             [
-                "98eb124b0b6bbbb9"
+                "ffed377c8a607be8"
             ]
         ]
     },
     {
-        "id": "98eb124b0b6bbbb9",
+        "id": "ffed377c8a607be8",
         "type": "ui-gauge",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "Rudder postion",
         "group": "6db9f9b4ba633596",
         "order": 8,
@@ -2303,9 +2265,9 @@
         ]
     },
     {
-        "id": "b7a13bfee72633cc",
+        "id": "7af812ad0c4b1ca3",
         "type": "ui-text",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
         "order": 16,
         "width": 2,
@@ -2327,9 +2289,9 @@
         "wires": []
     },
     {
-        "id": "bb4e4c0c2a145832",
+        "id": "b12503993e439029",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -2351,14 +2313,14 @@
         "y": 560,
         "wires": [
             [
-                "d4ea51f26dba9df1"
+                "085feef489fbbdb3"
             ]
         ]
     },
     {
-        "id": "d4ea51f26dba9df1",
+        "id": "085feef489fbbdb3",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 9",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
         "outputs": 1,
@@ -2371,14 +2333,14 @@
         "y": 560,
         "wires": [
             [
-                "4588049260cb3631"
+                "c616347102bbd91e"
             ]
         ]
     },
     {
-        "id": "d858092e43b4902d",
+        "id": "8a12aa45f83d11f9",
         "type": "ui-text",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
         "order": 14,
         "width": "3",
@@ -2400,9 +2362,9 @@
         "wires": []
     },
     {
-        "id": "d29abd21d1584dc2",
+        "id": "987702b933f41931",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -2424,14 +2386,14 @@
         "y": 600,
         "wires": [
             [
-                "248e56b89ad4e284"
+                "78468c8fad16d6cb"
             ]
         ]
     },
     {
-        "id": "248e56b89ad4e284",
+        "id": "78468c8fad16d6cb",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 10",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
         "outputs": 1,
@@ -2444,14 +2406,14 @@
         "y": 600,
         "wires": [
             [
-                "d858092e43b4902d"
+                "8a12aa45f83d11f9"
             ]
         ]
     },
     {
-        "id": "718937904dc70e94",
+        "id": "125b7a662cf77326",
         "type": "ui-text",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
         "order": 10,
         "width": "3",
@@ -2473,9 +2435,9 @@
         "wires": []
     },
     {
-        "id": "ab3af0b4377fa682",
+        "id": "637328adb6fc3a03",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -2497,14 +2459,14 @@
         "y": 640,
         "wires": [
             [
-                "b9a1b69a022b17d1"
+                "a96c30565d61c762"
             ]
         ]
     },
     {
-        "id": "b9a1b69a022b17d1",
+        "id": "a96c30565d61c762",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 11",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
         "outputs": 1,
@@ -2517,14 +2479,14 @@
         "y": 640,
         "wires": [
             [
-                "718937904dc70e94"
+                "125b7a662cf77326"
             ]
         ]
     },
     {
-        "id": "55a6a86997697310",
+        "id": "7af37818409f925f",
         "type": "ui-text",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
         "order": 12,
         "width": "3",
@@ -2546,9 +2508,9 @@
         "wires": []
     },
     {
-        "id": "99a099f64f67b6b3",
+        "id": "e474083a76a302ed",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -2570,14 +2532,14 @@
         "y": 680,
         "wires": [
             [
-                "041c6d9a978fc158"
+                "b956d4a1216d526d"
             ]
         ]
     },
     {
-        "id": "041c6d9a978fc158",
+        "id": "b956d4a1216d526d",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 12",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
         "outputs": 1,
@@ -2590,14 +2552,14 @@
         "y": 680,
         "wires": [
             [
-                "55a6a86997697310"
+                "7af37818409f925f"
             ]
         ]
     },
     {
-        "id": "affad36b7b2f70a9",
+        "id": "e2217b54b75d075a",
         "type": "ui-text",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
         "order": 11,
         "width": "3",
@@ -2619,9 +2581,9 @@
         "wires": []
     },
     {
-        "id": "8c47e389b7addd03",
+        "id": "ce2aa88996ce25c3",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -2643,14 +2605,14 @@
         "y": 720,
         "wires": [
             [
-                "c6dd619ab5457f78"
+                "0e9772785a459483"
             ]
         ]
     },
     {
-        "id": "c6dd619ab5457f78",
+        "id": "0e9772785a459483",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 13",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
         "outputs": 1,
@@ -2663,14 +2625,14 @@
         "y": 720,
         "wires": [
             [
-                "affad36b7b2f70a9"
+                "e2217b54b75d075a"
             ]
         ]
     },
     {
-        "id": "3ca883122d34a7da",
+        "id": "85ac2ee140a4027d",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -2692,14 +2654,14 @@
         "y": 180,
         "wires": [
             [
-                "0915cb0bbbeafe7c"
+                "dc14f4b0ea076c99"
             ]
         ]
     },
     {
-        "id": "0915cb0bbbeafe7c",
+        "id": "dc14f4b0ea076c99",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 6",
         "func": "const THRESH = 60;\n\nfunction randTemp() {\n  let t = 20 + Math.random() * 50;  // 20..70\n  return Math.round(t * 10) / 10;\n}\n\n// Create 6 temps\nconst temps = Array.from({ length: 6 }, randTemp);\n\n// -------- Output 1: UI update (NO payload!) --------\n// Note: when adjusting series settings, include ALL series each time. :contentReference[oaicite:2]{index=2}\nconst updateMsg = {\n  ui_update: {\n    chartOptions: {\n      series: [\n        { name: \"Normal\", type: \"bar\", stack: \"temps\", itemStyle: { color: \"#00bcd4\" } },\n        { name: \"Hot\", type: \"bar\", stack: \"temps\", itemStyle: { color: \"red\" } }\n      ]\n    }\n  }\n};\n\n// -------- Output 2: Data (Replace) --------\nconst payload = [];\n\nfor (let i = 0; i < 6; i++) {\n  const label = `Battery ${i + 1}`;\n  const t = temps[i];\n\n  payload.push({\n    series: \"Normal\",\n    property: label,\n    y: (t >= THRESH) ? null : t\n  });\n\n  payload.push({\n    series: \"Hot\",\n    property: label,\n    y: (t >= THRESH) ? t : null\n  });\n}\n\nconst dataMsg = {\n  action: \"replace\",\n  payload\n};\n\nreturn [updateMsg, dataMsg];",
         "outputs": 2,
@@ -2712,17 +2674,17 @@
         "y": 180,
         "wires": [
             [
-                "7c3257abbf34ef95"
+                "1d25580f223cf8cc"
             ],
             [
-                "7c3257abbf34ef95"
+                "1d25580f223cf8cc"
             ]
         ]
     },
     {
-        "id": "adb98b7d51630893",
+        "id": "d6d03bec58d7e15c",
         "type": "ui-text",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "group": "90ebb2c809166208",
         "order": 2,
         "width": 2,
@@ -2744,9 +2706,9 @@
         "wires": []
     },
     {
-        "id": "95ae31fe84c070e7",
+        "id": "ad618056d9a20840",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -2768,14 +2730,14 @@
         "y": 220,
         "wires": [
             [
-                "d8fa444f2eda4d51"
+                "a6a4d987921ca43b"
             ]
         ]
     },
     {
-        "id": "d8fa444f2eda4d51",
+        "id": "a6a4d987921ca43b",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 14",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
         "outputs": 1,
@@ -2788,14 +2750,14 @@
         "y": 220,
         "wires": [
             [
-                "2009bc4bb080d246"
+                "ebbbd56d459f5dde"
             ]
         ]
     },
     {
-        "id": "2009bc4bb080d246",
+        "id": "ebbbd56d459f5dde",
         "type": "ui-text",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
         "order": 18,
         "width": 2,
@@ -2817,9 +2779,9 @@
         "wires": []
     },
     {
-        "id": "668897f42162515e",
+        "id": "8fd35ccb41aa8bf4",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -2841,14 +2803,14 @@
         "y": 260,
         "wires": [
             [
-                "8a69fdc979c12ee2"
+                "005591d1597d923f"
             ]
         ]
     },
     {
-        "id": "8a69fdc979c12ee2",
+        "id": "005591d1597d923f",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 15",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
         "outputs": 1,
@@ -2861,14 +2823,14 @@
         "y": 260,
         "wires": [
             [
-                "2dd5d4c047181bd2"
+                "81e6b8ea0b44476e"
             ]
         ]
     },
     {
-        "id": "2dd5d4c047181bd2",
+        "id": "81e6b8ea0b44476e",
         "type": "ui-text",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
         "order": 19,
         "width": 2,
@@ -2890,9 +2852,9 @@
         "wires": []
     },
     {
-        "id": "db2b775928787111",
+        "id": "b15908cd041c9cc8",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -2914,14 +2876,14 @@
         "y": 300,
         "wires": [
             [
-                "7e24d325d6abdfc8"
+                "8f0bf038c2f2780f"
             ]
         ]
     },
     {
-        "id": "7e24d325d6abdfc8",
+        "id": "8f0bf038c2f2780f",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 16",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
         "outputs": 1,
@@ -2934,14 +2896,14 @@
         "y": 300,
         "wires": [
             [
-                "61c6f3f037e062a2"
+                "11a75bc94f10b249"
             ]
         ]
     },
     {
-        "id": "61c6f3f037e062a2",
+        "id": "11a75bc94f10b249",
         "type": "ui-text",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
         "order": 20,
         "width": 2,
@@ -2963,9 +2925,9 @@
         "wires": []
     },
     {
-        "id": "64d44a2fd8e3e59d",
+        "id": "1ed6d04ebd50f439",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -2987,14 +2949,14 @@
         "y": 340,
         "wires": [
             [
-                "b65983bdcdaf2b3e"
+                "f9ac95226a2d27e4"
             ]
         ]
     },
     {
-        "id": "b65983bdcdaf2b3e",
+        "id": "f9ac95226a2d27e4",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 3",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
         "outputs": 1,
@@ -3007,14 +2969,14 @@
         "y": 340,
         "wires": [
             [
-                "215f9dd96f5aeb2d"
+                "d58f1e40796221d2"
             ]
         ]
     },
     {
-        "id": "215f9dd96f5aeb2d",
+        "id": "d58f1e40796221d2",
         "type": "ui-text",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
         "order": 21,
         "width": 2,
@@ -3036,9 +2998,9 @@
         "wires": []
     },
     {
-        "id": "c3dfae30b47ff822",
+        "id": "e74c1aa012f575ce",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -3060,14 +3022,14 @@
         "y": 380,
         "wires": [
             [
-                "5fdb37dc3a047887"
+                "10c233df630f39d8"
             ]
         ]
     },
     {
-        "id": "5fdb37dc3a047887",
+        "id": "10c233df630f39d8",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 4",
         "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
         "outputs": 1,
@@ -3080,14 +3042,14 @@
         "y": 380,
         "wires": [
             [
-                "007d6907c7c1444e"
+                "d3d521cb53a6dacb"
             ]
         ]
     },
     {
-        "id": "007d6907c7c1444e",
+        "id": "d3d521cb53a6dacb",
         "type": "ui-text",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
         "order": 22,
         "width": 3,
@@ -3109,9 +3071,9 @@
         "wires": []
     },
     {
-        "id": "71f40d8362e12541",
+        "id": "125d3c565f7be438",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -3133,14 +3095,14 @@
         "y": 500,
         "wires": [
             [
-                "4eef9b426e0f1c90"
+                "078e84669e07587b"
             ]
         ]
     },
     {
-        "id": "4eef9b426e0f1c90",
+        "id": "078e84669e07587b",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 1",
         "func": "msg.payload = Math.floor(Math.random() * 51); // 0..50 mph\nreturn msg;",
         "outputs": 1,
@@ -3153,14 +3115,14 @@
         "y": 500,
         "wires": [
             [
-                "9198702407cdfcb9"
+                "d82ff0743d24c113"
             ]
         ]
     },
     {
-        "id": "7c3257abbf34ef95",
+        "id": "1d25580f223cf8cc",
         "type": "ui-chart",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "group": "6db9f9b4ba633596",
         "name": "Battery temperatures",
         "label": "Battery Temperatures",
@@ -3220,9 +3182,9 @@
         ]
     },
     {
-        "id": "a18a37929722f478",
+        "id": "42565b4ad20f9638",
         "type": "function",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "function 5",
         "func": "msg.payload = Math.floor(Math.random() * 11); // 0..50 mph\nreturn msg;",
         "outputs": 1,
@@ -3235,14 +3197,14 @@
         "y": 440,
         "wires": [
             [
-                "e4f25eea2fdb103b"
+                "d39dabed0ea063bb"
             ]
         ]
     },
     {
-        "id": "9198702407cdfcb9",
+        "id": "d82ff0743d24c113",
         "type": "ui-gauge-classic",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "Motor L  Speed",
         "group": "6db9f9b4ba633596",
         "order": 13,
@@ -3283,9 +3245,9 @@
         "wires": []
     },
     {
-        "id": "4588049260cb3631",
+        "id": "c616347102bbd91e",
         "type": "ui-gauge-classic",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "Motor R  Speed",
         "group": "6db9f9b4ba633596",
         "order": 9,
@@ -3326,9 +3288,9 @@
         "wires": []
     },
     {
-        "id": "e4f25eea2fdb103b",
+        "id": "d39dabed0ea063bb",
         "type": "ui-gauge-classic",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "RPM",
         "group": "6db9f9b4ba633596",
         "order": 15,
@@ -3373,9 +3335,9 @@
         "wires": []
     },
     {
-        "id": "1d5e3fa638609392",
+        "id": "0f8ee7218aed003e",
         "type": "pimcp3008",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "dev": "3008",
         "pin": "0",
@@ -3385,14 +3347,14 @@
         "y": 820,
         "wires": [
             [
-                "c50c89900aee1a3c"
+                "2905f8873ef36a9b"
             ]
         ]
     },
     {
-        "id": "cd2d3bae3a099c91",
+        "id": "cc894becbc2d85fd",
         "type": "pimcp3008",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "dev": "3008",
         "pin": "1",
@@ -3405,9 +3367,9 @@
         ]
     },
     {
-        "id": "f75a7c5767055152",
+        "id": "44f6a6f1216dd008",
         "type": "pimcp3008",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "dev": "3008",
         "pin": "2",
@@ -3420,9 +3382,9 @@
         ]
     },
     {
-        "id": "abb7dc0b98b9d679",
+        "id": "2e30e103dc005db2",
         "type": "pimcp3008",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "dev": "3008",
         "pin": "3",
@@ -3435,9 +3397,9 @@
         ]
     },
     {
-        "id": "c50c89900aee1a3c",
+        "id": "2905f8873ef36a9b",
         "type": "debug",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
@@ -3451,9 +3413,9 @@
         "wires": []
     },
     {
-        "id": "9b0bab4fdcbc653a",
+        "id": "18d16a07f48456f2",
         "type": "inject",
-        "z": "f6ce0af4b3f21950",
+        "z": "37abbd0748bf298d",
         "name": "",
         "props": [
             {
@@ -3475,14 +3437,14 @@
         "y": 820,
         "wires": [
             [
-                "1d5e3fa638609392"
+                "0f8ee7218aed003e"
             ]
         ]
     },
     {
-        "id": "57c4a53c15e645e3",
+        "id": "61f38387b97f8a47",
         "type": "influxdb out",
-        "z": "ca02caf2fee7e7dd",
+        "z": "7abe22e951889c52",
         "influxdb": "32dc719a9b082399",
         "name": "",
         "measurement": "",
@@ -3498,26 +3460,26 @@
         "wires": []
     },
     {
-        "id": "1447be9c67830275",
+        "id": "dfd77bdc1c28e046",
         "type": "link in",
-        "z": "ca02caf2fee7e7dd",
+        "z": "7abe22e951889c52",
         "name": "FlowInput",
         "links": [
-            "3e88c9c9616022c2"
+            "127d4be97d6951c7"
         ],
         "x": 240,
         "y": 240,
         "wires": [
             [
-                "014e742626208cb4"
+                "9de9251a22751d71"
             ]
         ],
         "l": true
     },
     {
-        "id": "014e742626208cb4",
+        "id": "9de9251a22751d71",
         "type": "switch",
-        "z": "ca02caf2fee7e7dd",
+        "z": "7abe22e951889c52",
         "name": "CAN-Routing",
         "property": "payload.sensor",
         "propertyType": "msg",
@@ -3560,29 +3522,29 @@
         "y": 240,
         "wires": [
             [
-                "dc71dd0a26bf70a3"
+                "81fbc0d408975e3c"
             ],
             [
-                "dc71dd0a26bf70a3"
+                "81fbc0d408975e3c"
             ],
             [
-                "094a91d288218813"
+                "8c133b2b71573493"
             ],
             [
-                "094a91d288218813"
+                "8c133b2b71573493"
             ],
             [
-                "e86474ab50bd2d4d"
+                "178c31bb5e7a0358"
             ],
             [
-                "159eb9c850a53520"
+                "94c7c5628a142fd5"
             ]
         ]
     },
     {
-        "id": "dc71dd0a26bf70a3",
+        "id": "81fbc0d408975e3c",
         "type": "function",
-        "z": "ca02caf2fee7e7dd",
+        "z": "7abe22e951889c52",
         "name": "function 17",
         "func": "const now = Date.now();\nconst p = msg.payload;\n\nmsg.payload = {\n  bucket: \"testBucket2\",\n  precision: \"ms\",\n  data: [{\n    measurement: \"steering_angle\",\n    tags: { sensor: p.sensor },\n    fields: { degrees: p.degrees },\n    timestamp: now\n  }]\n};\n\nmsg.measurement = \"steering_angle\";\n\nreturn msg;",
         "outputs": 1,
@@ -3595,15 +3557,15 @@
         "y": 160,
         "wires": [
             [
-                "57c4a53c15e645e3",
-                "24a9c309597a0fcf"
+                "61f38387b97f8a47",
+                "35da17238f9ce563"
             ]
         ]
     },
     {
-        "id": "094a91d288218813",
+        "id": "8c133b2b71573493",
         "type": "function",
-        "z": "ca02caf2fee7e7dd",
+        "z": "7abe22e951889c52",
         "name": "function 19",
         "func": "const now = Date.now();\nconst p = msg.payload;\n\nmsg.payload = {\n  bucket: \"testBucket2\",\n  precision: \"ms\",\n  data: [{\n    measurement: \"vibration\",\n    tags: { sensor: p.sensor },\n    fields: { x_g: p.x_g, y_g: p.y_g, z_g: p.z_g },\n    timestamp: now\n  }]\n};\n\nmsg.measurement = \"vibration\"\nreturn msg;",
         "outputs": 1,
@@ -3616,15 +3578,15 @@
         "y": 220,
         "wires": [
             [
-                "57c4a53c15e645e3",
-                "24a9c309597a0fcf"
+                "61f38387b97f8a47",
+                "35da17238f9ce563"
             ]
         ]
     },
     {
-        "id": "e86474ab50bd2d4d",
+        "id": "178c31bb5e7a0358",
         "type": "function",
-        "z": "ca02caf2fee7e7dd",
+        "z": "7abe22e951889c52",
         "name": "function 21",
         "func": "const now = Date.now();\nconst p = msg.payload;\n\nmsg.payload = {\n    bucket: \"testBucket2\",\n    precision: \"ms\",\n    data: [{\n        measurement: \"rpm\",\n        tags: { sensor: p.sensor },\n        fields: { rpm: p.rpm },\n        timestamp: now\n    }]\n};\n\nmsg.measurement = \"rpm\"\nreturn msg;",
         "outputs": 1,
@@ -3637,15 +3599,15 @@
         "y": 280,
         "wires": [
             [
-                "57c4a53c15e645e3",
-                "24a9c309597a0fcf"
+                "61f38387b97f8a47",
+                "35da17238f9ce563"
             ]
         ]
     },
     {
-        "id": "159eb9c850a53520",
+        "id": "94c7c5628a142fd5",
         "type": "function",
-        "z": "ca02caf2fee7e7dd",
+        "z": "7abe22e951889c52",
         "name": "function 22",
         "func": "const now = Date.now();\nconst p = msg.payload;\n\nmsg.payload = {\n  bucket: \"testBucket2\",\n  precision: \"ms\",\n  data: [{\n    measurement: \"encoder\",\n    tags: { sensor: p.sensor },\n    fields: { counts: p.counts, angle_deg: p.angle_deg },\n    timestamp: now\n  }]\n};\n\nmsg.measurement = \"encoder\"\nreturn msg;",
         "outputs": 1,
@@ -3658,15 +3620,15 @@
         "y": 340,
         "wires": [
             [
-                "57c4a53c15e645e3",
-                "24a9c309597a0fcf"
+                "61f38387b97f8a47",
+                "35da17238f9ce563"
             ]
         ]
     },
     {
-        "id": "24a9c309597a0fcf",
+        "id": "35da17238f9ce563",
         "type": "debug",
-        "z": "ca02caf2fee7e7dd",
+        "z": "7abe22e951889c52",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
@@ -3680,9 +3642,9 @@
         "wires": []
     },
     {
-        "id": "73e0df5a55ce905e",
+        "id": "86c7566026c3af03",
         "type": "inject",
-        "z": "ca02caf2fee7e7dd",
+        "z": "7abe22e951889c52",
         "name": "",
         "props": [
             {
@@ -3704,14 +3666,14 @@
         "y": 500,
         "wires": [
             [
-                "ee3592b4c52e0842"
+                "92bd4d32d21306e8"
             ]
         ]
     },
     {
-        "id": "ee3592b4c52e0842",
+        "id": "92bd4d32d21306e8",
         "type": "function",
-        "z": "ca02caf2fee7e7dd",
+        "z": "7abe22e951889c52",
         "name": "function 18",
         "func": "const now = Date.now();\nconst p = msg.payload;\n\nmsg.payload = {\n  bucket: \"testBucket2\",\n  precision: \"ms\",\n  data: [{\n    measurement: \"steering_angle\",\n    tags: { sensor: p.sensor },\n    fields: { degrees: p.degrees },\n    timestamp: now\n  }]\n};\n\nmsg.measurement = \"steering_angle\";\nreturn msg;",
         "outputs": 1,
@@ -3724,15 +3686,15 @@
         "y": 500,
         "wires": [
             [
-                "24a9c309597a0fcf",
-                "57c4a53c15e645e3"
+                "35da17238f9ce563",
+                "61f38387b97f8a47"
             ]
         ]
     },
     {
-        "id": "7a99641812156f8c",
+        "id": "7abdb9a1a2536de0",
         "type": "change",
-        "z": "ca02caf2fee7e7dd",
+        "z": "7abe22e951889c52",
         "name": "",
         "rules": [
             {
@@ -3755,9 +3717,9 @@
         ]
     },
     {
-        "id": "i2c-read-node",
+        "id": "15922a6cfa07c147",
         "type": "i2c in",
-        "z": "64132469334a03d1",
+        "z": "74dc6e2c6f10530c",
         "name": "Read MPU6050",
         "busno": "1",
         "address": 104,
@@ -3767,14 +3729,14 @@
         "y": 380,
         "wires": [
             [
-                "ed11026d28cd08f3"
+                "679db7106ce3a0b5"
             ]
         ]
     },
     {
-        "id": "i2c-write-node",
+        "id": "d9bb0a8f8e4f55e6",
         "type": "i2c out",
-        "z": "64132469334a03d1",
+        "z": "74dc6e2c6f10530c",
         "name": "Wake MPU6050",
         "address": 104,
         "x": 612,
@@ -3784,9 +3746,9 @@
         ]
     },
     {
-        "id": "ed11026d28cd08f3",
+        "id": "679db7106ce3a0b5",
         "type": "function",
-        "z": "64132469334a03d1",
+        "z": "74dc6e2c6f10530c",
         "name": "process i2c",
         "func": "var data = msg.payload;\nvar int16 = function(high, low) {\n  var result = (high << 8) | low;\n  return result >> 15 ? ((result ^ 0xFFFF) + 1) * -1 : result;\n};\nmsg.payload = {\n    accelerometer : {\n        x: int16(data[0], data[1]),\n        y: int16(data[2], data[3]),\n        z: int16(data[4], data[5])\n    },\n    temperature : int16(data[6], data[7]),\n    gyro : {\n        x: int16(data[8], data[9]),\n        y: int16(data[10], data[11]),\n        z: int16(data[12], data[13])\n    }\n};\nreturn msg;",
         "outputs": 1,
@@ -3794,14 +3756,14 @@
         "y": 234,
         "wires": [
             [
-                "6dc105fe17b12d8b"
+                "00bfafc30ac1e65e"
             ]
         ]
     },
     {
-        "id": "6dc105fe17b12d8b",
+        "id": "00bfafc30ac1e65e",
         "type": "debug",
-        "z": "64132469334a03d1",
+        "z": "74dc6e2c6f10530c",
         "name": "",
         "active": true,
         "complete": "false",
@@ -3810,9 +3772,9 @@
         "wires": []
     },
     {
-        "id": "0e08450a68f41989",
+        "id": "85ace04cccb11dea",
         "type": "inject",
-        "z": "64132469334a03d1",
+        "z": "74dc6e2c6f10530c",
         "name": "",
         "repeat": "",
         "once": false,
@@ -3822,14 +3784,14 @@
         "y": 238,
         "wires": [
             [
-                "i2c-read-node"
+                "15922a6cfa07c147"
             ]
         ]
     },
     {
-        "id": "3553de9f58611393",
+        "id": "b6d4a002e8bad972",
         "type": "inject",
-        "z": "64132469334a03d1",
+        "z": "74dc6e2c6f10530c",
         "name": "",
         "repeat": "",
         "once": false,
@@ -3839,14 +3801,14 @@
         "y": 319,
         "wires": [
             [
-                "fd94bc9eb6d54981"
+                "d0f080ad5bf01ddb"
             ]
         ]
     },
     {
-        "id": "fd94bc9eb6d54981",
+        "id": "d0f080ad5bf01ddb",
         "type": "function",
-        "z": "64132469334a03d1",
+        "z": "74dc6e2c6f10530c",
         "name": "i2c bytes",
         "func": "msg.payload = [0x6B, 0x00];\nreturn msg;",
         "outputs": 1,
@@ -3854,7 +3816,7 @@
         "y": 395,
         "wires": [
             [
-                "i2c-write-node"
+                "d9bb0a8f8e4f55e6"
             ]
         ]
     }
