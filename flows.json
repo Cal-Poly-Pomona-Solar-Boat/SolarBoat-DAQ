@@ -274,7 +274,7 @@
         "z": "8c9a8d8b124faffc",
         "name": "socketcan-out",
         "config": "a5c7b9ff1ed4302e",
-        "x": 210,
+        "x": 110,
         "y": 140,
         "wires": [
             [
@@ -295,7 +295,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 790,
+        "x": 530,
         "y": 140,
         "wires": []
     },
@@ -320,8 +320,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 240,
-        "y": 300,
+        "x": 160,
+        "y": 280,
         "wires": [
             []
         ]
@@ -338,7 +338,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
+        "x": 300,
         "y": 140,
         "wires": [
             [
@@ -354,11 +354,11 @@
         "name": "FlowOutput",
         "mode": "link",
         "links": [
-            "ebfbf0ef82e34a01",
-            "dfd77bdc1c28e046"
+            "dfd77bdc1c28e046",
+            "ebfbf0ef82e34a01"
         ],
-        "x": 730,
-        "y": 220,
+        "x": 530,
+        "y": 200,
         "wires": [],
         "l": true
     },
