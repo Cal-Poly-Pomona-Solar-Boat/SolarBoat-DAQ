@@ -19,7 +19,7 @@
         "id": "a2ab62117e01f9b3",
         "type": "tab",
         "label": "InfluxDB_Database",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -339,7 +339,6 @@
         "mode": "link",
         "links": [
             "92efdc59d8c23544",
-            "dfd77bdc1c28e046",
             "ebfbf0ef82e34a01"
         ],
         "x": 530,
