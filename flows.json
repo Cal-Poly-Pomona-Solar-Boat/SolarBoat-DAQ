@@ -2051,7 +2051,7 @@
         "type": "debug",
         "z": "9a918d2fcc176b74",
         "name": "debug 4",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
