@@ -2030,7 +2030,7 @@
         "type": "function",
         "z": "9a918d2fcc176b74",
         "name": "function 20",
-        "func": "// Generate a random temperature value for testing\nconst testValue = Math.floor(Math.random() * (30 - 18 + 1)) + 18;\n\nmsg.payload = {\n    // The bucket/measurement name\n    bucket: \"testBucket\",\n    precision: \"s\", // precision: s, ms, us, ns\n    data: {\n        measurement: \"sensor_test\",\n        tags: {\n            location: \"office\",\n            sensor_id: \"DHT22\"\n        },\n        fields: {\n            temp: testValue,\n            // status: \"online\"\n        },\n        timestamp: Math.floor(Date.now() / 1000)\n    }\n};\n\nreturn msg;",
+        "func": "// Generate a random temperature value for testing\nconst testValue = Math.floor(Math.random() * (30 - 18 + 1)) + 18;\n\nmsg.payload = {\n    // The bucket/measurement name\n    bucket: \"SolarBoatData2025-2026\",\n    precision: \"s\", // precision: s, ms, us, ns\n    data: {\n        measurement: \"sensor_test\",\n        tags: {\n            location: \"office\",\n            sensor_id: \"DHT22\"\n        },\n        fields: {\n            temp: testValue,\n            // status: \"online\"\n        },\n        timestamp: Math.floor(Date.now() / 1000)\n    }\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
