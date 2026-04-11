@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "e7fd52d4b19f431b",
+        "type": "tab",
+        "label": "BoatDashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "78df372cbc55454b",
         "type": "tab",
         "label": "testBoatDashboardFinal",
@@ -36,14 +44,6 @@
         "type": "tab",
         "label": "I2C (Positional Speed (6065) / ADC Chip (3008) )",
         "disabled": true,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "e7fd52d4b19f431b",
-        "type": "tab",
-        "label": "BoatDashboard",
-        "disabled": false,
         "info": "",
         "env": []
     },
@@ -395,1827 +395,6 @@
         "y": 200,
         "wires": [],
         "l": true
-    },
-    {
-        "id": "44d47aa2831727d8",
-        "type": "ui-text",
-        "z": "78df372cbc55454b",
-        "group": "90ebb2c809166208",
-        "order": 27,
-        "width": "3",
-        "height": "3",
-        "name": "Motor L",
-        "label": "Motor L speed: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 560,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "90791f2d11201771",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 520,
-        "wires": [
-            [
-                "8560cf7b08b8c1be"
-            ]
-        ]
-    },
-    {
-        "id": "8560cf7b08b8c1be",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 1",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 520,
-        "wires": [
-            [
-                "44d47aa2831727d8"
-            ]
-        ]
-    },
-    {
-        "id": "d58545593a60e720",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 140,
-        "wires": [
-            [
-                "c5dea6a3a5042499"
-            ]
-        ]
-    },
-    {
-        "id": "c5dea6a3a5042499",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 2",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 140,
-        "wires": [
-            [
-                "8356ccf9aec69b4e"
-            ]
-        ]
-    },
-    {
-        "id": "b2432f33f41ea48f",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 40,
-        "wires": [
-            [
-                "20190b800afc2723"
-            ]
-        ]
-    },
-    {
-        "id": "20190b800afc2723",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 7",
-        "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 380,
-        "y": 40,
-        "wires": [
-            [
-                "58b63f04d768e2f5"
-            ]
-        ]
-    },
-    {
-        "id": "58b63f04d768e2f5",
-        "type": "ui-gauge",
-        "z": "78df372cbc55454b",
-        "name": "Rudder input",
-        "group": "90ebb2c809166208",
-        "order": 26,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 3,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Rudder input",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "units",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5c70d6",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": "-35",
-        "max": "35",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 590,
-        "y": 40,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6d18bfbddf553651",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 100,
-        "wires": [
-            [
-                "5dba05bc19c5364f"
-            ]
-        ]
-    },
-    {
-        "id": "5dba05bc19c5364f",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 8",
-        "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 100,
-        "wires": [
-            [
-                "d30d6cd302a4eed9"
-            ]
-        ]
-    },
-    {
-        "id": "d30d6cd302a4eed9",
-        "type": "ui-gauge",
-        "z": "78df372cbc55454b",
-        "name": "Rudder postion",
-        "group": "90ebb2c809166208",
-        "order": 30,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 3,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Rudder position",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "units",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5c70d6",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": "-35",
-        "max": "35",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 580,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8356ccf9aec69b4e",
-        "type": "ui-text",
-        "z": "78df372cbc55454b",
-        "group": "90ebb2c809166208",
-        "order": 21,
-        "width": 2,
-        "height": 0,
-        "name": "Battery1 Temp",
-        "label": "Battery1 Temp: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "20",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "938e6ec5de0b5ffb",
-        "type": "ui-text",
-        "z": "78df372cbc55454b",
-        "group": "90ebb2c809166208",
-        "order": 31,
-        "width": "3",
-        "height": "3",
-        "name": "Motor R",
-        "label": "Motor R speed: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 560,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "df2a3419b78e26f8",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 560,
-        "wires": [
-            [
-                "eba959a7dc42729b"
-            ]
-        ]
-    },
-    {
-        "id": "eba959a7dc42729b",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 9",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 560,
-        "wires": [
-            [
-                "938e6ec5de0b5ffb"
-            ]
-        ]
-    },
-    {
-        "id": "3bd70ce4c1ddfccd",
-        "type": "ui-text",
-        "z": "78df372cbc55454b",
-        "group": "90ebb2c809166208",
-        "order": 29,
-        "width": "3",
-        "height": "3",
-        "name": "Power Produced",
-        "label": "Power Produced: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 590,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "b45932cedc12bb4a",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 600,
-        "wires": [
-            [
-                "a7c4ba2c0ec22ecc"
-            ]
-        ]
-    },
-    {
-        "id": "a7c4ba2c0ec22ecc",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 10",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 600,
-        "wires": [
-            [
-                "3bd70ce4c1ddfccd"
-            ]
-        ]
-    },
-    {
-        "id": "c1bab29aca283719",
-        "type": "ui-text",
-        "z": "78df372cbc55454b",
-        "group": "90ebb2c809166208",
-        "order": 28,
-        "width": "3",
-        "height": "3",
-        "name": "Motor L Power Draw",
-        "label": "Motor L power: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "de4d624184adab8d",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 640,
-        "wires": [
-            [
-                "1dd03f0fad1ca695"
-            ]
-        ]
-    },
-    {
-        "id": "1dd03f0fad1ca695",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 11",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 640,
-        "wires": [
-            [
-                "c1bab29aca283719"
-            ]
-        ]
-    },
-    {
-        "id": "7b4b05fdc2fb966d",
-        "type": "ui-text",
-        "z": "78df372cbc55454b",
-        "group": "90ebb2c809166208",
-        "order": 5,
-        "width": "3",
-        "height": "3",
-        "name": "Motor R Power Draw",
-        "label": "Motor R power: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "262af2c0a4a56512",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 680,
-        "wires": [
-            [
-                "e9ccc5d2667b16bf"
-            ]
-        ]
-    },
-    {
-        "id": "e9ccc5d2667b16bf",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 12",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 680,
-        "wires": [
-            [
-                "7b4b05fdc2fb966d"
-            ]
-        ]
-    },
-    {
-        "id": "e5bdf29ce516533a",
-        "type": "ui-text",
-        "z": "78df372cbc55454b",
-        "group": "90ebb2c809166208",
-        "order": 32,
-        "width": "3",
-        "height": "3",
-        "name": "Avg Motor power draw",
-        "label": "Avg Motor power: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "1dd8a847d3841e81",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 720,
-        "wires": [
-            [
-                "52baedc219093f55"
-            ]
-        ]
-    },
-    {
-        "id": "52baedc219093f55",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 13",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 720,
-        "wires": [
-            [
-                "e5bdf29ce516533a"
-            ]
-        ]
-    },
-    {
-        "id": "ed79ae8c5f5446af",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 180,
-        "wires": [
-            [
-                "0c25e5fee36dd466"
-            ]
-        ]
-    },
-    {
-        "id": "0c25e5fee36dd466",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 6",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 180,
-        "wires": [
-            [
-                "2baf27765d21501b"
-            ]
-        ]
-    },
-    {
-        "id": "2baf27765d21501b",
-        "type": "ui-text",
-        "z": "78df372cbc55454b",
-        "group": "90ebb2c809166208",
-        "order": 22,
-        "width": 2,
-        "height": 0,
-        "name": "Battery2 Temp",
-        "label": "Battery2 Temp: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "20",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "275f924f183bf91a",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 220,
-        "wires": [
-            [
-                "2256a78ea05036f7"
-            ]
-        ]
-    },
-    {
-        "id": "2256a78ea05036f7",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 14",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 220,
-        "wires": [
-            [
-                "8d7b43100c140fb2"
-            ]
-        ]
-    },
-    {
-        "id": "8d7b43100c140fb2",
-        "type": "ui-text",
-        "z": "78df372cbc55454b",
-        "group": "90ebb2c809166208",
-        "order": 1,
-        "width": 2,
-        "height": 0,
-        "name": "Battery3 Temp",
-        "label": "Battery3 Temp: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "20",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "4992cc07c7a67235",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 260,
-        "wires": [
-            [
-                "f6cfd6b0476c1008"
-            ]
-        ]
-    },
-    {
-        "id": "f6cfd6b0476c1008",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 15",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 260,
-        "wires": [
-            [
-                "568b7f20008c328c"
-            ]
-        ]
-    },
-    {
-        "id": "568b7f20008c328c",
-        "type": "ui-text",
-        "z": "78df372cbc55454b",
-        "group": "90ebb2c809166208",
-        "order": 23,
-        "width": 2,
-        "height": 0,
-        "name": "Battery4 Temp",
-        "label": "Battery4 Temp: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "20",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "18f499ea9d66bb47",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 300,
-        "wires": [
-            [
-                "b7e7203fcce4225d"
-            ]
-        ]
-    },
-    {
-        "id": "b7e7203fcce4225d",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 16",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 300,
-        "wires": [
-            [
-                "d7e272b8ea135176"
-            ]
-        ]
-    },
-    {
-        "id": "d7e272b8ea135176",
-        "type": "ui-text",
-        "z": "78df372cbc55454b",
-        "group": "90ebb2c809166208",
-        "order": 24,
-        "width": 2,
-        "height": 0,
-        "name": "Battery5 Temp",
-        "label": "Battery5 Temp: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "20",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "4d1e4eceafeabc3c",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 340,
-        "wires": [
-            [
-                "e2d2811fa61a6fd2"
-            ]
-        ]
-    },
-    {
-        "id": "e2d2811fa61a6fd2",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 3",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 340,
-        "wires": [
-            [
-                "4227c8ea34818f1f"
-            ]
-        ]
-    },
-    {
-        "id": "4227c8ea34818f1f",
-        "type": "ui-text",
-        "z": "78df372cbc55454b",
-        "group": "90ebb2c809166208",
-        "order": 25,
-        "width": 2,
-        "height": 0,
-        "name": "Battery6 Temp",
-        "label": "Battery6 Temp: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "20",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "4a504d0d0ea96f5d",
-        "type": "inject",
-        "z": "78df372cbc55454b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 380,
-        "wires": [
-            [
-                "7b8101ec8476c541"
-            ]
-        ]
-    },
-    {
-        "id": "7b8101ec8476c541",
-        "type": "function",
-        "z": "78df372cbc55454b",
-        "name": "function 4",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 380,
-        "wires": [
-            [
-                "a4806c7cb3b0f40f"
-            ]
-        ]
-    },
-    {
-        "id": "a4806c7cb3b0f40f",
-        "type": "ui-text",
-        "z": "78df372cbc55454b",
-        "group": "90ebb2c809166208",
-        "order": 33,
-        "width": 3,
-        "height": 0,
-        "name": "Panel Temp:",
-        "label": "Panel Temp: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 590,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "452f1135d92969b8",
-        "type": "ui-gauge",
-        "z": "78df372cbc55454b",
-        "name": "Steering",
-        "group": "6db9f9b4ba633596",
-        "order": 2,
-        "value": "payload.degrees",
-        "valueType": "msg",
-        "width": 3,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Steering",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "deg",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5cd65c",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "180",
-                "color": "#ffc800",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "360",
-                "color": "#ea5353",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": 0,
-        "max": "360",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 580,
-        "y": 780,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "ebfbf0ef82e34a01",
-        "type": "link in",
-        "z": "78df372cbc55454b",
-        "name": "FlowInput",
-        "links": [
-            "127d4be97d6951c7"
-        ],
-        "x": 80,
-        "y": 840,
-        "wires": [
-            [
-                "e139c25571fdb2c3"
-            ]
-        ],
-        "l": true
-    },
-    {
-        "id": "e139c25571fdb2c3",
-        "type": "switch",
-        "z": "78df372cbc55454b",
-        "name": "CAN-Routing",
-        "property": "payload.signal",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "steering",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "stepper_FeedbackLeft",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "stepper_FeedbackRight",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "motor_VibrationLeft",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "motor_VibrationRight",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "motor_RpmLeft",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "motor_RpmRight",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "throttle_Input",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 8,
-        "x": 250,
-        "y": 840,
-        "wires": [
-            [
-                "452f1135d92969b8"
-            ],
-            [
-                "2f116d7302809880"
-            ],
-            [
-                "c7d7f93d7c8c35ba"
-            ],
-            [
-                "bb7a2dbed301caf1"
-            ],
-            [
-                "fefc5da8a7807613"
-            ],
-            [
-                "c4150f8241c24b1e"
-            ],
-            [
-                "c5128c03e92f2842"
-            ],
-            [
-                "c8af6f18395a8443"
-            ]
-        ]
-    },
-    {
-        "id": "2f116d7302809880",
-        "type": "ui-gauge",
-        "z": "78df372cbc55454b",
-        "name": "stepper_FeedbackLeft",
-        "group": "6db9f9b4ba633596",
-        "order": 3,
-        "value": "payload.degrees",
-        "valueType": "msg",
-        "width": 3,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "stepper_FeedbackLeft",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "deg",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5cd65c",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "180",
-                "color": "#ffc800",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "360",
-                "color": "#ea5353",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": 0,
-        "max": "360",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 620,
-        "y": 820,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "bb7a2dbed301caf1",
-        "type": "ui-template",
-        "z": "78df372cbc55454b",
-        "group": "6db9f9b4ba633596",
-        "page": "",
-        "ui": "",
-        "name": "motor_VibrationLeft",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n    <div style=\"padding: 15px; border-radius: 12px; text-align: center; transition: all 0.4s ease;\" \n         :style=\"{ \n            backgroundColor: msg.payload.is_unsafe ? '#330000' : '#002200',\n            border: msg.payload.is_unsafe ? '2px solid red' : '2px solid green' \n         }\">\n        \n        <h3 style=\"margin: 0 0 15px 0; color: #eee; font-size: 1.1em; letter-spacing: 1px;\">\n            MOTOR 1 VIBRATION\n        </h3>\n        \n        <div style=\"padding: 20px; border-radius: 50%; width: 100px; height: 100px; margin: 0 auto; display: flex; align-items: center; justify-content: center; transition: all 0.3s;\"\n             :style=\"{ \n                backgroundColor: msg.payload.is_unsafe ? 'red' : 'green',\n                boxShadow: msg.payload.is_unsafe ? '0 0 20px red' : '0 0 10px green'\n             }\">\n            <span style=\"color: white; font-size: 2.5em;\">\n                {{ msg.payload.is_unsafe ? '!' : '✓' }}\n            </span>\n        </div>\n\n        <div style=\"margin-top: 20px;\">\n            <div :style=\"{ color: msg.payload.is_unsafe ? '#ff4d4d' : '#4dff4d', fontWeight: 'bold', fontSize: '1.8em' }\">\n                {{ msg.payload.is_unsafe ? 'UNSAFE' : 'SAFE' }}\n            </div>\n            <div style=\"color: #aaa; font-size: 0.9em; margin-top: 5px;\">\n                {{ msg.payload.is_unsafe ? 'High frequency vibration detected' : 'Operating within normal limits' }}\n            </div>\n        </div>\n    </div>\n</template>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 610,
-        "y": 900,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "fefc5da8a7807613",
-        "type": "ui-template",
-        "z": "78df372cbc55454b",
-        "group": "6db9f9b4ba633596",
-        "page": "",
-        "ui": "",
-        "name": "motor_VibrationRight",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n    <div style=\"padding: 15px; border-radius: 12px; text-align: center; transition: all 0.4s ease;\" \n         :style=\"{ \n            backgroundColor: msg.payload.is_unsafe ? '#330000' : '#002200',\n            border: msg.payload.is_unsafe ? '2px solid red' : '2px solid green' \n         }\">\n        \n        <h3 style=\"margin: 0 0 15px 0; color: #eee; font-size: 1.1em; letter-spacing: 1px;\">\n            MOTOR 2 VIBRATION\n        </h3>\n        \n        <div style=\"padding: 20px; border-radius: 50%; width: 100px; height: 100px; margin: 0 auto; display: flex; align-items: center; justify-content: center; transition: all 0.3s;\"\n             :style=\"{ \n                backgroundColor: msg.payload.is_unsafe ? 'red' : 'green',\n                boxShadow: msg.payload.is_unsafe ? '0 0 20px red' : '0 0 10px green'\n             }\">\n            <span style=\"color: white; font-size: 2.5em;\">\n                {{ msg.payload.is_unsafe ? '!' : '✓' }}\n            </span>\n        </div>\n\n        <div style=\"margin-top: 20px;\">\n            <div :style=\"{ color: msg.payload.is_unsafe ? '#ff4d4d' : '#4dff4d', fontWeight: 'bold', fontSize: '1.8em' }\">\n                {{ msg.payload.is_unsafe ? 'UNSAFE' : 'SAFE' }}\n            </div>\n            <div style=\"color: #aaa; font-size: 0.9em; margin-top: 5px;\">\n                {{ msg.payload.is_unsafe ? 'High frequency vibration detected' : 'Operating within normal limits' }}\n            </div>\n        </div>\n    </div>\n</template>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 620,
-        "y": 940,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c4150f8241c24b1e",
-        "type": "ui-gauge",
-        "z": "78df372cbc55454b",
-        "name": "motor_RpmLeft",
-        "group": "6db9f9b4ba633596",
-        "order": 5,
-        "value": "payload.rpm",
-        "valueType": "msg",
-        "width": 3,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "motor_RpmLeft",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "RPM",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5cd65c",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "4",
-                "color": "#ffc800",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "7",
-                "color": "#ea5353",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": 0,
-        "max": 10,
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 600,
-        "y": 980,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c7d7f93d7c8c35ba",
-        "type": "ui-gauge",
-        "z": "78df372cbc55454b",
-        "name": "stepper_FeedbackRight",
-        "group": "6db9f9b4ba633596",
-        "order": 4,
-        "value": "payload.degrees",
-        "valueType": "msg",
-        "width": 3,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "stepper_FeedbackRight",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "deg",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5cd65c",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "180",
-                "color": "#ffc800",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "360",
-                "color": "#ea5353",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": 0,
-        "max": "360",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 630,
-        "y": 860,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c5128c03e92f2842",
-        "type": "ui-gauge",
-        "z": "78df372cbc55454b",
-        "name": "motor_RpmRight",
-        "group": "6db9f9b4ba633596",
-        "order": 6,
-        "value": "payload.rpm",
-        "valueType": "msg",
-        "width": 3,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "motor_RpmRight",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "RPM",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5cd65c",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "4",
-                "color": "#ffc800",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "7",
-                "color": "#ea5353",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": 0,
-        "max": 10,
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 610,
-        "y": 1020,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c8af6f18395a8443",
-        "type": "ui-template",
-        "z": "78df372cbc55454b",
-        "group": "6db9f9b4ba633596",
-        "page": "",
-        "ui": "",
-        "name": "throttle_Input",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n    <div style=\"padding: 16px; text-align: center; font-family: sans-serif;\">\n\n        <div style=\"font-size: 1.1em; font-weight: bold; margin-bottom: 12px;\">\n            Throttle\n        </div>\n\n        <div style=\"font-size: 2em; font-weight: bold; margin-bottom: 16px;\">\n            {{ msg.payload.voltage.toFixed(3) }} V\n        </div>\n\n        <div style=\"\n            width: 60px;\n            height: 200px;\n            background: #f0f0f0;\n            border-radius: 8px;\n            margin: 0 auto;\n            position: relative;\n            overflow: hidden;\n            border: 1px solid #ccc;\n        \">\n            <div :style=\"{\n                position: 'absolute',\n                bottom: '0',\n                left: '0',\n                width: '100%',\n                borderRadius: '8px',\n                transition: 'height 0.3s ease, background-color 0.3s ease',\n                height: (Math.max(0, Math.min(5.0, msg.payload.voltage)) / 5.0 * 100) + '%',\n                backgroundColor: msg.payload.voltage < 2.0 ? '#2196F3' : msg.payload.voltage < 3.75 ? '#FFC107' : '#F44336'\n            }\">\n            </div>\n        </div>\n\n    </div>\n</template>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 590,
-        "y": 1060,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "fb5910051ef062b0",
-        "type": "Stackhero-InfluxDB-v2-write",
-        "z": "a2ab62117e01f9b3",
-        "server": "9afdf362c7955a7b",
-        "name": "",
-        "x": 670,
-        "y": 60,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9645dfae08d24aef",
-        "type": "function",
-        "z": "a2ab62117e01f9b3",
-        "name": "PrepCanForInflux",
-        "func": "// ============================================================\n// InfluxDB Mapper — Prep CAN data for Stackhero\n// Matches updated CAN decoder signal names\n//\n// Per-signal DB write rate limits (independent of CAN TX rate):\n//   steering              → 20 Hz  (50ms)\n//   stepper_FeedbackLeft  → 10 Hz  (100ms)\n//   stepper_FeedbackRight → 10 Hz  (100ms)\n//   throttle_Input        → 10 Hz  (100ms)\n//   motor_RpmLeft         → 10 Hz  (100ms)\n//   motor_RpmRight        → 10 Hz  (100ms)\n//   motor_VibrationLeft   → 10 Hz  (100ms)\n//   motor_VibrationRight  → 10 Hz  (100ms)\n// ============================================================\n\nconst decoded = msg.payload;\n\n// Don't write unknown frames to the DB\nif (decoded.signal === \"unknown\") {\n    return null;\n}\n\n// --- Per-signal minimum interval between DB writes (ms) ---\nconst WRITE_INTERVAL_MS = {\n    steering:               50,   // 20 Hz\n    stepper_FeedbackLeft:   100,  // 10 Hz\n    stepper_FeedbackRight:  100,  // 10 Hz\n    throttle_Input:         100,  // 10 Hz\n    motor_RpmLeft:          100,  // 10 Hz\n    motor_RpmRight:         100,  // 10 Hz\n    motor_VibrationLeft:    100,  // 10 Hz\n    motor_VibrationRight:   100,  // 10 Hz\n};\n\n// --- Throttle check using node context to persist last-write timestamps ---\nconst now      = Date.now();\nconst lastKey  = \"lastWrite_\" + decoded.signal;\nconst last     = context.get(lastKey) || 0;\nconst interval = WRITE_INTERVAL_MS[decoded.signal] ?? 100;\n\nif (now - last < interval) {\n    return null;\n}\ncontext.set(lastKey, now);\n\n// 1. Define the measurement name\nconst measurementName = \"can_sensor_data\";\n\n// 2. Prepare fields (the numerical or boolean values to graph)\nlet fields = {};\n\nif (decoded.degrees !== undefined) {\n    fields.value = decoded.degrees;\n} else if (decoded.rpm !== undefined) {\n    fields.value = decoded.rpm;\n} else if (decoded.voltage !== undefined) {\n    fields.value = decoded.voltage;\n} else if (decoded.is_unsafe !== undefined) {\n    // Store as integer 0/1 only — InfluxDB mean() does not support booleans\n    fields.value = decoded.is_unsafe ? 1 : 0;\n}\n\n// 3. Construct the Stackhero-formatted payload\nmsg.payload = {\n    bucket: \"SolarBoatData2025-2026\",\n    precision: \"ms\",\n    data: {\n        measurement: measurementName,\n        tags: {\n            signal: decoded.signal,  // e.g. \"motor_VibrationLeft\"\n            can_id: decoded.frame    // e.g. \"0x480\"\n        },\n        fields: fields,\n        timestamp: now\n    }\n};\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 60,
-        "wires": [
-            [
-                "fb5910051ef062b0",
-                "63215c696ff6789e"
-            ]
-        ]
-    },
-    {
-        "id": "63215c696ff6789e",
-        "type": "debug",
-        "z": "a2ab62117e01f9b3",
-        "name": "debug 3",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "92efdc59d8c23544",
-        "type": "link in",
-        "z": "a2ab62117e01f9b3",
-        "name": "influxLINK-IN",
-        "links": [
-            "127d4be97d6951c7"
-        ],
-        "x": 190,
-        "y": 60,
-        "wires": [
-            [
-                "9645dfae08d24aef"
-            ]
-        ],
-        "l": true
-    },
-    {
-        "id": "68c540f1a29aaed8",
-        "type": "Stackhero-InfluxDB-v2-write",
-        "z": "9a918d2fcc176b74",
-        "server": "9afdf362c7955a7b",
-        "name": "",
-        "x": 550,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "33628f320551a57f",
-        "type": "inject",
-        "z": "9a918d2fcc176b74",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "3",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "0.1",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 160,
-        "wires": [
-            [
-                "6f22e812603bf737"
-            ]
-        ]
-    },
-    {
-        "id": "6f22e812603bf737",
-        "type": "function",
-        "z": "9a918d2fcc176b74",
-        "name": "function 20",
-        "func": "// Generate a random temperature value for testing\nconst testValue = Math.floor(Math.random() * (30 - 18 + 1)) + 18;\n\nmsg.payload = {\n    // The bucket/measurement name\n    bucket: \"SolarBoatData2025-2026\",\n    precision: \"s\", // precision: s, ms, us, ns\n    data: {\n        measurement: \"sensor_test\",\n        tags: {\n            location: \"office\",\n            sensor_id: \"DHT22\"\n        },\n        fields: {\n            temp: testValue,\n            // status: \"online\"\n        },\n        timestamp: Math.floor(Date.now() / 1000)\n    }\n};\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 310,
-        "y": 160,
-        "wires": [
-            [
-                "68c540f1a29aaed8",
-                "833b0341960c7de4"
-            ]
-        ]
-    },
-    {
-        "id": "833b0341960c7de4",
-        "type": "debug",
-        "z": "9a918d2fcc176b74",
-        "name": "debug 4",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 420,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "15922a6cfa07c147",
-        "type": "i2c in",
-        "z": "74dc6e2c6f10530c",
-        "name": "Read MPU6050",
-        "busno": "1",
-        "address": 104,
-        "command": 59,
-        "count": 14,
-        "x": 380,
-        "y": 120,
-        "wires": [
-            [
-                "679db7106ce3a0b5"
-            ]
-        ]
-    },
-    {
-        "id": "d9bb0a8f8e4f55e6",
-        "type": "i2c out",
-        "z": "74dc6e2c6f10530c",
-        "name": "Wake MPU6050",
-        "address": 104,
-        "x": 560,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "679db7106ce3a0b5",
-        "type": "function",
-        "z": "74dc6e2c6f10530c",
-        "name": "process i2c",
-        "func": "var data = msg.payload;\nvar int16 = function(high, low) {\n  var result = (high << 8) | low;\n  return result >> 15 ? ((result ^ 0xFFFF) + 1) * -1 : result;\n};\nmsg.payload = {\n    accelerometer : {\n        x: int16(data[0], data[1]),\n        y: int16(data[2], data[3]),\n        z: int16(data[4], data[5])\n    },\n    temperature : int16(data[6], data[7]),\n    gyro : {\n        x: int16(data[8], data[9]),\n        y: int16(data[10], data[11]),\n        z: int16(data[12], data[13])\n    }\n};\nreturn msg;",
-        "outputs": 1,
-        "x": 570,
-        "y": 120,
-        "wires": [
-            [
-                "00bfafc30ac1e65e"
-            ]
-        ]
-    },
-    {
-        "id": "00bfafc30ac1e65e",
-        "type": "debug",
-        "z": "74dc6e2c6f10530c",
-        "name": "",
-        "active": true,
-        "complete": "false",
-        "x": 770,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "85ace04cccb11dea",
-        "type": "inject",
-        "z": "74dc6e2c6f10530c",
-        "name": "",
-        "repeat": "",
-        "once": false,
-        "payload": "14",
-        "payloadType": "string",
-        "x": 210,
-        "y": 120,
-        "wires": [
-            [
-                "15922a6cfa07c147"
-            ]
-        ]
-    },
-    {
-        "id": "b6d4a002e8bad972",
-        "type": "inject",
-        "z": "74dc6e2c6f10530c",
-        "name": "",
-        "repeat": "",
-        "once": false,
-        "payload": "",
-        "payloadType": "none",
-        "x": 210,
-        "y": 180,
-        "wires": [
-            [
-                "d0f080ad5bf01ddb"
-            ]
-        ]
-    },
-    {
-        "id": "d0f080ad5bf01ddb",
-        "type": "function",
-        "z": "74dc6e2c6f10530c",
-        "name": "i2c bytes",
-        "func": "msg.payload = [0x6B, 0x00];\nreturn msg;",
-        "outputs": 1,
-        "x": 360,
-        "y": 180,
-        "wires": [
-            [
-                "d9bb0a8f8e4f55e6"
-            ]
-        ]
     },
     {
         "id": "4c7a0e9725e29039",
@@ -4289,6 +2468,1827 @@
         "y": 520,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "44d47aa2831727d8",
+        "type": "ui-text",
+        "z": "78df372cbc55454b",
+        "group": "90ebb2c809166208",
+        "order": 27,
+        "width": "3",
+        "height": "3",
+        "name": "Motor L",
+        "label": "Motor L speed: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 560,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "90791f2d11201771",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 520,
+        "wires": [
+            [
+                "8560cf7b08b8c1be"
+            ]
+        ]
+    },
+    {
+        "id": "8560cf7b08b8c1be",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 1",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 520,
+        "wires": [
+            [
+                "44d47aa2831727d8"
+            ]
+        ]
+    },
+    {
+        "id": "d58545593a60e720",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "c5dea6a3a5042499"
+            ]
+        ]
+    },
+    {
+        "id": "c5dea6a3a5042499",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 2",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 140,
+        "wires": [
+            [
+                "8356ccf9aec69b4e"
+            ]
+        ]
+    },
+    {
+        "id": "b2432f33f41ea48f",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 40,
+        "wires": [
+            [
+                "20190b800afc2723"
+            ]
+        ]
+    },
+    {
+        "id": "20190b800afc2723",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 7",
+        "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 40,
+        "wires": [
+            [
+                "58b63f04d768e2f5"
+            ]
+        ]
+    },
+    {
+        "id": "58b63f04d768e2f5",
+        "type": "ui-gauge",
+        "z": "78df372cbc55454b",
+        "name": "Rudder input",
+        "group": "90ebb2c809166208",
+        "order": 26,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Rudder input",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5c70d6",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "-35",
+        "max": "35",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 590,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6d18bfbddf553651",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "5dba05bc19c5364f"
+            ]
+        ]
+    },
+    {
+        "id": "5dba05bc19c5364f",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 8",
+        "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "d30d6cd302a4eed9"
+            ]
+        ]
+    },
+    {
+        "id": "d30d6cd302a4eed9",
+        "type": "ui-gauge",
+        "z": "78df372cbc55454b",
+        "name": "Rudder postion",
+        "group": "90ebb2c809166208",
+        "order": 30,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Rudder position",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5c70d6",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "-35",
+        "max": "35",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 580,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8356ccf9aec69b4e",
+        "type": "ui-text",
+        "z": "78df372cbc55454b",
+        "group": "90ebb2c809166208",
+        "order": 21,
+        "width": 2,
+        "height": 0,
+        "name": "Battery1 Temp",
+        "label": "Battery1 Temp: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "938e6ec5de0b5ffb",
+        "type": "ui-text",
+        "z": "78df372cbc55454b",
+        "group": "90ebb2c809166208",
+        "order": 31,
+        "width": "3",
+        "height": "3",
+        "name": "Motor R",
+        "label": "Motor R speed: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 560,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "df2a3419b78e26f8",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 560,
+        "wires": [
+            [
+                "eba959a7dc42729b"
+            ]
+        ]
+    },
+    {
+        "id": "eba959a7dc42729b",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 9",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 560,
+        "wires": [
+            [
+                "938e6ec5de0b5ffb"
+            ]
+        ]
+    },
+    {
+        "id": "3bd70ce4c1ddfccd",
+        "type": "ui-text",
+        "z": "78df372cbc55454b",
+        "group": "90ebb2c809166208",
+        "order": 29,
+        "width": "3",
+        "height": "3",
+        "name": "Power Produced",
+        "label": "Power Produced: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 590,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b45932cedc12bb4a",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 600,
+        "wires": [
+            [
+                "a7c4ba2c0ec22ecc"
+            ]
+        ]
+    },
+    {
+        "id": "a7c4ba2c0ec22ecc",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 10",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 600,
+        "wires": [
+            [
+                "3bd70ce4c1ddfccd"
+            ]
+        ]
+    },
+    {
+        "id": "c1bab29aca283719",
+        "type": "ui-text",
+        "z": "78df372cbc55454b",
+        "group": "90ebb2c809166208",
+        "order": 28,
+        "width": "3",
+        "height": "3",
+        "name": "Motor L Power Draw",
+        "label": "Motor L power: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "de4d624184adab8d",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 640,
+        "wires": [
+            [
+                "1dd03f0fad1ca695"
+            ]
+        ]
+    },
+    {
+        "id": "1dd03f0fad1ca695",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 11",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 640,
+        "wires": [
+            [
+                "c1bab29aca283719"
+            ]
+        ]
+    },
+    {
+        "id": "7b4b05fdc2fb966d",
+        "type": "ui-text",
+        "z": "78df372cbc55454b",
+        "group": "90ebb2c809166208",
+        "order": 5,
+        "width": "3",
+        "height": "3",
+        "name": "Motor R Power Draw",
+        "label": "Motor R power: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "262af2c0a4a56512",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 680,
+        "wires": [
+            [
+                "e9ccc5d2667b16bf"
+            ]
+        ]
+    },
+    {
+        "id": "e9ccc5d2667b16bf",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 12",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 680,
+        "wires": [
+            [
+                "7b4b05fdc2fb966d"
+            ]
+        ]
+    },
+    {
+        "id": "e5bdf29ce516533a",
+        "type": "ui-text",
+        "z": "78df372cbc55454b",
+        "group": "90ebb2c809166208",
+        "order": 32,
+        "width": "3",
+        "height": "3",
+        "name": "Avg Motor power draw",
+        "label": "Avg Motor power: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "1dd8a847d3841e81",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 720,
+        "wires": [
+            [
+                "52baedc219093f55"
+            ]
+        ]
+    },
+    {
+        "id": "52baedc219093f55",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 13",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 720,
+        "wires": [
+            [
+                "e5bdf29ce516533a"
+            ]
+        ]
+    },
+    {
+        "id": "ed79ae8c5f5446af",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "0c25e5fee36dd466"
+            ]
+        ]
+    },
+    {
+        "id": "0c25e5fee36dd466",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 6",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 180,
+        "wires": [
+            [
+                "2baf27765d21501b"
+            ]
+        ]
+    },
+    {
+        "id": "2baf27765d21501b",
+        "type": "ui-text",
+        "z": "78df372cbc55454b",
+        "group": "90ebb2c809166208",
+        "order": 22,
+        "width": 2,
+        "height": 0,
+        "name": "Battery2 Temp",
+        "label": "Battery2 Temp: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "275f924f183bf91a",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "2256a78ea05036f7"
+            ]
+        ]
+    },
+    {
+        "id": "2256a78ea05036f7",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 14",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "8d7b43100c140fb2"
+            ]
+        ]
+    },
+    {
+        "id": "8d7b43100c140fb2",
+        "type": "ui-text",
+        "z": "78df372cbc55454b",
+        "group": "90ebb2c809166208",
+        "order": 1,
+        "width": 2,
+        "height": 0,
+        "name": "Battery3 Temp",
+        "label": "Battery3 Temp: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "4992cc07c7a67235",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "f6cfd6b0476c1008"
+            ]
+        ]
+    },
+    {
+        "id": "f6cfd6b0476c1008",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 15",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 260,
+        "wires": [
+            [
+                "568b7f20008c328c"
+            ]
+        ]
+    },
+    {
+        "id": "568b7f20008c328c",
+        "type": "ui-text",
+        "z": "78df372cbc55454b",
+        "group": "90ebb2c809166208",
+        "order": 23,
+        "width": 2,
+        "height": 0,
+        "name": "Battery4 Temp",
+        "label": "Battery4 Temp: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "18f499ea9d66bb47",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "b7e7203fcce4225d"
+            ]
+        ]
+    },
+    {
+        "id": "b7e7203fcce4225d",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 16",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 300,
+        "wires": [
+            [
+                "d7e272b8ea135176"
+            ]
+        ]
+    },
+    {
+        "id": "d7e272b8ea135176",
+        "type": "ui-text",
+        "z": "78df372cbc55454b",
+        "group": "90ebb2c809166208",
+        "order": 24,
+        "width": 2,
+        "height": 0,
+        "name": "Battery5 Temp",
+        "label": "Battery5 Temp: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "4d1e4eceafeabc3c",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "e2d2811fa61a6fd2"
+            ]
+        ]
+    },
+    {
+        "id": "e2d2811fa61a6fd2",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 3",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "4227c8ea34818f1f"
+            ]
+        ]
+    },
+    {
+        "id": "4227c8ea34818f1f",
+        "type": "ui-text",
+        "z": "78df372cbc55454b",
+        "group": "90ebb2c809166208",
+        "order": 25,
+        "width": 2,
+        "height": 0,
+        "name": "Battery6 Temp",
+        "label": "Battery6 Temp: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "4a504d0d0ea96f5d",
+        "type": "inject",
+        "z": "78df372cbc55454b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "7b8101ec8476c541"
+            ]
+        ]
+    },
+    {
+        "id": "7b8101ec8476c541",
+        "type": "function",
+        "z": "78df372cbc55454b",
+        "name": "function 4",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 380,
+        "wires": [
+            [
+                "a4806c7cb3b0f40f"
+            ]
+        ]
+    },
+    {
+        "id": "a4806c7cb3b0f40f",
+        "type": "ui-text",
+        "z": "78df372cbc55454b",
+        "group": "90ebb2c809166208",
+        "order": 33,
+        "width": 3,
+        "height": 0,
+        "name": "Panel Temp:",
+        "label": "Panel Temp: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 590,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "452f1135d92969b8",
+        "type": "ui-gauge",
+        "z": "78df372cbc55454b",
+        "name": "Steering",
+        "group": "6db9f9b4ba633596",
+        "order": 2,
+        "value": "payload.degrees",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Steering",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "deg",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "180",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "360",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "360",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 580,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ebfbf0ef82e34a01",
+        "type": "link in",
+        "z": "78df372cbc55454b",
+        "name": "FlowInput",
+        "links": [
+            "127d4be97d6951c7"
+        ],
+        "x": 80,
+        "y": 840,
+        "wires": [
+            [
+                "e139c25571fdb2c3"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "e139c25571fdb2c3",
+        "type": "switch",
+        "z": "78df372cbc55454b",
+        "name": "CAN-Routing",
+        "property": "payload.signal",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "steering",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "stepper_FeedbackLeft",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "stepper_FeedbackRight",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "motor_VibrationLeft",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "motor_VibrationRight",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "motor_RpmLeft",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "motor_RpmRight",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "throttle_Input",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 8,
+        "x": 250,
+        "y": 840,
+        "wires": [
+            [
+                "452f1135d92969b8"
+            ],
+            [
+                "2f116d7302809880"
+            ],
+            [
+                "c7d7f93d7c8c35ba"
+            ],
+            [
+                "bb7a2dbed301caf1"
+            ],
+            [
+                "fefc5da8a7807613"
+            ],
+            [
+                "c4150f8241c24b1e"
+            ],
+            [
+                "c5128c03e92f2842"
+            ],
+            [
+                "c8af6f18395a8443"
+            ]
+        ]
+    },
+    {
+        "id": "2f116d7302809880",
+        "type": "ui-gauge",
+        "z": "78df372cbc55454b",
+        "name": "stepper_FeedbackLeft",
+        "group": "6db9f9b4ba633596",
+        "order": 3,
+        "value": "payload.degrees",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "stepper_FeedbackLeft",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "deg",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "180",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "360",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "360",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 620,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bb7a2dbed301caf1",
+        "type": "ui-template",
+        "z": "78df372cbc55454b",
+        "group": "6db9f9b4ba633596",
+        "page": "",
+        "ui": "",
+        "name": "motor_VibrationLeft",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <div style=\"padding: 15px; border-radius: 12px; text-align: center; transition: all 0.4s ease;\" \n         :style=\"{ \n            backgroundColor: msg.payload.is_unsafe ? '#330000' : '#002200',\n            border: msg.payload.is_unsafe ? '2px solid red' : '2px solid green' \n         }\">\n        \n        <h3 style=\"margin: 0 0 15px 0; color: #eee; font-size: 1.1em; letter-spacing: 1px;\">\n            MOTOR 1 VIBRATION\n        </h3>\n        \n        <div style=\"padding: 20px; border-radius: 50%; width: 100px; height: 100px; margin: 0 auto; display: flex; align-items: center; justify-content: center; transition: all 0.3s;\"\n             :style=\"{ \n                backgroundColor: msg.payload.is_unsafe ? 'red' : 'green',\n                boxShadow: msg.payload.is_unsafe ? '0 0 20px red' : '0 0 10px green'\n             }\">\n            <span style=\"color: white; font-size: 2.5em;\">\n                {{ msg.payload.is_unsafe ? '!' : '✓' }}\n            </span>\n        </div>\n\n        <div style=\"margin-top: 20px;\">\n            <div :style=\"{ color: msg.payload.is_unsafe ? '#ff4d4d' : '#4dff4d', fontWeight: 'bold', fontSize: '1.8em' }\">\n                {{ msg.payload.is_unsafe ? 'UNSAFE' : 'SAFE' }}\n            </div>\n            <div style=\"color: #aaa; font-size: 0.9em; margin-top: 5px;\">\n                {{ msg.payload.is_unsafe ? 'High frequency vibration detected' : 'Operating within normal limits' }}\n            </div>\n        </div>\n    </div>\n</template>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 610,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fefc5da8a7807613",
+        "type": "ui-template",
+        "z": "78df372cbc55454b",
+        "group": "6db9f9b4ba633596",
+        "page": "",
+        "ui": "",
+        "name": "motor_VibrationRight",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <div style=\"padding: 15px; border-radius: 12px; text-align: center; transition: all 0.4s ease;\" \n         :style=\"{ \n            backgroundColor: msg.payload.is_unsafe ? '#330000' : '#002200',\n            border: msg.payload.is_unsafe ? '2px solid red' : '2px solid green' \n         }\">\n        \n        <h3 style=\"margin: 0 0 15px 0; color: #eee; font-size: 1.1em; letter-spacing: 1px;\">\n            MOTOR 2 VIBRATION\n        </h3>\n        \n        <div style=\"padding: 20px; border-radius: 50%; width: 100px; height: 100px; margin: 0 auto; display: flex; align-items: center; justify-content: center; transition: all 0.3s;\"\n             :style=\"{ \n                backgroundColor: msg.payload.is_unsafe ? 'red' : 'green',\n                boxShadow: msg.payload.is_unsafe ? '0 0 20px red' : '0 0 10px green'\n             }\">\n            <span style=\"color: white; font-size: 2.5em;\">\n                {{ msg.payload.is_unsafe ? '!' : '✓' }}\n            </span>\n        </div>\n\n        <div style=\"margin-top: 20px;\">\n            <div :style=\"{ color: msg.payload.is_unsafe ? '#ff4d4d' : '#4dff4d', fontWeight: 'bold', fontSize: '1.8em' }\">\n                {{ msg.payload.is_unsafe ? 'UNSAFE' : 'SAFE' }}\n            </div>\n            <div style=\"color: #aaa; font-size: 0.9em; margin-top: 5px;\">\n                {{ msg.payload.is_unsafe ? 'High frequency vibration detected' : 'Operating within normal limits' }}\n            </div>\n        </div>\n    </div>\n</template>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 620,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c4150f8241c24b1e",
+        "type": "ui-gauge",
+        "z": "78df372cbc55454b",
+        "name": "motor_RpmLeft",
+        "group": "6db9f9b4ba633596",
+        "order": 5,
+        "value": "payload.rpm",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "motor_RpmLeft",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "RPM",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 10,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 600,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7d7f93d7c8c35ba",
+        "type": "ui-gauge",
+        "z": "78df372cbc55454b",
+        "name": "stepper_FeedbackRight",
+        "group": "6db9f9b4ba633596",
+        "order": 4,
+        "value": "payload.degrees",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "stepper_FeedbackRight",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "deg",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "180",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "360",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "360",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 630,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c5128c03e92f2842",
+        "type": "ui-gauge",
+        "z": "78df372cbc55454b",
+        "name": "motor_RpmRight",
+        "group": "6db9f9b4ba633596",
+        "order": 6,
+        "value": "payload.rpm",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "motor_RpmRight",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "RPM",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 10,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 610,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c8af6f18395a8443",
+        "type": "ui-template",
+        "z": "78df372cbc55454b",
+        "group": "6db9f9b4ba633596",
+        "page": "",
+        "ui": "",
+        "name": "throttle_Input",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <div style=\"padding: 16px; text-align: center; font-family: sans-serif;\">\n\n        <div style=\"font-size: 1.1em; font-weight: bold; margin-bottom: 12px;\">\n            Throttle\n        </div>\n\n        <div style=\"font-size: 2em; font-weight: bold; margin-bottom: 16px;\">\n            {{ msg.payload.voltage.toFixed(3) }} V\n        </div>\n\n        <div style=\"\n            width: 60px;\n            height: 200px;\n            background: #f0f0f0;\n            border-radius: 8px;\n            margin: 0 auto;\n            position: relative;\n            overflow: hidden;\n            border: 1px solid #ccc;\n        \">\n            <div :style=\"{\n                position: 'absolute',\n                bottom: '0',\n                left: '0',\n                width: '100%',\n                borderRadius: '8px',\n                transition: 'height 0.3s ease, background-color 0.3s ease',\n                height: (Math.max(0, Math.min(5.0, msg.payload.voltage)) / 5.0 * 100) + '%',\n                backgroundColor: msg.payload.voltage < 2.0 ? '#2196F3' : msg.payload.voltage < 3.75 ? '#FFC107' : '#F44336'\n            }\">\n            </div>\n        </div>\n\n    </div>\n</template>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 590,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb5910051ef062b0",
+        "type": "Stackhero-InfluxDB-v2-write",
+        "z": "a2ab62117e01f9b3",
+        "server": "9afdf362c7955a7b",
+        "name": "",
+        "x": 670,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9645dfae08d24aef",
+        "type": "function",
+        "z": "a2ab62117e01f9b3",
+        "name": "PrepCanForInflux",
+        "func": "// ============================================================\n// InfluxDB Mapper — Prep CAN data for Stackhero\n// Matches updated CAN decoder signal names\n//\n// Per-signal DB write rate limits (independent of CAN TX rate):\n//   steering              → 20 Hz  (50ms)\n//   stepper_FeedbackLeft  → 10 Hz  (100ms)\n//   stepper_FeedbackRight → 10 Hz  (100ms)\n//   throttle_Input        → 10 Hz  (100ms)\n//   motor_RpmLeft         → 10 Hz  (100ms)\n//   motor_RpmRight        → 10 Hz  (100ms)\n//   motor_VibrationLeft   → 10 Hz  (100ms)\n//   motor_VibrationRight  → 10 Hz  (100ms)\n// ============================================================\n\nconst decoded = msg.payload;\n\n// Don't write unknown frames to the DB\nif (decoded.signal === \"unknown\") {\n    return null;\n}\n\n// --- Per-signal minimum interval between DB writes (ms) ---\nconst WRITE_INTERVAL_MS = {\n    steering:               50,   // 20 Hz\n    stepper_FeedbackLeft:   100,  // 10 Hz\n    stepper_FeedbackRight:  100,  // 10 Hz\n    throttle_Input:         100,  // 10 Hz\n    motor_RpmLeft:          100,  // 10 Hz\n    motor_RpmRight:         100,  // 10 Hz\n    motor_VibrationLeft:    100,  // 10 Hz\n    motor_VibrationRight:   100,  // 10 Hz\n};\n\n// --- Throttle check using node context to persist last-write timestamps ---\nconst now      = Date.now();\nconst lastKey  = \"lastWrite_\" + decoded.signal;\nconst last     = context.get(lastKey) || 0;\nconst interval = WRITE_INTERVAL_MS[decoded.signal] ?? 100;\n\nif (now - last < interval) {\n    return null;\n}\ncontext.set(lastKey, now);\n\n// 1. Define the measurement name\nconst measurementName = \"can_sensor_data\";\n\n// 2. Prepare fields (the numerical or boolean values to graph)\nlet fields = {};\n\nif (decoded.degrees !== undefined) {\n    fields.value = decoded.degrees;\n} else if (decoded.rpm !== undefined) {\n    fields.value = decoded.rpm;\n} else if (decoded.voltage !== undefined) {\n    fields.value = decoded.voltage;\n} else if (decoded.is_unsafe !== undefined) {\n    // Store as integer 0/1 only — InfluxDB mean() does not support booleans\n    fields.value = decoded.is_unsafe ? 1 : 0;\n}\n\n// 3. Construct the Stackhero-formatted payload\nmsg.payload = {\n    bucket: \"SolarBoatData2025-2026\",\n    precision: \"ms\",\n    data: {\n        measurement: measurementName,\n        tags: {\n            signal: decoded.signal,  // e.g. \"motor_VibrationLeft\"\n            can_id: decoded.frame    // e.g. \"0x480\"\n        },\n        fields: fields,\n        timestamp: now\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 60,
+        "wires": [
+            [
+                "fb5910051ef062b0",
+                "63215c696ff6789e"
+            ]
+        ]
+    },
+    {
+        "id": "63215c696ff6789e",
+        "type": "debug",
+        "z": "a2ab62117e01f9b3",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "92efdc59d8c23544",
+        "type": "link in",
+        "z": "a2ab62117e01f9b3",
+        "name": "influxLINK-IN",
+        "links": [
+            "127d4be97d6951c7"
+        ],
+        "x": 190,
+        "y": 60,
+        "wires": [
+            [
+                "9645dfae08d24aef"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "68c540f1a29aaed8",
+        "type": "Stackhero-InfluxDB-v2-write",
+        "z": "9a918d2fcc176b74",
+        "server": "9afdf362c7955a7b",
+        "name": "",
+        "x": 550,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "33628f320551a57f",
+        "type": "inject",
+        "z": "9a918d2fcc176b74",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "6f22e812603bf737"
+            ]
+        ]
+    },
+    {
+        "id": "6f22e812603bf737",
+        "type": "function",
+        "z": "9a918d2fcc176b74",
+        "name": "function 20",
+        "func": "// Generate a random temperature value for testing\nconst testValue = Math.floor(Math.random() * (30 - 18 + 1)) + 18;\n\nmsg.payload = {\n    // The bucket/measurement name\n    bucket: \"SolarBoatData2025-2026\",\n    precision: \"s\", // precision: s, ms, us, ns\n    data: {\n        measurement: \"sensor_test\",\n        tags: {\n            location: \"office\",\n            sensor_id: \"DHT22\"\n        },\n        fields: {\n            temp: testValue,\n            // status: \"online\"\n        },\n        timestamp: Math.floor(Date.now() / 1000)\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "68c540f1a29aaed8",
+                "833b0341960c7de4"
+            ]
+        ]
+    },
+    {
+        "id": "833b0341960c7de4",
+        "type": "debug",
+        "z": "9a918d2fcc176b74",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "15922a6cfa07c147",
+        "type": "i2c in",
+        "z": "74dc6e2c6f10530c",
+        "name": "Read MPU6050",
+        "busno": "1",
+        "address": 104,
+        "command": 59,
+        "count": 14,
+        "x": 380,
+        "y": 120,
+        "wires": [
+            [
+                "679db7106ce3a0b5"
+            ]
+        ]
+    },
+    {
+        "id": "d9bb0a8f8e4f55e6",
+        "type": "i2c out",
+        "z": "74dc6e2c6f10530c",
+        "name": "Wake MPU6050",
+        "address": 104,
+        "x": 560,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "679db7106ce3a0b5",
+        "type": "function",
+        "z": "74dc6e2c6f10530c",
+        "name": "process i2c",
+        "func": "var data = msg.payload;\nvar int16 = function(high, low) {\n  var result = (high << 8) | low;\n  return result >> 15 ? ((result ^ 0xFFFF) + 1) * -1 : result;\n};\nmsg.payload = {\n    accelerometer : {\n        x: int16(data[0], data[1]),\n        y: int16(data[2], data[3]),\n        z: int16(data[4], data[5])\n    },\n    temperature : int16(data[6], data[7]),\n    gyro : {\n        x: int16(data[8], data[9]),\n        y: int16(data[10], data[11]),\n        z: int16(data[12], data[13])\n    }\n};\nreturn msg;",
+        "outputs": 1,
+        "x": 570,
+        "y": 120,
+        "wires": [
+            [
+                "00bfafc30ac1e65e"
+            ]
+        ]
+    },
+    {
+        "id": "00bfafc30ac1e65e",
+        "type": "debug",
+        "z": "74dc6e2c6f10530c",
+        "name": "",
+        "active": true,
+        "complete": "false",
+        "x": 770,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "85ace04cccb11dea",
+        "type": "inject",
+        "z": "74dc6e2c6f10530c",
+        "name": "",
+        "repeat": "",
+        "once": false,
+        "payload": "14",
+        "payloadType": "string",
+        "x": 210,
+        "y": 120,
+        "wires": [
+            [
+                "15922a6cfa07c147"
+            ]
+        ]
+    },
+    {
+        "id": "b6d4a002e8bad972",
+        "type": "inject",
+        "z": "74dc6e2c6f10530c",
+        "name": "",
+        "repeat": "",
+        "once": false,
+        "payload": "",
+        "payloadType": "none",
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "d0f080ad5bf01ddb"
+            ]
+        ]
+    },
+    {
+        "id": "d0f080ad5bf01ddb",
+        "type": "function",
+        "z": "74dc6e2c6f10530c",
+        "name": "i2c bytes",
+        "func": "msg.payload = [0x6B, 0x00];\nreturn msg;",
+        "outputs": 1,
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "d9bb0a8f8e4f55e6"
+            ]
         ]
     }
 ]
