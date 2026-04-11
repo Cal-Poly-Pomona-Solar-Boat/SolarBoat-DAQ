@@ -35,7 +35,7 @@
         "id": "74dc6e2c6f10530c",
         "type": "tab",
         "label": "I2C (Positional Speed (6065) / ADC Chip (3008) )",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -2187,20 +2187,20 @@
         "name": "",
         "props": [
             {
-                "p": "payload",
-                "v": "14",
-                "vt": "str"
+                "p": "payload"
             },
             {
                 "p": "topic",
-                "v": "",
                 "vt": "str"
             }
         ],
         "repeat": "",
-        "once": false,
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "",
         "payload": "14",
-        "payloadType": "string",
+        "payloadType": "str",
         "x": 210,
         "y": 120,
         "wires": [
