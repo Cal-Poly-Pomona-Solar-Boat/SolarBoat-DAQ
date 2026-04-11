@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "e7fd52d4b19f431b",
+        "id": "78df372cbc55454b",
         "type": "tab",
-        "label": "BoatDashboard",
+        "label": "testBoatDashboardFinal",
         "disabled": true,
         "info": "",
         "env": []
@@ -20,14 +20,6 @@
         "type": "tab",
         "label": "InfluxDB_Database",
         "disabled": true,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "78df372cbc55454b",
-        "type": "tab",
-        "label": "testBoatDashboard",
-        "disabled": false,
         "info": "",
         "env": []
     },
@@ -43,7 +35,15 @@
         "id": "74dc6e2c6f10530c",
         "type": "tab",
         "label": "I2C (Positional Speed (6065) / ADC Chip (3008) )",
-        "disabled": true,
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e7fd52d4b19f431b",
+        "type": "tab",
+        "label": "BoatDashboard",
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -253,20 +253,6 @@
         "rejectUnauthorized": true
     },
     {
-        "id": "87c1c5311cc5382f",
-        "type": "ui-group",
-        "name": "Group 4",
-        "page": "ad7cef446f50d59b",
-        "width": 6,
-        "height": 1,
-        "order": 1,
-        "showTitle": true,
-        "className": "",
-        "visible": true,
-        "disabled": false,
-        "groupType": "default"
-    },
-    {
         "id": "ad7cef446f50d59b",
         "type": "ui-page",
         "name": "Page 3",
@@ -301,6 +287,20 @@
         "className": "",
         "visible": true,
         "disabled": "false"
+    },
+    {
+        "id": "87c1c5311cc5382f",
+        "type": "ui-group",
+        "name": "Group 4",
+        "page": "ad7cef446f50d59b",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default"
     },
     {
         "id": "361c8757b1843220",
@@ -394,2147 +394,6 @@
         "x": 530,
         "y": 200,
         "wires": [],
-        "l": true
-    },
-    {
-        "id": "4c7a0e9725e29039",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 440,
-        "wires": [
-            [
-                "f146932021093062"
-            ]
-        ]
-    },
-    {
-        "id": "d36866a6bea24079",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 140,
-        "wires": [
-            [
-                "8c89215fc1f13291"
-            ]
-        ]
-    },
-    {
-        "id": "8c89215fc1f13291",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 2",
-        "func": "// msg.payload is temperature in °C\nconst t = Number(msg.payload);\nmsg.payload = t;\n\n// pick your colors\nmsg.ui_update = msg.ui_update || {};\nmsg.ui_update.style = msg.ui_update.style || {};\n\n// red if >= 60, otherwise normal\nmsg.ui_update.style.color = (t >= 60) ? \"#ff0000\" : \"#00bcd4\";      // text/needle color\nmsg.ui_update.style[\"--gauge-fill\"] = (t >= 60) ? \"#ff0000\" : \"#00bcd4\"; // some widgets use CSS vars\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 140,
-        "wires": [
-            [
-                "5f6d54ffd707644c"
-            ]
-        ]
-    },
-    {
-        "id": "039ebca4fd189967",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 40,
-        "wires": [
-            [
-                "70622c4cb28e369e"
-            ]
-        ]
-    },
-    {
-        "id": "70622c4cb28e369e",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 7",
-        "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 380,
-        "y": 40,
-        "wires": [
-            [
-                "6dbea43d43f885cf"
-            ]
-        ]
-    },
-    {
-        "id": "6dbea43d43f885cf",
-        "type": "ui-gauge",
-        "z": "e7fd52d4b19f431b",
-        "name": "Rudder input",
-        "group": "90ebb2c809166208",
-        "order": 14,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 4,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Rudder input",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "units",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5c70d6",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": "-35",
-        "max": "35",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 590,
-        "y": 40,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "14bf5297eb990f76",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 8",
-        "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 100,
-        "wires": [
-            [
-                "f07ec534d04dada0"
-            ]
-        ]
-    },
-    {
-        "id": "f07ec534d04dada0",
-        "type": "ui-gauge",
-        "z": "e7fd52d4b19f431b",
-        "name": "Rudder postion",
-        "group": "90ebb2c809166208",
-        "order": 12,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 4,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Rudder position",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "units",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5c70d6",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": "-35",
-        "max": "35",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 580,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "5f6d54ffd707644c",
-        "type": "ui-text",
-        "z": "e7fd52d4b19f431b",
-        "group": "87c1c5311cc5382f",
-        "order": 5,
-        "width": 2,
-        "height": 0,
-        "name": "Battery1 Temp",
-        "label": "Battery1 Temp: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "20",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "06029afeb2effe06",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 560,
-        "wires": [
-            [
-                "64fe0cd479925a91"
-            ]
-        ]
-    },
-    {
-        "id": "64fe0cd479925a91",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 9",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 560,
-        "wires": [
-            [
-                "98761881329eb225"
-            ]
-        ]
-    },
-    {
-        "id": "36cfc97fb02ac743",
-        "type": "ui-text",
-        "z": "e7fd52d4b19f431b",
-        "group": "90ebb2c809166208",
-        "order": 8,
-        "width": 4,
-        "height": 1,
-        "name": "R Motor Temp:",
-        "label": "R Motor Temp: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 580,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "b469bc4a86342c08",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 600,
-        "wires": [
-            [
-                "32a2c00dbbf79a03"
-            ]
-        ]
-    },
-    {
-        "id": "32a2c00dbbf79a03",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 10",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1)  + \" °C\";\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 600,
-        "wires": [
-            [
-                "36cfc97fb02ac743"
-            ]
-        ]
-    },
-    {
-        "id": "7fb75a4e069cc289",
-        "type": "ui-text",
-        "z": "e7fd52d4b19f431b",
-        "group": "90ebb2c809166208",
-        "order": 13,
-        "width": 4,
-        "height": 1,
-        "name": "Motor L Power Draw",
-        "label": "Motor L Power: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "32137fa2bbe557ca",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 640,
-        "wires": [
-            [
-                "705e6a8f63abe61e"
-            ]
-        ]
-    },
-    {
-        "id": "705e6a8f63abe61e",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 11",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1) + \"W\";\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 640,
-        "wires": [
-            [
-                "7fb75a4e069cc289"
-            ]
-        ]
-    },
-    {
-        "id": "796b7483f8fa6879",
-        "type": "ui-text",
-        "z": "e7fd52d4b19f431b",
-        "group": "90ebb2c809166208",
-        "order": 11,
-        "width": 4,
-        "height": 1,
-        "name": "Motor R Power Draw",
-        "label": "Motor R Power: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "ada3195a3b4f91b6",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 680,
-        "wires": [
-            [
-                "29b36fa2482127e2"
-            ]
-        ]
-    },
-    {
-        "id": "29b36fa2482127e2",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 12",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1) + \"W\";\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 680,
-        "wires": [
-            [
-                "796b7483f8fa6879"
-            ]
-        ]
-    },
-    {
-        "id": "39f4265b128b13fd",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 720,
-        "wires": [
-            [
-                "b91be3f80e290cba"
-            ]
-        ]
-    },
-    {
-        "id": "b91be3f80e290cba",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 13",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1) + \" °C\"; // One decimal: 45.3\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 720,
-        "wires": [
-            [
-                "59f8cce187413bff"
-            ]
-        ]
-    },
-    {
-        "id": "9db8e560b1164b6d",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 180,
-        "wires": [
-            [
-                "2e5e249ca01377db"
-            ]
-        ]
-    },
-    {
-        "id": "2e5e249ca01377db",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 6",
-        "func": "const THRESH = 60;\n\nfunction randTemp() {\n  let t = 20 + Math.random() * 50;  // 20..70\n  return Math.round(t * 10) / 10;\n}\n\n// Create 6 temps\nconst temps = Array.from({ length: 6 }, randTemp);\n\n// -------- Output 1: UI update (NO payload!) --------\n// Note: when adjusting series settings, include ALL series each time. :contentReference[oaicite:2]{index=2}\nconst updateMsg = {\n  ui_update: {\n    chartOptions: {\n      series: [\n        { name: \"Normal\", type: \"bar\", stack: \"temps\", itemStyle: { color: \"#00bcd4\" } },\n        { name: \"Hot\", type: \"bar\", stack: \"temps\", itemStyle: { color: \"red\" } }\n      ]\n    }\n  }\n};\n\n// -------- Output 2: Data (Replace) --------\nconst payload = [];\n\nfor (let i = 0; i < 6; i++) {\n  const label = `Battery ${i + 1}`;\n  const t = temps[i];\n\n  payload.push({\n    series: \"Normal\",\n    property: label,\n    y: (t >= THRESH) ? null : t\n  });\n\n  payload.push({\n    series: \"Hot\",\n    property: label,\n    y: (t >= THRESH) ? t : null\n  });\n}\n\nconst dataMsg = {\n  action: \"replace\",\n  payload\n};\n\nreturn [updateMsg, dataMsg];",
-        "outputs": 2,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 180,
-        "wires": [
-            [
-                "da017cadd2d429c1"
-            ],
-            [
-                "da017cadd2d429c1"
-            ]
-        ]
-    },
-    {
-        "id": "8078c4f85a871d05",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 220,
-        "wires": [
-            [
-                "a4c35326401b475b"
-            ]
-        ]
-    },
-    {
-        "id": "a4c35326401b475b",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 14",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 220,
-        "wires": [
-            [
-                "e3786dfba068ac6e"
-            ]
-        ]
-    },
-    {
-        "id": "e3786dfba068ac6e",
-        "type": "ui-text",
-        "z": "e7fd52d4b19f431b",
-        "group": "87c1c5311cc5382f",
-        "order": 6,
-        "width": 2,
-        "height": 0,
-        "name": "Battery3 Temp",
-        "label": "Battery3 Temp: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "20",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 780,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "e82b31ae6b5d7b31",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 260,
-        "wires": [
-            [
-                "0cbc15a41e09b2d4"
-            ]
-        ]
-    },
-    {
-        "id": "0cbc15a41e09b2d4",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 15",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 260,
-        "wires": [
-            [
-                "9c6e152fe5fb64b0"
-            ]
-        ]
-    },
-    {
-        "id": "9c6e152fe5fb64b0",
-        "type": "ui-text",
-        "z": "e7fd52d4b19f431b",
-        "group": "87c1c5311cc5382f",
-        "order": 4,
-        "width": 2,
-        "height": 0,
-        "name": "Battery4 Temp",
-        "label": "Battery4 Temp: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "20",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "4490599be92431dd",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 300,
-        "wires": [
-            [
-                "6d45e211e859e945"
-            ]
-        ]
-    },
-    {
-        "id": "6d45e211e859e945",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 16",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 300,
-        "wires": [
-            [
-                "3b8566f4c25c752c"
-            ]
-        ]
-    },
-    {
-        "id": "3b8566f4c25c752c",
-        "type": "ui-text",
-        "z": "e7fd52d4b19f431b",
-        "group": "87c1c5311cc5382f",
-        "order": 7,
-        "width": 2,
-        "height": 0,
-        "name": "Battery5 Temp",
-        "label": "Battery5 Temp: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "20",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "3946537560236ea0",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 340,
-        "wires": [
-            [
-                "b725393698f379c2"
-            ]
-        ]
-    },
-    {
-        "id": "b725393698f379c2",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 3",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 340,
-        "wires": [
-            [
-                "02fc90c74c81f2d4"
-            ]
-        ]
-    },
-    {
-        "id": "02fc90c74c81f2d4",
-        "type": "ui-text",
-        "z": "e7fd52d4b19f431b",
-        "group": "87c1c5311cc5382f",
-        "order": 3,
-        "width": 2,
-        "height": 0,
-        "name": "Battery6 Temp",
-        "label": "Battery6 Temp: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "20",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "d55a2bd9a0b5613d",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 380,
-        "wires": [
-            [
-                "94b0ec5e94c576d8"
-            ]
-        ]
-    },
-    {
-        "id": "94b0ec5e94c576d8",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 4",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1) + \" °C\";\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 380,
-        "wires": [
-            [
-                "b7e3c4d3ce9fa99b"
-            ]
-        ]
-    },
-    {
-        "id": "b7e3c4d3ce9fa99b",
-        "type": "ui-text",
-        "z": "e7fd52d4b19f431b",
-        "group": "90ebb2c809166208",
-        "order": 6,
-        "width": 3,
-        "height": 1,
-        "name": "L Motor Temp",
-        "label": "L Motor Temp:",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "dd982bafcc910975",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 500,
-        "wires": [
-            [
-                "d6c4b02668d44ecb"
-            ]
-        ]
-    },
-    {
-        "id": "d6c4b02668d44ecb",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 1",
-        "func": "msg.payload = Math.floor(Math.random() * 51); // 0..50 mph\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 500,
-        "wires": [
-            [
-                "bfdc3d90719dfe6c"
-            ]
-        ]
-    },
-    {
-        "id": "da017cadd2d429c1",
-        "type": "ui-chart",
-        "z": "e7fd52d4b19f431b",
-        "group": "90ebb2c809166208",
-        "name": "Battery temperatures",
-        "label": "Battery Temperatures",
-        "order": 17,
-        "chartType": "bar",
-        "category": "series",
-        "categoryType": "property",
-        "xAxisLabel": "",
-        "xAxisProperty": "property",
-        "xAxisPropertyType": "property",
-        "xAxisType": "category",
-        "xAxisFormat": "",
-        "xAxisFormatType": "auto",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "",
-        "yAxisProperty": "y",
-        "yAxisPropertyType": "property",
-        "ymin": "0",
-        "ymax": "80",
-        "bins": 10,
-        "action": "replace",
-        "stackSeries": true,
-        "pointShape": "circle",
-        "pointRadius": 4,
-        "showLegend": true,
-        "removeOlder": 1,
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "",
-        "colors": [
-            "#0095ff",
-            "#ff0000",
-            "#ff7f0e",
-            "#2ca02c",
-            "#a347e1",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#666666"
-        ],
-        "textColorDefault": true,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "gridColorDefault": true,
-        "width": 5,
-        "height": "5",
-        "className": "",
-        "interpolation": "linear",
-        "x": 620,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "bfdc3d90719dfe6c",
-        "type": "ui-gauge-classic",
-        "z": "e7fd52d4b19f431b",
-        "name": "Motor L  Speed",
-        "group": "87c1c5311cc5382f",
-        "order": 1,
-        "width": "2",
-        "height": "2",
-        "min": 0,
-        "max": "160",
-        "sectors": [
-            {
-                "start": "0",
-                "color": "white"
-            },
-            {
-                "start": "100",
-                "color": "orange"
-            }
-        ],
-        "major_division": "10",
-        "minor_division": "5",
-        "value_decimal_places": 1,
-        "scale_decimal_places": 0,
-        "label": "",
-        "measurement": "L Speed",
-        "units": "mph",
-        "needles": [
-            {
-                "topic": "",
-                "color": "black",
-                "lengthPercent": "100"
-            }
-        ],
-        "hubcolor": "black",
-        "sweep_angle": "280",
-        "keepwidth": true,
-        "myclass": "",
-        "x": 580,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "98761881329eb225",
-        "type": "ui-gauge-classic",
-        "z": "e7fd52d4b19f431b",
-        "name": "Motor R  Speed",
-        "group": "87c1c5311cc5382f",
-        "order": 2,
-        "width": "0",
-        "height": "0",
-        "min": 0,
-        "max": "160",
-        "sectors": [
-            {
-                "start": "0",
-                "color": "white"
-            },
-            {
-                "start": "100",
-                "color": "orange"
-            }
-        ],
-        "major_division": "10",
-        "minor_division": "5",
-        "value_decimal_places": "0",
-        "scale_decimal_places": 0,
-        "label": "",
-        "measurement": "R speed",
-        "units": "mph",
-        "needles": [
-            {
-                "topic": "",
-                "color": "black",
-                "lengthPercent": "100"
-            }
-        ],
-        "hubcolor": "black",
-        "sweep_angle": "280",
-        "keepwidth": true,
-        "myclass": "",
-        "x": 580,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "2b1b9e5ba9626f78",
-        "type": "ui-gauge-classic",
-        "z": "e7fd52d4b19f431b",
-        "name": "RPM",
-        "group": "90ebb2c809166208",
-        "order": 9,
-        "width": 3,
-        "height": null,
-        "min": 0,
-        "max": "10",
-        "sectors": [
-            {
-                "start": "0",
-                "color": "white"
-            },
-            {
-                "start": "5.5",
-                "color": "orange"
-            },
-            {
-                "start": "6",
-                "color": "red"
-            }
-        ],
-        "major_division": "1",
-        "minor_division": "1",
-        "value_decimal_places": "1",
-        "scale_decimal_places": 0,
-        "label": "",
-        "measurement": "rpm",
-        "units": "x1000",
-        "needles": [
-            {
-                "topic": "",
-                "color": "black",
-                "lengthPercent": "100"
-            }
-        ],
-        "hubcolor": "black",
-        "sweep_angle": "180",
-        "keepwidth": true,
-        "myclass": "",
-        "x": 670,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "f146932021093062",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 5",
-        "func": "msg.payload = Math.floor(Math.random() * 11); // 0..50 mph\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 380,
-        "y": 440,
-        "wires": [
-            [
-                "2b1b9e5ba9626f78"
-            ]
-        ]
-    },
-    {
-        "id": "ddcc9002db136626",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 830,
-        "y": 320,
-        "wires": [
-            [
-                "749b3539d9f26d9b"
-            ]
-        ]
-    },
-    {
-        "id": "e24aa1d6060ff6ca",
-        "type": "ui-gauge-classic",
-        "z": "e7fd52d4b19f431b",
-        "name": "RPM",
-        "group": "90ebb2c809166208",
-        "order": 10,
-        "width": 3,
-        "height": null,
-        "min": 0,
-        "max": "10",
-        "sectors": [
-            {
-                "start": "0",
-                "color": "white"
-            },
-            {
-                "start": "5.5",
-                "color": "orange"
-            },
-            {
-                "start": "6",
-                "color": "red"
-            }
-        ],
-        "major_division": "1",
-        "minor_division": "1",
-        "value_decimal_places": "1",
-        "scale_decimal_places": 0,
-        "label": "",
-        "measurement": "rpm",
-        "units": "x1000",
-        "needles": [
-            {
-                "topic": "",
-                "color": "black",
-                "lengthPercent": "100"
-            }
-        ],
-        "hubcolor": "black",
-        "sweep_angle": "180",
-        "keepwidth": true,
-        "myclass": "",
-        "x": 1390,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "749b3539d9f26d9b",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 17",
-        "func": "let throttle = Math.floor(Math.random() * 101);\n\nmsg.payload = throttle;\n\nif (throttle < 30) {\n    msg.color = \"#22c55e\";   // green\n    msg.state = \"LOW\";\n} else if (throttle < 70) {\n    msg.color = \"#f59e0b\";   // amber\n    msg.state = \"CRUISE\";\n} else {\n    msg.color = \"#ef4444\";   // red\n    msg.state = \"HIGH\";\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1100,
-        "y": 320,
-        "wires": [
-            [
-                "e24aa1d6060ff6ca"
-            ]
-        ]
-    },
-    {
-        "id": "96975405d80911a2",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 850,
-        "y": 520,
-        "wires": [
-            [
-                "f9e3db9bda30b961"
-            ]
-        ]
-    },
-    {
-        "id": "036676c072c0d2e7",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 830,
-        "y": 420,
-        "wires": [
-            [
-                "cccdd895515375d2"
-            ]
-        ]
-    },
-    {
-        "id": "cccdd895515375d2",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 18",
-        "func": "// Random throttle value from 0 to 100\nlet throttle = Math.floor(Math.random() * 101);\n\n// Put value into msg.payload for the slider\nmsg.payload = throttle;\n\n// Optional: add a label/state for debugging or display\nif (throttle < 30) {\n    msg.throttleState = \"low\";\n} else if (throttle < 70) {\n    msg.throttleState = \"medium\";\n} else {\n    msg.throttleState = \"high\";\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1010,
-        "y": 420,
-        "wires": [
-            [
-                "fcf0af7547d28690"
-            ]
-        ]
-    },
-    {
-        "id": "f9e3db9bda30b961",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 19",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1030,
-        "y": 520,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "25a9872e8f3bd195",
-        "type": "ui-template",
-        "z": "e7fd52d4b19f431b",
-        "group": "90ebb2c809166208",
-        "page": "",
-        "ui": "",
-        "name": "Main Battery",
-        "order": 4,
-        "width": null,
-        "height": null,
-        "head": "",
-        "format": "<template>\n  <div class=\"battery-wrap\">\n    <div class=\"battery-title\">Main Battery %</div>\n\n    <div class=\"battery-shell\">\n      <svg viewBox=\"0 0 600 90\" class=\"battery-svg\" preserveAspectRatio=\"none\">\n        <defs>\n          <clipPath id=\"fillClip\">\n            <rect\n              x=\"6\"\n              y=\"22\"\n              :width=\"fillWidth\"\n              height=\"30\"\n              rx=\"4\"\n              ry=\"4\"\n            />\n          </clipPath>\n        </defs>\n\n        <!-- battery outline -->\n        <rect x=\"4\" y=\"20\" width=\"580\" height=\"34\" rx=\"4\" ry=\"4\" class=\"battery-outline\" />\n        <rect x=\"584\" y=\"29\" width=\"8\" height=\"16\" rx=\"2\" ry=\"2\" class=\"battery-outline\" />\n\n        <!-- solid fill clipped to current battery level -->\n        <g clip-path=\"url(#fillClip)\">\n          <!-- 0-25 -->\n          <rect x=\"6\" y=\"22\" width=\"144.5\" height=\"30\" fill=\"#d61f1f\"></rect>\n\n          <!-- 25-50 -->\n          <rect x=\"150.5\" y=\"22\" width=\"144.5\" height=\"30\" fill=\"#e3a12a\"></rect>\n\n          <!-- 50-100 -->\n          <rect x=\"295\" y=\"22\" width=\"289\" height=\"30\" fill=\"#1d8f73\"></rect>\n        </g>\n\n        <!-- thinner segment markers -->\n        <line x1=\"150.5\" y1=\"20\" x2=\"150.5\" y2=\"54\" class=\"sep\"></line>\n        <line x1=\"295\" y1=\"20\" x2=\"295\" y2=\"54\" class=\"sep\"></line>\n        <line x1=\"439.5\" y1=\"20\" x2=\"439.5\" y2=\"54\" class=\"sep\"></line>\n\n        <!-- bottom ticks -->\n        <line x1=\"6\" y1=\"58\" x2=\"6\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"150.5\" y1=\"58\" x2=\"150.5\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"295\" y1=\"58\" x2=\"295\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"439.5\" y1=\"58\" x2=\"439.5\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"584\" y1=\"58\" x2=\"584\" y2=\"70\" class=\"tick\"></line>\n\n        <!-- labels -->\n        <text x=\"6\" y=\"76\" class=\"label start\">0%</text>\n        <text x=\"150.5\" y=\"76\" class=\"label middle\">25%</text>\n        <text x=\"295\" y=\"76\" class=\"label middle\">50%</text>\n        <text x=\"439.5\" y=\"76\" class=\"label middle\">75%</text>\n        <text x=\"584\" y=\"76\" class=\"label end\">100%</text>\n      </svg>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      level: 0\n    }\n  },\n  computed: {\n    fillWidth() {\n      return 578 * (this.level / 100)\n    }\n  },\n  watch: {\n    msg: {\n      immediate: true,\n      handler() {\n        const v = Number(this.msg?.payload)\n        if (!Number.isNaN(v)) {\n          this.level = Math.max(0, Math.min(100, v))\n        }\n      }\n    }\n  }\n}\n</script>\n\n<style>\n.battery-wrap {\n  width: 100%;\n  padding: 2px 2px 0 2px;\n}\n\n.battery-title {\n  text-align: center;\n  font-size: 14px;\n  font-weight: 600;\n  margin-bottom: 2px;\n  color: var(--ff-text-color, #222);\n}\n\n.battery-shell {\n  width: 100%;\n}\n\n.battery-svg {\n  width: 100%;\n  height: 95px;\n  display: block;\n}\n\n.battery-outline {\n  fill: none;\n  stroke: #333;\n  stroke-width: 1.6;\n}\n\n.sep {\n  stroke: rgba(0,0,0,0.18);\n  stroke-width: 0.8;\n}\n\n.tick {\n  stroke: #333;\n  stroke-width: 1.4;\n}\n\n.label {\n  font-size: 10px;\n  fill: #222;\n  dominant-baseline: hanging;\n}\n\n.label.start {\n  text-anchor: start;\n}\n\n.label.middle {\n  text-anchor: middle;\n}\n\n.label.end {\n  text-anchor: end;\n}\n</style>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 530,
-        "y": 840,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "592c6f798aa004b2",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 840,
-        "wires": [
-            [
-                "9219fdfae9908a0a"
-            ]
-        ]
-    },
-    {
-        "id": "9219fdfae9908a0a",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 20",
-        "func": "msg.payload = 68;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 840,
-        "wires": [
-            [
-                "25a9872e8f3bd195"
-            ]
-        ]
-    },
-    {
-        "id": "4495c777d0f3b842",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 21",
-        "func": "msg.payload = 68;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 900,
-        "wires": [
-            [
-                "74748052a4613d83"
-            ]
-        ]
-    },
-    {
-        "id": "74748052a4613d83",
-        "type": "ui-template",
-        "z": "e7fd52d4b19f431b",
-        "group": "90ebb2c809166208",
-        "page": "",
-        "ui": "",
-        "name": "Aux Battery",
-        "order": 16,
-        "width": 6,
-        "height": "2",
-        "head": "",
-        "format": "<template>\n  <div class=\"battery-wrap\">\n    <div class=\"battery-title\"> Aux Battery %</div>\n\n    <div class=\"battery-shell\">\n      <svg viewBox=\"0 0 600 90\" class=\"battery-svg\" preserveAspectRatio=\"none\">\n        <defs>\n          <clipPath id=\"fillClip\">\n            <rect\n              x=\"6\"\n              y=\"22\"\n              :width=\"fillWidth\"\n              height=\"30\"\n              rx=\"4\"\n              ry=\"4\"\n            />\n          </clipPath>\n        </defs>\n\n        <!-- battery outline -->\n        <rect x=\"4\" y=\"20\" width=\"580\" height=\"34\" rx=\"4\" ry=\"4\" class=\"battery-outline\" />\n        <rect x=\"584\" y=\"29\" width=\"8\" height=\"16\" rx=\"2\" ry=\"2\" class=\"battery-outline\" />\n\n        <!-- solid fill clipped to current battery level -->\n        <g clip-path=\"url(#fillClip)\">\n          <!-- 0-25 -->\n          <rect x=\"6\" y=\"22\" width=\"144.5\" height=\"30\" fill=\"#d61f1f\"></rect>\n\n          <!-- 25-50 -->\n          <rect x=\"150.5\" y=\"22\" width=\"144.5\" height=\"30\" fill=\"#e3a12a\"></rect>\n\n          <!-- 50-100 -->\n          <rect x=\"295\" y=\"22\" width=\"289\" height=\"30\" fill=\"#1d8f73\"></rect>\n        </g>\n\n        <!-- thinner segment markers -->\n        <line x1=\"150.5\" y1=\"20\" x2=\"150.5\" y2=\"54\" class=\"sep\"></line>\n        <line x1=\"295\" y1=\"20\" x2=\"295\" y2=\"54\" class=\"sep\"></line>\n        <line x1=\"439.5\" y1=\"20\" x2=\"439.5\" y2=\"54\" class=\"sep\"></line>\n\n        <!-- bottom ticks -->\n        <line x1=\"6\" y1=\"58\" x2=\"6\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"150.5\" y1=\"58\" x2=\"150.5\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"295\" y1=\"58\" x2=\"295\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"439.5\" y1=\"58\" x2=\"439.5\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"584\" y1=\"58\" x2=\"584\" y2=\"70\" class=\"tick\"></line>\n\n        <!-- labels -->\n        <text x=\"6\" y=\"76\" class=\"label start\">0%</text>\n        <text x=\"150.5\" y=\"76\" class=\"label middle\">25%</text>\n        <text x=\"295\" y=\"76\" class=\"label middle\">50%</text>\n        <text x=\"439.5\" y=\"76\" class=\"label middle\">75%</text>\n        <text x=\"584\" y=\"76\" class=\"label end\">100%</text>\n      </svg>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      level: 0\n    }\n  },\n  computed: {\n    fillWidth() {\n      return 578 * (this.level / 100)\n    }\n  },\n  watch: {\n    msg: {\n      immediate: true,\n      handler() {\n        const v = Number(this.msg?.payload)\n        if (!Number.isNaN(v)) {\n          this.level = Math.max(0, Math.min(100, v))\n        }\n      }\n    }\n  }\n}\n</script>\n\n<style>\n.battery-wrap {\n  width: 100%;\n  padding: 2px 2px 0 2px;\n}\n\n.battery-title {\n  text-align: center;\n  font-size: 14px;\n  font-weight: 600;\n  margin-bottom: 2px;\n  color: var(--ff-text-color, #222);\n}\n\n.battery-shell {\n  width: 100%;\n}\n\n.battery-svg {\n  width: 100%;\n  height: 95px;\n  display: block;\n}\n\n.battery-outline {\n  fill: none;\n  stroke: #333;\n  stroke-width: 1.6;\n}\n\n.sep {\n  stroke: rgba(0,0,0,0.18);\n  stroke-width: 0.8;\n}\n\n.tick {\n  stroke: #333;\n  stroke-width: 1.4;\n}\n\n.label {\n  font-size: 10px;\n  fill: #222;\n  dominant-baseline: hanging;\n}\n\n.label.start {\n  text-anchor: start;\n}\n\n.label.middle {\n  text-anchor: middle;\n}\n\n.label.end {\n  text-anchor: end;\n}\n</style>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 530,
-        "y": 900,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1350858ea9ce371d",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 900,
-        "wires": [
-            [
-                "4495c777d0f3b842"
-            ]
-        ]
-    },
-    {
-        "id": "456316d3c814df56",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 170,
-        "y": 100,
-        "wires": [
-            [
-                "14bf5297eb990f76"
-            ]
-        ]
-    },
-    {
-        "id": "8ef5ea9966129be3",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 22",
-        "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1110,
-        "y": 120,
-        "wires": [
-            [
-                "133b79088a722ed0"
-            ]
-        ]
-    },
-    {
-        "id": "133b79088a722ed0",
-        "type": "ui-gauge",
-        "z": "e7fd52d4b19f431b",
-        "name": "Rudder postion",
-        "group": "90ebb2c809166208",
-        "order": 15,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 4,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Rudder position",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "units",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5c70d6",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": "-35",
-        "max": "35",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 1320,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "535c442fcc901c3a",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 890,
-        "y": 120,
-        "wires": [
-            [
-                "8ef5ea9966129be3"
-            ]
-        ]
-    },
-    {
-        "id": "93467be891543aab",
-        "type": "ui-template",
-        "z": "e7fd52d4b19f431b",
-        "group": "90ebb2c809166208",
-        "page": "",
-        "ui": "",
-        "name": "Boat att",
-        "order": 7,
-        "width": "3",
-        "height": 2,
-        "head": "",
-        "format": "<template>\n  <div class=\"atti-wrap\">\n    <div class=\"atti-title\">Boat Attitude</div>\n\n    <div class=\"atti-card\">\n      <svg viewBox=\"0 0 220 220\" class=\"atti-svg\">\n        <defs>\n          <clipPath id=\"clipCircle\">\n            <circle cx=\"110\" cy=\"110\" r=\"88\" />\n          </clipPath>\n        </defs>\n\n        <!-- outer bezel -->\n        <circle cx=\"110\" cy=\"110\" r=\"96\" class=\"bezel\" />\n        <circle cx=\"110\" cy=\"110\" r=\"88\" class=\"mask-ring\" />\n\n        <!-- moving horizon -->\n        <g clip-path=\"url(#clipCircle)\">\n          <g :transform=\"`translate(110 110) rotate(${roll}) translate(0 ${pitchOffset})`\">\n            <!-- sky -->\n            <rect x=\"-160\" y=\"-160\" width=\"320\" height=\"160\" class=\"sky\" />\n            <!-- water -->\n            <rect x=\"-160\" y=\"0\" width=\"320\" height=\"160\" class=\"water\" />\n            <!-- horizon line -->\n            <line x1=\"-170\" y1=\"0\" x2=\"170\" y2=\"0\" class=\"horizon-line\" />\n\n            <!-- pitch reference lines -->\n            <g class=\"pitch-lines\">\n              <line x1=\"-24\" y1=\"-60\" x2=\"24\" y2=\"-60\" />\n              <line x1=\"-16\" y1=\"-30\" x2=\"16\" y2=\"-30\" />\n              <line x1=\"-24\" y1=\"60\" x2=\"24\" y2=\"60\" />\n              <line x1=\"-16\" y1=\"30\" x2=\"16\" y2=\"30\" />\n            </g>\n          </g>\n        </g>\n\n        <!-- fixed bank marks -->\n        <g transform=\"translate(110 110)\">\n          <line x1=\"0\" y1=\"-82\" x2=\"0\" y2=\"-72\" class=\"bank-mark\" />\n          <line x1=\"-41\" y1=\"-71\" x2=\"-36\" y2=\"-63\" class=\"bank-mark\" />\n          <line x1=\"41\" y1=\"-71\" x2=\"36\" y2=\"-63\" class=\"bank-mark\" />\n          <line x1=\"-70\" y1=\"-41\" x2=\"-63\" y2=\"-36\" class=\"bank-mark\" />\n          <line x1=\"70\" y1=\"-41\" x2=\"63\" y2=\"-36\" class=\"bank-mark\" />\n        </g>\n\n        <!-- fixed boat marker -->\n        <g transform=\"translate(110 110)\">\n          <line x1=\"-42\" y1=\"0\" x2=\"-10\" y2=\"0\" class=\"boat-mark\" />\n          <line x1=\"42\" y1=\"0\" x2=\"10\" y2=\"0\" class=\"boat-mark\" />\n          <polygon points=\"0,-6 8,0 0,6 -8,0\" class=\"boat-center\" />\n        </g>\n      </svg>\n\n      <div class=\"atti-readout\">\n        <div>Roll: {{ roll.toFixed(1) }}°</div>\n        <div>Pitch: {{ pitch.toFixed(1) }}°</div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      roll: 0,\n      pitch: 0\n    }\n  },\n  computed: {\n    pitchOffset() {\n      // pixels per degree, clamp so it stays reasonable\n      const p = Math.max(-30, Math.min(30, this.pitch))\n      return p * 2.0\n    }\n  },\n  watch: {\n    msg: {\n      immediate: true,\n      handler() {\n        const src = this.msg?.payload ?? this.msg ?? {}\n        const roll = Number(src.roll)\n        const pitch = Number(src.pitch)\n\n        if (!Number.isNaN(roll)) {\n          this.roll = Math.max(-180, Math.min(180, roll))\n        }\n\n        if (!Number.isNaN(pitch)) {\n          this.pitch = Math.max(-90, Math.min(90, pitch))\n        }\n      }\n    }\n  }\n}\n</script>\n\n<style>\n.atti-wrap {\n  width: 100%;\n  padding: 4px;\n}\n\n.atti-title {\n  text-align: center;\n  font-size: 14px;\n  font-weight: 600;\n  margin-bottom: 6px;\n  color: var(--ff-text-color, #222);\n}\n\n.atti-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.atti-svg {\n  width: 220px;\n  height: 220px;\n  display: block;\n}\n\n.bezel {\n  fill: #1f1f1f;\n  stroke: #333;\n  stroke-width: 2;\n}\n\n.mask-ring {\n  fill: #101010;\n}\n\n.sky {\n  fill: #7ec8ff;\n}\n\n.water {\n  fill: #1d8f73;\n}\n\n.horizon-line {\n  stroke: #ffffff;\n  stroke-width: 2.5;\n}\n\n.pitch-lines line {\n  stroke: rgba(255,255,255,0.85);\n  stroke-width: 2;\n}\n\n.bank-mark {\n  stroke: #f3f3f3;\n  stroke-width: 2;\n  stroke-linecap: round;\n}\n\n.boat-mark {\n  stroke: #ffd54f;\n  stroke-width: 3;\n  stroke-linecap: round;\n}\n\n.boat-center {\n  fill: #ffd54f;\n}\n\n.atti-readout {\n  margin-top: 6px;\n  font-size: 12px;\n  text-align: center;\n  color: var(--ff-text-color, #222);\n}\n</style>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 1620,
-        "y": 200,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8a5e7f9279792038",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 23",
-        "func": "// Generate smooth-ish random motion (not jumpy)\n\n// store previous values\nlet roll = context.get(\"roll\") || 0;\nlet pitch = context.get(\"pitch\") || 0;\n\n// small random changes (like real boat movement)\nroll += (Math.random() - 0.5) * 4;   // ±2 deg change\npitch += (Math.random() - 0.5) * 2;  // ±1 deg change\n\n// clamp values to realistic boat limits\nroll = Math.max(-45, Math.min(45, roll));\npitch = Math.max(-20, Math.min(20, pitch));\n\n// save back to context\ncontext.set(\"roll\", roll);\ncontext.set(\"pitch\", pitch);\n\n// send to dashboard\nmsg.payload = {\n    roll: roll,\n    pitch: pitch\n};\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1430,
-        "y": 200,
-        "wires": [
-            [
-                "93467be891543aab"
-            ]
-        ]
-    },
-    {
-        "id": "e985341d0dc33556",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 1190,
-        "y": 200,
-        "wires": [
-            [
-                "8a5e7f9279792038"
-            ]
-        ]
-    },
-    {
-        "id": "fcf0af7547d28690",
-        "type": "ui-template",
-        "z": "e7fd52d4b19f431b",
-        "group": "90ebb2c809166208",
-        "page": "",
-        "ui": "",
-        "name": "Throttle",
-        "order": 3,
-        "width": null,
-        "height": null,
-        "head": "",
-        "format": "<template>\n  <div style=\"padding: 16px; font-family: Arial, sans-serif;\">\n    <div style=\"font-size: 20px; font-weight: bold; margin-bottom: 10px;\">\n      Throttle: {{ value }}%\n    </div>\n\n    <div style=\"margin-bottom: 10px; font-size: 16px;\">\n      Status:\n      <span :style=\"{ color: color, fontWeight: 'bold' }\">\n        {{ state }}\n      </span>\n    </div>\n\n    <div style=\"width: 100%; height: 28px; background: #1f2937; border-radius: 14px; overflow: hidden; border: 1px solid #444;\">\n      <div\n        :style=\"{\n          width: value + '%',\n          height: '100%',\n          background: color,\n          transition: 'width 0.3s ease, background 0.3s ease'\n        }\"\n      ></div>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      value: 0,\n      color: '#22c55e',\n      state: 'LOW'\n    }\n  },\n  watch: {\n    msg: {\n      immediate: true,\n      handler(msg) {\n        if (!msg) return\n\n        const v = Number(msg.payload ?? 0)\n        this.value = Math.max(0, Math.min(100, v))\n\n        if (this.value < 30) {\n          this.color = '#22c55e'\n          this.state = 'LOW'\n        } else if (this.value < 70) {\n          this.color = '#f59e0b'\n          this.state = 'CRUISE'\n        } else {\n          this.color = '#ef4444'\n          this.state = 'HIGH'\n        }\n      }\n    }\n  }\n}\n</script>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 1200,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "59f8cce187413bff",
-        "type": "ui-text",
-        "z": "e7fd52d4b19f431b",
-        "group": "90ebb2c809166208",
-        "order": 18,
-        "width": 4,
-        "height": null,
-        "name": "Avg Panel Temp",
-        "label": "Avg Panel Temp:",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 580,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "a0480b26c4639c19",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 780,
-        "wires": [
-            [
-                "dc3e2759451be4e3"
-            ]
-        ]
-    },
-    {
-        "id": "dc3e2759451be4e3",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 24",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1) + \" W\"; // One decimal: 45.3\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 780,
-        "wires": [
-            [
-                "11fd1b10c3a46ab3"
-            ]
-        ]
-    },
-    {
-        "id": "11fd1b10c3a46ab3",
-        "type": "ui-text",
-        "z": "e7fd52d4b19f431b",
-        "group": "90ebb2c809166208",
-        "order": 19,
-        "width": 4,
-        "height": 1,
-        "name": "System Power Draw",
-        "label": "System Power Draw:",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "38a673b9b0245acf",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 25",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1) + \" W\"; // One decimal: 45.3\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 750,
-        "y": 900,
-        "wires": [
-            [
-                "782f23d838f2481a"
-            ]
-        ]
-    },
-    {
-        "id": "782f23d838f2481a",
-        "type": "ui-text",
-        "z": "e7fd52d4b19f431b",
-        "group": "90ebb2c809166208",
-        "order": 20,
-        "width": 4,
-        "height": null,
-        "name": "System Power Gen",
-        "label": "System Power Gen: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": true,
-        "font": "",
-        "fontSize": "25",
-        "color": "#000000",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 1000,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "31b9e75205d2a5e1",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 690,
-        "y": 840,
-        "wires": [
-            [
-                "38a673b9b0245acf"
-            ]
-        ]
-    },
-    {
-        "id": "ecbda806f21443e0",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 190,
-        "y": 1020,
-        "wires": [
-            [
-                "7689b035f4bbe587"
-            ]
-        ]
-    },
-    {
-        "id": "7689b035f4bbe587",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 26",
-        "func": "// Get start time from flow context\nlet startTime = flow.get(\"startTime\");\n\n// If no start time, initialize it\nif (!startTime) {\n    startTime = Date.now();\n    flow.set(\"startTime\", startTime);\n}\n\n// Calculate elapsed time\nlet elapsedMs = Date.now() - startTime;\n\n// Convert to minutes + hours\nlet totalMinutes = Math.floor(elapsedMs / 60000);\nlet hours = Math.floor(totalMinutes / 60);\nlet minutes = totalMinutes % 60;\n\n// Format output\nmsg.payload = `${hours} hr ${minutes} min`;\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "\nif (msg.payload === \"start\") {\n    flow.set(\"startTime\", Date.now());\n}",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 1020,
-        "wires": [
-            [
-                "e3096d3bc1c77d81"
-            ]
-        ]
-    },
-    {
-        "id": "e3096d3bc1c77d81",
-        "type": "ui-text",
-        "z": "e7fd52d4b19f431b",
-        "group": "90ebb2c809166208",
-        "order": 2,
-        "width": "3",
-        "height": "1",
-        "name": "Runtime",
-        "label": "Runtime:",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 600,
-        "y": 1020,
-        "wires": []
-    },
-    {
-        "id": "1354efb4a35fca0a",
-        "type": "ui_thermostat",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "ambientTemperature": 0,
-        "targetTemperature": 0,
-        "hvacState": "off",
-        "hasLeaf": false,
-        "away": false,
-        "minValue": 10,
-        "maxValue": 30,
-        "diameter": 400,
-        "numTicks": 200,
-        "x": 1210,
-        "y": 520,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "fb5910051ef062b0",
-        "type": "Stackhero-InfluxDB-v2-write",
-        "z": "a2ab62117e01f9b3",
-        "server": "9afdf362c7955a7b",
-        "name": "",
-        "x": 670,
-        "y": 60,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9645dfae08d24aef",
-        "type": "function",
-        "z": "a2ab62117e01f9b3",
-        "name": "PrepCanForInflux",
-        "func": "// ============================================================\n// InfluxDB Mapper — Prep CAN data for Stackhero\n// Matches updated CAN decoder signal names\n//\n// Per-signal DB write rate limits (independent of CAN TX rate):\n//   steering              → 20 Hz  (50ms)\n//   stepper_FeedbackLeft  → 10 Hz  (100ms)\n//   stepper_FeedbackRight → 10 Hz  (100ms)\n//   throttle_Input        → 10 Hz  (100ms)\n//   motor_RpmLeft         → 10 Hz  (100ms)\n//   motor_RpmRight        → 10 Hz  (100ms)\n//   motor_VibrationLeft   → 10 Hz  (100ms)\n//   motor_VibrationRight  → 10 Hz  (100ms)\n// ============================================================\n\nconst decoded = msg.payload;\n\n// Don't write unknown frames to the DB\nif (decoded.signal === \"unknown\") {\n    return null;\n}\n\n// --- Per-signal minimum interval between DB writes (ms) ---\nconst WRITE_INTERVAL_MS = {\n    steering:               50,   // 20 Hz\n    stepper_FeedbackLeft:   100,  // 10 Hz\n    stepper_FeedbackRight:  100,  // 10 Hz\n    throttle_Input:         100,  // 10 Hz\n    motor_RpmLeft:          100,  // 10 Hz\n    motor_RpmRight:         100,  // 10 Hz\n    motor_VibrationLeft:    100,  // 10 Hz\n    motor_VibrationRight:   100,  // 10 Hz\n};\n\n// --- Throttle check using node context to persist last-write timestamps ---\nconst now      = Date.now();\nconst lastKey  = \"lastWrite_\" + decoded.signal;\nconst last     = context.get(lastKey) || 0;\nconst interval = WRITE_INTERVAL_MS[decoded.signal] ?? 100;\n\nif (now - last < interval) {\n    return null;\n}\ncontext.set(lastKey, now);\n\n// 1. Define the measurement name\nconst measurementName = \"can_sensor_data\";\n\n// 2. Prepare fields (the numerical or boolean values to graph)\nlet fields = {};\n\nif (decoded.degrees !== undefined) {\n    fields.value = decoded.degrees;\n} else if (decoded.rpm !== undefined) {\n    fields.value = decoded.rpm;\n} else if (decoded.voltage !== undefined) {\n    fields.value = decoded.voltage;\n} else if (decoded.is_unsafe !== undefined) {\n    // Store as integer 0/1 only — InfluxDB mean() does not support booleans\n    fields.value = decoded.is_unsafe ? 1 : 0;\n}\n\n// 3. Construct the Stackhero-formatted payload\nmsg.payload = {\n    bucket: \"SolarBoatData2025-2026\",\n    precision: \"ms\",\n    data: {\n        measurement: measurementName,\n        tags: {\n            signal: decoded.signal,  // e.g. \"motor_VibrationLeft\"\n            can_id: decoded.frame    // e.g. \"0x480\"\n        },\n        fields: fields,\n        timestamp: now\n    }\n};\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 60,
-        "wires": [
-            [
-                "fb5910051ef062b0",
-                "63215c696ff6789e"
-            ]
-        ]
-    },
-    {
-        "id": "63215c696ff6789e",
-        "type": "debug",
-        "z": "a2ab62117e01f9b3",
-        "name": "debug 3",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "92efdc59d8c23544",
-        "type": "link in",
-        "z": "a2ab62117e01f9b3",
-        "name": "influxLINK-IN",
-        "links": [
-            "127d4be97d6951c7"
-        ],
-        "x": 190,
-        "y": 60,
-        "wires": [
-            [
-                "9645dfae08d24aef"
-            ]
-        ],
         "l": true
     },
     {
@@ -4109,6 +1968,73 @@
         ]
     },
     {
+        "id": "fb5910051ef062b0",
+        "type": "Stackhero-InfluxDB-v2-write",
+        "z": "a2ab62117e01f9b3",
+        "server": "9afdf362c7955a7b",
+        "name": "",
+        "x": 670,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9645dfae08d24aef",
+        "type": "function",
+        "z": "a2ab62117e01f9b3",
+        "name": "PrepCanForInflux",
+        "func": "// ============================================================\n// InfluxDB Mapper — Prep CAN data for Stackhero\n// Matches updated CAN decoder signal names\n//\n// Per-signal DB write rate limits (independent of CAN TX rate):\n//   steering              → 20 Hz  (50ms)\n//   stepper_FeedbackLeft  → 10 Hz  (100ms)\n//   stepper_FeedbackRight → 10 Hz  (100ms)\n//   throttle_Input        → 10 Hz  (100ms)\n//   motor_RpmLeft         → 10 Hz  (100ms)\n//   motor_RpmRight        → 10 Hz  (100ms)\n//   motor_VibrationLeft   → 10 Hz  (100ms)\n//   motor_VibrationRight  → 10 Hz  (100ms)\n// ============================================================\n\nconst decoded = msg.payload;\n\n// Don't write unknown frames to the DB\nif (decoded.signal === \"unknown\") {\n    return null;\n}\n\n// --- Per-signal minimum interval between DB writes (ms) ---\nconst WRITE_INTERVAL_MS = {\n    steering:               50,   // 20 Hz\n    stepper_FeedbackLeft:   100,  // 10 Hz\n    stepper_FeedbackRight:  100,  // 10 Hz\n    throttle_Input:         100,  // 10 Hz\n    motor_RpmLeft:          100,  // 10 Hz\n    motor_RpmRight:         100,  // 10 Hz\n    motor_VibrationLeft:    100,  // 10 Hz\n    motor_VibrationRight:   100,  // 10 Hz\n};\n\n// --- Throttle check using node context to persist last-write timestamps ---\nconst now      = Date.now();\nconst lastKey  = \"lastWrite_\" + decoded.signal;\nconst last     = context.get(lastKey) || 0;\nconst interval = WRITE_INTERVAL_MS[decoded.signal] ?? 100;\n\nif (now - last < interval) {\n    return null;\n}\ncontext.set(lastKey, now);\n\n// 1. Define the measurement name\nconst measurementName = \"can_sensor_data\";\n\n// 2. Prepare fields (the numerical or boolean values to graph)\nlet fields = {};\n\nif (decoded.degrees !== undefined) {\n    fields.value = decoded.degrees;\n} else if (decoded.rpm !== undefined) {\n    fields.value = decoded.rpm;\n} else if (decoded.voltage !== undefined) {\n    fields.value = decoded.voltage;\n} else if (decoded.is_unsafe !== undefined) {\n    // Store as integer 0/1 only — InfluxDB mean() does not support booleans\n    fields.value = decoded.is_unsafe ? 1 : 0;\n}\n\n// 3. Construct the Stackhero-formatted payload\nmsg.payload = {\n    bucket: \"SolarBoatData2025-2026\",\n    precision: \"ms\",\n    data: {\n        measurement: measurementName,\n        tags: {\n            signal: decoded.signal,  // e.g. \"motor_VibrationLeft\"\n            can_id: decoded.frame    // e.g. \"0x480\"\n        },\n        fields: fields,\n        timestamp: now\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 60,
+        "wires": [
+            [
+                "fb5910051ef062b0",
+                "63215c696ff6789e"
+            ]
+        ]
+    },
+    {
+        "id": "63215c696ff6789e",
+        "type": "debug",
+        "z": "a2ab62117e01f9b3",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "92efdc59d8c23544",
+        "type": "link in",
+        "z": "a2ab62117e01f9b3",
+        "name": "influxLINK-IN",
+        "links": [
+            "127d4be97d6951c7"
+        ],
+        "x": 190,
+        "y": 60,
+        "wires": [
+            [
+                "9645dfae08d24aef"
+            ]
+        ],
+        "l": true
+    },
+    {
         "id": "68c540f1a29aaed8",
         "type": "Stackhero-InfluxDB-v2-write",
         "z": "9a918d2fcc176b74",
@@ -4210,6 +2136,7 @@
         "z": "74dc6e2c6f10530c",
         "name": "Wake MPU6050",
         "address": 104,
+        "payloadType": "msg",
         "x": 560,
         "y": 180,
         "wires": [
@@ -4223,6 +2150,11 @@
         "name": "process i2c",
         "func": "var data = msg.payload;\nvar int16 = function(high, low) {\n  var result = (high << 8) | low;\n  return result >> 15 ? ((result ^ 0xFFFF) + 1) * -1 : result;\n};\nmsg.payload = {\n    accelerometer : {\n        x: int16(data[0], data[1]),\n        y: int16(data[2], data[3]),\n        z: int16(data[4], data[5])\n    },\n    temperature : int16(data[6], data[7]),\n    gyro : {\n        x: int16(data[8], data[9]),\n        y: int16(data[10], data[11]),\n        z: int16(data[12], data[13])\n    }\n};\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 570,
         "y": 120,
         "wires": [
@@ -4237,7 +2169,10 @@
         "z": "74dc6e2c6f10530c",
         "name": "",
         "active": true,
+        "tosidebar": true,
         "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
         "x": 770,
         "y": 120,
         "wires": []
@@ -4247,6 +2182,18 @@
         "type": "inject",
         "z": "74dc6e2c6f10530c",
         "name": "",
+        "props": [
+            {
+                "p": "payload",
+                "v": "14",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
         "repeat": "",
         "once": false,
         "payload": "14",
@@ -4264,6 +2211,18 @@
         "type": "inject",
         "z": "74dc6e2c6f10530c",
         "name": "",
+        "props": [
+            {
+                "p": "payload",
+                "v": "",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
         "repeat": "",
         "once": false,
         "payload": "",
@@ -4289,6 +2248,2082 @@
             [
                 "d9bb0a8f8e4f55e6"
             ]
+        ]
+    },
+    {
+        "id": "4c7a0e9725e29039",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 440,
+        "wires": [
+            [
+                "f146932021093062"
+            ]
+        ]
+    },
+    {
+        "id": "d36866a6bea24079",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "8c89215fc1f13291"
+            ]
+        ]
+    },
+    {
+        "id": "8c89215fc1f13291",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 2",
+        "func": "// msg.payload is temperature in °C\nconst t = Number(msg.payload);\nmsg.payload = t;\n\n// pick your colors\nmsg.ui_update = msg.ui_update || {};\nmsg.ui_update.style = msg.ui_update.style || {};\n\n// red if >= 60, otherwise normal\nmsg.ui_update.style.color = (t >= 60) ? \"#ff0000\" : \"#00bcd4\";      // text/needle color\nmsg.ui_update.style[\"--gauge-fill\"] = (t >= 60) ? \"#ff0000\" : \"#00bcd4\"; // some widgets use CSS vars\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 140,
+        "wires": [
+            [
+                "5f6d54ffd707644c"
+            ]
+        ]
+    },
+    {
+        "id": "039ebca4fd189967",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 40,
+        "wires": [
+            [
+                "70622c4cb28e369e"
+            ]
+        ]
+    },
+    {
+        "id": "70622c4cb28e369e",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 7",
+        "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 40,
+        "wires": [
+            [
+                "6dbea43d43f885cf"
+            ]
+        ]
+    },
+    {
+        "id": "6dbea43d43f885cf",
+        "type": "ui-gauge",
+        "z": "e7fd52d4b19f431b",
+        "name": "Rudder input",
+        "group": "90ebb2c809166208",
+        "order": 14,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 4,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Rudder input",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5c70d6",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "-35",
+        "max": "35",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 590,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "14bf5297eb990f76",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 8",
+        "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "f07ec534d04dada0"
+            ]
+        ]
+    },
+    {
+        "id": "f07ec534d04dada0",
+        "type": "ui-gauge",
+        "z": "e7fd52d4b19f431b",
+        "name": "Rudder postion",
+        "group": "90ebb2c809166208",
+        "order": 12,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 4,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Rudder position",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5c70d6",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "-35",
+        "max": "35",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 580,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5f6d54ffd707644c",
+        "type": "ui-text",
+        "z": "e7fd52d4b19f431b",
+        "group": "87c1c5311cc5382f",
+        "order": 5,
+        "width": 2,
+        "height": 0,
+        "name": "Battery1 Temp",
+        "label": "Battery1 Temp: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "06029afeb2effe06",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 560,
+        "wires": [
+            [
+                "64fe0cd479925a91"
+            ]
+        ]
+    },
+    {
+        "id": "64fe0cd479925a91",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 9",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 560,
+        "wires": [
+            [
+                "98761881329eb225"
+            ]
+        ]
+    },
+    {
+        "id": "36cfc97fb02ac743",
+        "type": "ui-text",
+        "z": "e7fd52d4b19f431b",
+        "group": "90ebb2c809166208",
+        "order": 8,
+        "width": 4,
+        "height": 1,
+        "name": "R Motor Temp:",
+        "label": "R Motor Temp: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 580,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b469bc4a86342c08",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 600,
+        "wires": [
+            [
+                "32a2c00dbbf79a03"
+            ]
+        ]
+    },
+    {
+        "id": "32a2c00dbbf79a03",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 10",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1)  + \" °C\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 600,
+        "wires": [
+            [
+                "36cfc97fb02ac743"
+            ]
+        ]
+    },
+    {
+        "id": "7fb75a4e069cc289",
+        "type": "ui-text",
+        "z": "e7fd52d4b19f431b",
+        "group": "90ebb2c809166208",
+        "order": 13,
+        "width": 4,
+        "height": 1,
+        "name": "Motor L Power Draw",
+        "label": "Motor L Power: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "32137fa2bbe557ca",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 640,
+        "wires": [
+            [
+                "705e6a8f63abe61e"
+            ]
+        ]
+    },
+    {
+        "id": "705e6a8f63abe61e",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 11",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1) + \"W\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 640,
+        "wires": [
+            [
+                "7fb75a4e069cc289"
+            ]
+        ]
+    },
+    {
+        "id": "796b7483f8fa6879",
+        "type": "ui-text",
+        "z": "e7fd52d4b19f431b",
+        "group": "90ebb2c809166208",
+        "order": 11,
+        "width": 4,
+        "height": 1,
+        "name": "Motor R Power Draw",
+        "label": "Motor R Power: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "ada3195a3b4f91b6",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 680,
+        "wires": [
+            [
+                "29b36fa2482127e2"
+            ]
+        ]
+    },
+    {
+        "id": "29b36fa2482127e2",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 12",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1) + \"W\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 680,
+        "wires": [
+            [
+                "796b7483f8fa6879"
+            ]
+        ]
+    },
+    {
+        "id": "39f4265b128b13fd",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 720,
+        "wires": [
+            [
+                "b91be3f80e290cba"
+            ]
+        ]
+    },
+    {
+        "id": "b91be3f80e290cba",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 13",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1) + \" °C\"; // One decimal: 45.3\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 720,
+        "wires": [
+            [
+                "59f8cce187413bff"
+            ]
+        ]
+    },
+    {
+        "id": "9db8e560b1164b6d",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "2e5e249ca01377db"
+            ]
+        ]
+    },
+    {
+        "id": "2e5e249ca01377db",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 6",
+        "func": "const THRESH = 60;\n\nfunction randTemp() {\n  let t = 20 + Math.random() * 50;  // 20..70\n  return Math.round(t * 10) / 10;\n}\n\n// Create 6 temps\nconst temps = Array.from({ length: 6 }, randTemp);\n\n// -------- Output 1: UI update (NO payload!) --------\n// Note: when adjusting series settings, include ALL series each time. :contentReference[oaicite:2]{index=2}\nconst updateMsg = {\n  ui_update: {\n    chartOptions: {\n      series: [\n        { name: \"Normal\", type: \"bar\", stack: \"temps\", itemStyle: { color: \"#00bcd4\" } },\n        { name: \"Hot\", type: \"bar\", stack: \"temps\", itemStyle: { color: \"red\" } }\n      ]\n    }\n  }\n};\n\n// -------- Output 2: Data (Replace) --------\nconst payload = [];\n\nfor (let i = 0; i < 6; i++) {\n  const label = `Battery ${i + 1}`;\n  const t = temps[i];\n\n  payload.push({\n    series: \"Normal\",\n    property: label,\n    y: (t >= THRESH) ? null : t\n  });\n\n  payload.push({\n    series: \"Hot\",\n    property: label,\n    y: (t >= THRESH) ? t : null\n  });\n}\n\nconst dataMsg = {\n  action: \"replace\",\n  payload\n};\n\nreturn [updateMsg, dataMsg];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 180,
+        "wires": [
+            [
+                "da017cadd2d429c1"
+            ],
+            [
+                "da017cadd2d429c1"
+            ]
+        ]
+    },
+    {
+        "id": "8078c4f85a871d05",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "a4c35326401b475b"
+            ]
+        ]
+    },
+    {
+        "id": "a4c35326401b475b",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 14",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "e3786dfba068ac6e"
+            ]
+        ]
+    },
+    {
+        "id": "e3786dfba068ac6e",
+        "type": "ui-text",
+        "z": "e7fd52d4b19f431b",
+        "group": "87c1c5311cc5382f",
+        "order": 6,
+        "width": 2,
+        "height": 0,
+        "name": "Battery3 Temp",
+        "label": "Battery3 Temp: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 780,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e82b31ae6b5d7b31",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "0cbc15a41e09b2d4"
+            ]
+        ]
+    },
+    {
+        "id": "0cbc15a41e09b2d4",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 15",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 260,
+        "wires": [
+            [
+                "9c6e152fe5fb64b0"
+            ]
+        ]
+    },
+    {
+        "id": "9c6e152fe5fb64b0",
+        "type": "ui-text",
+        "z": "e7fd52d4b19f431b",
+        "group": "87c1c5311cc5382f",
+        "order": 4,
+        "width": 2,
+        "height": 0,
+        "name": "Battery4 Temp",
+        "label": "Battery4 Temp: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "4490599be92431dd",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "6d45e211e859e945"
+            ]
+        ]
+    },
+    {
+        "id": "6d45e211e859e945",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 16",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 300,
+        "wires": [
+            [
+                "3b8566f4c25c752c"
+            ]
+        ]
+    },
+    {
+        "id": "3b8566f4c25c752c",
+        "type": "ui-text",
+        "z": "e7fd52d4b19f431b",
+        "group": "87c1c5311cc5382f",
+        "order": 7,
+        "width": 2,
+        "height": 0,
+        "name": "Battery5 Temp",
+        "label": "Battery5 Temp: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3946537560236ea0",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "b725393698f379c2"
+            ]
+        ]
+    },
+    {
+        "id": "b725393698f379c2",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 3",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1); // Random 0-100\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "02fc90c74c81f2d4"
+            ]
+        ]
+    },
+    {
+        "id": "02fc90c74c81f2d4",
+        "type": "ui-text",
+        "z": "e7fd52d4b19f431b",
+        "group": "87c1c5311cc5382f",
+        "order": 3,
+        "width": 2,
+        "height": 0,
+        "name": "Battery6 Temp",
+        "label": "Battery6 Temp: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d55a2bd9a0b5613d",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "94b0ec5e94c576d8"
+            ]
+        ]
+    },
+    {
+        "id": "94b0ec5e94c576d8",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 4",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1) + \" °C\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 380,
+        "wires": [
+            [
+                "b7e3c4d3ce9fa99b"
+            ]
+        ]
+    },
+    {
+        "id": "b7e3c4d3ce9fa99b",
+        "type": "ui-text",
+        "z": "e7fd52d4b19f431b",
+        "group": "90ebb2c809166208",
+        "order": 6,
+        "width": 3,
+        "height": 1,
+        "name": "L Motor Temp",
+        "label": "L Motor Temp:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "dd982bafcc910975",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 500,
+        "wires": [
+            [
+                "d6c4b02668d44ecb"
+            ]
+        ]
+    },
+    {
+        "id": "d6c4b02668d44ecb",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 1",
+        "func": "msg.payload = Math.floor(Math.random() * 51); // 0..50 mph\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 500,
+        "wires": [
+            [
+                "bfdc3d90719dfe6c"
+            ]
+        ]
+    },
+    {
+        "id": "da017cadd2d429c1",
+        "type": "ui-chart",
+        "z": "e7fd52d4b19f431b",
+        "group": "90ebb2c809166208",
+        "name": "Battery temperatures",
+        "label": "Battery Temperatures",
+        "order": 17,
+        "chartType": "bar",
+        "category": "series",
+        "categoryType": "property",
+        "xAxisLabel": "",
+        "xAxisProperty": "property",
+        "xAxisPropertyType": "property",
+        "xAxisType": "category",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "y",
+        "yAxisPropertyType": "property",
+        "ymin": "0",
+        "ymax": "80",
+        "bins": 10,
+        "action": "replace",
+        "stackSeries": true,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 5,
+        "height": "5",
+        "className": "",
+        "interpolation": "linear",
+        "x": 620,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bfdc3d90719dfe6c",
+        "type": "ui-gauge-classic",
+        "z": "e7fd52d4b19f431b",
+        "name": "Motor L  Speed",
+        "group": "87c1c5311cc5382f",
+        "order": 1,
+        "width": "2",
+        "height": "2",
+        "min": 0,
+        "max": "160",
+        "sectors": [
+            {
+                "start": "0",
+                "color": "white"
+            },
+            {
+                "start": "100",
+                "color": "orange"
+            }
+        ],
+        "major_division": "10",
+        "minor_division": "5",
+        "value_decimal_places": 1,
+        "scale_decimal_places": 0,
+        "label": "",
+        "measurement": "L Speed",
+        "units": "mph",
+        "needles": [
+            {
+                "topic": "",
+                "color": "black",
+                "lengthPercent": "100"
+            }
+        ],
+        "hubcolor": "black",
+        "sweep_angle": "280",
+        "keepwidth": true,
+        "myclass": "",
+        "x": 580,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "98761881329eb225",
+        "type": "ui-gauge-classic",
+        "z": "e7fd52d4b19f431b",
+        "name": "Motor R  Speed",
+        "group": "87c1c5311cc5382f",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "min": 0,
+        "max": "160",
+        "sectors": [
+            {
+                "start": "0",
+                "color": "white"
+            },
+            {
+                "start": "100",
+                "color": "orange"
+            }
+        ],
+        "major_division": "10",
+        "minor_division": "5",
+        "value_decimal_places": "0",
+        "scale_decimal_places": 0,
+        "label": "",
+        "measurement": "R speed",
+        "units": "mph",
+        "needles": [
+            {
+                "topic": "",
+                "color": "black",
+                "lengthPercent": "100"
+            }
+        ],
+        "hubcolor": "black",
+        "sweep_angle": "280",
+        "keepwidth": true,
+        "myclass": "",
+        "x": 580,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "2b1b9e5ba9626f78",
+        "type": "ui-gauge-classic",
+        "z": "e7fd52d4b19f431b",
+        "name": "RPM",
+        "group": "90ebb2c809166208",
+        "order": 9,
+        "width": 3,
+        "height": null,
+        "min": 0,
+        "max": "10",
+        "sectors": [
+            {
+                "start": "0",
+                "color": "white"
+            },
+            {
+                "start": "5.5",
+                "color": "orange"
+            },
+            {
+                "start": "6",
+                "color": "red"
+            }
+        ],
+        "major_division": "1",
+        "minor_division": "1",
+        "value_decimal_places": "1",
+        "scale_decimal_places": 0,
+        "label": "",
+        "measurement": "rpm",
+        "units": "x1000",
+        "needles": [
+            {
+                "topic": "",
+                "color": "black",
+                "lengthPercent": "100"
+            }
+        ],
+        "hubcolor": "black",
+        "sweep_angle": "180",
+        "keepwidth": true,
+        "myclass": "",
+        "x": 670,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "f146932021093062",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 5",
+        "func": "msg.payload = Math.floor(Math.random() * 11); // 0..50 mph\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 440,
+        "wires": [
+            [
+                "2b1b9e5ba9626f78"
+            ]
+        ]
+    },
+    {
+        "id": "ddcc9002db136626",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 830,
+        "y": 320,
+        "wires": [
+            [
+                "749b3539d9f26d9b"
+            ]
+        ]
+    },
+    {
+        "id": "e24aa1d6060ff6ca",
+        "type": "ui-gauge-classic",
+        "z": "e7fd52d4b19f431b",
+        "name": "RPM",
+        "group": "90ebb2c809166208",
+        "order": 10,
+        "width": 3,
+        "height": null,
+        "min": 0,
+        "max": "10",
+        "sectors": [
+            {
+                "start": "0",
+                "color": "white"
+            },
+            {
+                "start": "5.5",
+                "color": "orange"
+            },
+            {
+                "start": "6",
+                "color": "red"
+            }
+        ],
+        "major_division": "1",
+        "minor_division": "1",
+        "value_decimal_places": "1",
+        "scale_decimal_places": 0,
+        "label": "",
+        "measurement": "rpm",
+        "units": "x1000",
+        "needles": [
+            {
+                "topic": "",
+                "color": "black",
+                "lengthPercent": "100"
+            }
+        ],
+        "hubcolor": "black",
+        "sweep_angle": "180",
+        "keepwidth": true,
+        "myclass": "",
+        "x": 1390,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "749b3539d9f26d9b",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 17",
+        "func": "let throttle = Math.floor(Math.random() * 101);\n\nmsg.payload = throttle;\n\nif (throttle < 30) {\n    msg.color = \"#22c55e\";   // green\n    msg.state = \"LOW\";\n} else if (throttle < 70) {\n    msg.color = \"#f59e0b\";   // amber\n    msg.state = \"CRUISE\";\n} else {\n    msg.color = \"#ef4444\";   // red\n    msg.state = \"HIGH\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 320,
+        "wires": [
+            [
+                "e24aa1d6060ff6ca"
+            ]
+        ]
+    },
+    {
+        "id": "96975405d80911a2",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 850,
+        "y": 520,
+        "wires": [
+            [
+                "f9e3db9bda30b961"
+            ]
+        ]
+    },
+    {
+        "id": "036676c072c0d2e7",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 830,
+        "y": 420,
+        "wires": [
+            [
+                "cccdd895515375d2"
+            ]
+        ]
+    },
+    {
+        "id": "cccdd895515375d2",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 18",
+        "func": "// Random throttle value from 0 to 100\nlet throttle = Math.floor(Math.random() * 101);\n\n// Put value into msg.payload for the slider\nmsg.payload = throttle;\n\n// Optional: add a label/state for debugging or display\nif (throttle < 30) {\n    msg.throttleState = \"low\";\n} else if (throttle < 70) {\n    msg.throttleState = \"medium\";\n} else {\n    msg.throttleState = \"high\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 420,
+        "wires": [
+            [
+                "fcf0af7547d28690"
+            ]
+        ]
+    },
+    {
+        "id": "f9e3db9bda30b961",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 19",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 520,
+        "wires": [
+            [
+                "1354efb4a35fca0a"
+            ]
+        ]
+    },
+    {
+        "id": "25a9872e8f3bd195",
+        "type": "ui-template",
+        "z": "e7fd52d4b19f431b",
+        "group": "90ebb2c809166208",
+        "page": "",
+        "ui": "",
+        "name": "Main Battery",
+        "order": 4,
+        "width": null,
+        "height": null,
+        "head": "",
+        "format": "<template>\n  <div class=\"battery-wrap\">\n    <div class=\"battery-title\">Main Battery %</div>\n\n    <div class=\"battery-shell\">\n      <svg viewBox=\"0 0 600 90\" class=\"battery-svg\" preserveAspectRatio=\"none\">\n        <defs>\n          <clipPath id=\"fillClip\">\n            <rect\n              x=\"6\"\n              y=\"22\"\n              :width=\"fillWidth\"\n              height=\"30\"\n              rx=\"4\"\n              ry=\"4\"\n            />\n          </clipPath>\n        </defs>\n\n        <!-- battery outline -->\n        <rect x=\"4\" y=\"20\" width=\"580\" height=\"34\" rx=\"4\" ry=\"4\" class=\"battery-outline\" />\n        <rect x=\"584\" y=\"29\" width=\"8\" height=\"16\" rx=\"2\" ry=\"2\" class=\"battery-outline\" />\n\n        <!-- solid fill clipped to current battery level -->\n        <g clip-path=\"url(#fillClip)\">\n          <!-- 0-25 -->\n          <rect x=\"6\" y=\"22\" width=\"144.5\" height=\"30\" fill=\"#d61f1f\"></rect>\n\n          <!-- 25-50 -->\n          <rect x=\"150.5\" y=\"22\" width=\"144.5\" height=\"30\" fill=\"#e3a12a\"></rect>\n\n          <!-- 50-100 -->\n          <rect x=\"295\" y=\"22\" width=\"289\" height=\"30\" fill=\"#1d8f73\"></rect>\n        </g>\n\n        <!-- thinner segment markers -->\n        <line x1=\"150.5\" y1=\"20\" x2=\"150.5\" y2=\"54\" class=\"sep\"></line>\n        <line x1=\"295\" y1=\"20\" x2=\"295\" y2=\"54\" class=\"sep\"></line>\n        <line x1=\"439.5\" y1=\"20\" x2=\"439.5\" y2=\"54\" class=\"sep\"></line>\n\n        <!-- bottom ticks -->\n        <line x1=\"6\" y1=\"58\" x2=\"6\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"150.5\" y1=\"58\" x2=\"150.5\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"295\" y1=\"58\" x2=\"295\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"439.5\" y1=\"58\" x2=\"439.5\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"584\" y1=\"58\" x2=\"584\" y2=\"70\" class=\"tick\"></line>\n\n        <!-- labels -->\n        <text x=\"6\" y=\"76\" class=\"label start\">0%</text>\n        <text x=\"150.5\" y=\"76\" class=\"label middle\">25%</text>\n        <text x=\"295\" y=\"76\" class=\"label middle\">50%</text>\n        <text x=\"439.5\" y=\"76\" class=\"label middle\">75%</text>\n        <text x=\"584\" y=\"76\" class=\"label end\">100%</text>\n      </svg>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      level: 0\n    }\n  },\n  computed: {\n    fillWidth() {\n      return 578 * (this.level / 100)\n    }\n  },\n  watch: {\n    msg: {\n      immediate: true,\n      handler() {\n        const v = Number(this.msg?.payload)\n        if (!Number.isNaN(v)) {\n          this.level = Math.max(0, Math.min(100, v))\n        }\n      }\n    }\n  }\n}\n</script>\n\n<style>\n.battery-wrap {\n  width: 100%;\n  padding: 2px 2px 0 2px;\n}\n\n.battery-title {\n  text-align: center;\n  font-size: 14px;\n  font-weight: 600;\n  margin-bottom: 2px;\n  color: var(--ff-text-color, #222);\n}\n\n.battery-shell {\n  width: 100%;\n}\n\n.battery-svg {\n  width: 100%;\n  height: 95px;\n  display: block;\n}\n\n.battery-outline {\n  fill: none;\n  stroke: #333;\n  stroke-width: 1.6;\n}\n\n.sep {\n  stroke: rgba(0,0,0,0.18);\n  stroke-width: 0.8;\n}\n\n.tick {\n  stroke: #333;\n  stroke-width: 1.4;\n}\n\n.label {\n  font-size: 10px;\n  fill: #222;\n  dominant-baseline: hanging;\n}\n\n.label.start {\n  text-anchor: start;\n}\n\n.label.middle {\n  text-anchor: middle;\n}\n\n.label.end {\n  text-anchor: end;\n}\n</style>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 530,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "592c6f798aa004b2",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 840,
+        "wires": [
+            [
+                "9219fdfae9908a0a"
+            ]
+        ]
+    },
+    {
+        "id": "9219fdfae9908a0a",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 20",
+        "func": "msg.payload = 68;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 840,
+        "wires": [
+            [
+                "25a9872e8f3bd195"
+            ]
+        ]
+    },
+    {
+        "id": "4495c777d0f3b842",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 21",
+        "func": "msg.payload = 68;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 900,
+        "wires": [
+            [
+                "74748052a4613d83"
+            ]
+        ]
+    },
+    {
+        "id": "74748052a4613d83",
+        "type": "ui-template",
+        "z": "e7fd52d4b19f431b",
+        "group": "90ebb2c809166208",
+        "page": "",
+        "ui": "",
+        "name": "Aux Battery",
+        "order": 16,
+        "width": 6,
+        "height": "2",
+        "head": "",
+        "format": "<template>\n  <div class=\"battery-wrap\">\n    <div class=\"battery-title\"> Aux Battery %</div>\n\n    <div class=\"battery-shell\">\n      <svg viewBox=\"0 0 600 90\" class=\"battery-svg\" preserveAspectRatio=\"none\">\n        <defs>\n          <clipPath id=\"fillClip\">\n            <rect\n              x=\"6\"\n              y=\"22\"\n              :width=\"fillWidth\"\n              height=\"30\"\n              rx=\"4\"\n              ry=\"4\"\n            />\n          </clipPath>\n        </defs>\n\n        <!-- battery outline -->\n        <rect x=\"4\" y=\"20\" width=\"580\" height=\"34\" rx=\"4\" ry=\"4\" class=\"battery-outline\" />\n        <rect x=\"584\" y=\"29\" width=\"8\" height=\"16\" rx=\"2\" ry=\"2\" class=\"battery-outline\" />\n\n        <!-- solid fill clipped to current battery level -->\n        <g clip-path=\"url(#fillClip)\">\n          <!-- 0-25 -->\n          <rect x=\"6\" y=\"22\" width=\"144.5\" height=\"30\" fill=\"#d61f1f\"></rect>\n\n          <!-- 25-50 -->\n          <rect x=\"150.5\" y=\"22\" width=\"144.5\" height=\"30\" fill=\"#e3a12a\"></rect>\n\n          <!-- 50-100 -->\n          <rect x=\"295\" y=\"22\" width=\"289\" height=\"30\" fill=\"#1d8f73\"></rect>\n        </g>\n\n        <!-- thinner segment markers -->\n        <line x1=\"150.5\" y1=\"20\" x2=\"150.5\" y2=\"54\" class=\"sep\"></line>\n        <line x1=\"295\" y1=\"20\" x2=\"295\" y2=\"54\" class=\"sep\"></line>\n        <line x1=\"439.5\" y1=\"20\" x2=\"439.5\" y2=\"54\" class=\"sep\"></line>\n\n        <!-- bottom ticks -->\n        <line x1=\"6\" y1=\"58\" x2=\"6\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"150.5\" y1=\"58\" x2=\"150.5\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"295\" y1=\"58\" x2=\"295\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"439.5\" y1=\"58\" x2=\"439.5\" y2=\"70\" class=\"tick\"></line>\n        <line x1=\"584\" y1=\"58\" x2=\"584\" y2=\"70\" class=\"tick\"></line>\n\n        <!-- labels -->\n        <text x=\"6\" y=\"76\" class=\"label start\">0%</text>\n        <text x=\"150.5\" y=\"76\" class=\"label middle\">25%</text>\n        <text x=\"295\" y=\"76\" class=\"label middle\">50%</text>\n        <text x=\"439.5\" y=\"76\" class=\"label middle\">75%</text>\n        <text x=\"584\" y=\"76\" class=\"label end\">100%</text>\n      </svg>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      level: 0\n    }\n  },\n  computed: {\n    fillWidth() {\n      return 578 * (this.level / 100)\n    }\n  },\n  watch: {\n    msg: {\n      immediate: true,\n      handler() {\n        const v = Number(this.msg?.payload)\n        if (!Number.isNaN(v)) {\n          this.level = Math.max(0, Math.min(100, v))\n        }\n      }\n    }\n  }\n}\n</script>\n\n<style>\n.battery-wrap {\n  width: 100%;\n  padding: 2px 2px 0 2px;\n}\n\n.battery-title {\n  text-align: center;\n  font-size: 14px;\n  font-weight: 600;\n  margin-bottom: 2px;\n  color: var(--ff-text-color, #222);\n}\n\n.battery-shell {\n  width: 100%;\n}\n\n.battery-svg {\n  width: 100%;\n  height: 95px;\n  display: block;\n}\n\n.battery-outline {\n  fill: none;\n  stroke: #333;\n  stroke-width: 1.6;\n}\n\n.sep {\n  stroke: rgba(0,0,0,0.18);\n  stroke-width: 0.8;\n}\n\n.tick {\n  stroke: #333;\n  stroke-width: 1.4;\n}\n\n.label {\n  font-size: 10px;\n  fill: #222;\n  dominant-baseline: hanging;\n}\n\n.label.start {\n  text-anchor: start;\n}\n\n.label.middle {\n  text-anchor: middle;\n}\n\n.label.end {\n  text-anchor: end;\n}\n</style>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 530,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1350858ea9ce371d",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 900,
+        "wires": [
+            [
+                "4495c777d0f3b842"
+            ]
+        ]
+    },
+    {
+        "id": "456316d3c814df56",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "14bf5297eb990f76"
+            ]
+        ]
+    },
+    {
+        "id": "8ef5ea9966129be3",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 22",
+        "func": "msg.payload = (Math.random() * 70 - 35).toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 120,
+        "wires": [
+            [
+                "133b79088a722ed0"
+            ]
+        ]
+    },
+    {
+        "id": "133b79088a722ed0",
+        "type": "ui-gauge",
+        "z": "e7fd52d4b19f431b",
+        "name": "Rudder postion",
+        "group": "90ebb2c809166208",
+        "order": 15,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 4,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Rudder position",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5c70d6",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "-35",
+        "max": "35",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1320,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "535c442fcc901c3a",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 890,
+        "y": 120,
+        "wires": [
+            [
+                "8ef5ea9966129be3"
+            ]
+        ]
+    },
+    {
+        "id": "93467be891543aab",
+        "type": "ui-template",
+        "z": "e7fd52d4b19f431b",
+        "group": "90ebb2c809166208",
+        "page": "",
+        "ui": "",
+        "name": "Boat att",
+        "order": 7,
+        "width": "3",
+        "height": 2,
+        "head": "",
+        "format": "<template>\n  <div class=\"atti-wrap\">\n    <div class=\"atti-title\">Boat Attitude</div>\n\n    <div class=\"atti-card\">\n      <svg viewBox=\"0 0 220 220\" class=\"atti-svg\">\n        <defs>\n          <clipPath id=\"clipCircle\">\n            <circle cx=\"110\" cy=\"110\" r=\"88\" />\n          </clipPath>\n        </defs>\n\n        <!-- outer bezel -->\n        <circle cx=\"110\" cy=\"110\" r=\"96\" class=\"bezel\" />\n        <circle cx=\"110\" cy=\"110\" r=\"88\" class=\"mask-ring\" />\n\n        <!-- moving horizon -->\n        <g clip-path=\"url(#clipCircle)\">\n          <g :transform=\"`translate(110 110) rotate(${roll}) translate(0 ${pitchOffset})`\">\n            <!-- sky -->\n            <rect x=\"-160\" y=\"-160\" width=\"320\" height=\"160\" class=\"sky\" />\n            <!-- water -->\n            <rect x=\"-160\" y=\"0\" width=\"320\" height=\"160\" class=\"water\" />\n            <!-- horizon line -->\n            <line x1=\"-170\" y1=\"0\" x2=\"170\" y2=\"0\" class=\"horizon-line\" />\n\n            <!-- pitch reference lines -->\n            <g class=\"pitch-lines\">\n              <line x1=\"-24\" y1=\"-60\" x2=\"24\" y2=\"-60\" />\n              <line x1=\"-16\" y1=\"-30\" x2=\"16\" y2=\"-30\" />\n              <line x1=\"-24\" y1=\"60\" x2=\"24\" y2=\"60\" />\n              <line x1=\"-16\" y1=\"30\" x2=\"16\" y2=\"30\" />\n            </g>\n          </g>\n        </g>\n\n        <!-- fixed bank marks -->\n        <g transform=\"translate(110 110)\">\n          <line x1=\"0\" y1=\"-82\" x2=\"0\" y2=\"-72\" class=\"bank-mark\" />\n          <line x1=\"-41\" y1=\"-71\" x2=\"-36\" y2=\"-63\" class=\"bank-mark\" />\n          <line x1=\"41\" y1=\"-71\" x2=\"36\" y2=\"-63\" class=\"bank-mark\" />\n          <line x1=\"-70\" y1=\"-41\" x2=\"-63\" y2=\"-36\" class=\"bank-mark\" />\n          <line x1=\"70\" y1=\"-41\" x2=\"63\" y2=\"-36\" class=\"bank-mark\" />\n        </g>\n\n        <!-- fixed boat marker -->\n        <g transform=\"translate(110 110)\">\n          <line x1=\"-42\" y1=\"0\" x2=\"-10\" y2=\"0\" class=\"boat-mark\" />\n          <line x1=\"42\" y1=\"0\" x2=\"10\" y2=\"0\" class=\"boat-mark\" />\n          <polygon points=\"0,-6 8,0 0,6 -8,0\" class=\"boat-center\" />\n        </g>\n      </svg>\n\n      <div class=\"atti-readout\">\n        <div>Roll: {{ roll.toFixed(1) }}°</div>\n        <div>Pitch: {{ pitch.toFixed(1) }}°</div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      roll: 0,\n      pitch: 0\n    }\n  },\n  computed: {\n    pitchOffset() {\n      // pixels per degree, clamp so it stays reasonable\n      const p = Math.max(-30, Math.min(30, this.pitch))\n      return p * 2.0\n    }\n  },\n  watch: {\n    msg: {\n      immediate: true,\n      handler() {\n        const src = this.msg?.payload ?? this.msg ?? {}\n        const roll = Number(src.roll)\n        const pitch = Number(src.pitch)\n\n        if (!Number.isNaN(roll)) {\n          this.roll = Math.max(-180, Math.min(180, roll))\n        }\n\n        if (!Number.isNaN(pitch)) {\n          this.pitch = Math.max(-90, Math.min(90, pitch))\n        }\n      }\n    }\n  }\n}\n</script>\n\n<style>\n.atti-wrap {\n  width: 100%;\n  padding: 4px;\n}\n\n.atti-title {\n  text-align: center;\n  font-size: 14px;\n  font-weight: 600;\n  margin-bottom: 6px;\n  color: var(--ff-text-color, #222);\n}\n\n.atti-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.atti-svg {\n  width: 220px;\n  height: 220px;\n  display: block;\n}\n\n.bezel {\n  fill: #1f1f1f;\n  stroke: #333;\n  stroke-width: 2;\n}\n\n.mask-ring {\n  fill: #101010;\n}\n\n.sky {\n  fill: #7ec8ff;\n}\n\n.water {\n  fill: #1d8f73;\n}\n\n.horizon-line {\n  stroke: #ffffff;\n  stroke-width: 2.5;\n}\n\n.pitch-lines line {\n  stroke: rgba(255,255,255,0.85);\n  stroke-width: 2;\n}\n\n.bank-mark {\n  stroke: #f3f3f3;\n  stroke-width: 2;\n  stroke-linecap: round;\n}\n\n.boat-mark {\n  stroke: #ffd54f;\n  stroke-width: 3;\n  stroke-linecap: round;\n}\n\n.boat-center {\n  fill: #ffd54f;\n}\n\n.atti-readout {\n  margin-top: 6px;\n  font-size: 12px;\n  text-align: center;\n  color: var(--ff-text-color, #222);\n}\n</style>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1620,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a5e7f9279792038",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 23",
+        "func": "// Generate smooth-ish random motion (not jumpy)\n\n// store previous values\nlet roll = context.get(\"roll\") || 0;\nlet pitch = context.get(\"pitch\") || 0;\n\n// small random changes (like real boat movement)\nroll += (Math.random() - 0.5) * 4;   // ±2 deg change\npitch += (Math.random() - 0.5) * 2;  // ±1 deg change\n\n// clamp values to realistic boat limits\nroll = Math.max(-45, Math.min(45, roll));\npitch = Math.max(-20, Math.min(20, pitch));\n\n// save back to context\ncontext.set(\"roll\", roll);\ncontext.set(\"pitch\", pitch);\n\n// send to dashboard\nmsg.payload = {\n    roll: roll,\n    pitch: pitch\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1430,
+        "y": 200,
+        "wires": [
+            [
+                "93467be891543aab"
+            ]
+        ]
+    },
+    {
+        "id": "e985341d0dc33556",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1190,
+        "y": 200,
+        "wires": [
+            [
+                "8a5e7f9279792038"
+            ]
+        ]
+    },
+    {
+        "id": "fcf0af7547d28690",
+        "type": "ui-template",
+        "z": "e7fd52d4b19f431b",
+        "group": "90ebb2c809166208",
+        "page": "",
+        "ui": "",
+        "name": "Throttle",
+        "order": 3,
+        "width": null,
+        "height": null,
+        "head": "",
+        "format": "<template>\n  <div style=\"padding: 16px; font-family: Arial, sans-serif;\">\n    <div style=\"font-size: 20px; font-weight: bold; margin-bottom: 10px;\">\n      Throttle: {{ value }}%\n    </div>\n\n    <div style=\"margin-bottom: 10px; font-size: 16px;\">\n      Status:\n      <span :style=\"{ color: color, fontWeight: 'bold' }\">\n        {{ state }}\n      </span>\n    </div>\n\n    <div style=\"width: 100%; height: 28px; background: #1f2937; border-radius: 14px; overflow: hidden; border: 1px solid #444;\">\n      <div\n        :style=\"{\n          width: value + '%',\n          height: '100%',\n          background: color,\n          transition: 'width 0.3s ease, background 0.3s ease'\n        }\"\n      ></div>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      value: 0,\n      color: '#22c55e',\n      state: 'LOW'\n    }\n  },\n  watch: {\n    msg: {\n      immediate: true,\n      handler(msg) {\n        if (!msg) return\n\n        const v = Number(msg.payload ?? 0)\n        this.value = Math.max(0, Math.min(100, v))\n\n        if (this.value < 30) {\n          this.color = '#22c55e'\n          this.state = 'LOW'\n        } else if (this.value < 70) {\n          this.color = '#f59e0b'\n          this.state = 'CRUISE'\n        } else {\n          this.color = '#ef4444'\n          this.state = 'HIGH'\n        }\n      }\n    }\n  }\n}\n</script>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1200,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "59f8cce187413bff",
+        "type": "ui-text",
+        "z": "e7fd52d4b19f431b",
+        "group": "90ebb2c809166208",
+        "order": 18,
+        "width": 4,
+        "height": null,
+        "name": "Avg Panel Temp",
+        "label": "Avg Panel Temp:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 580,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "a0480b26c4639c19",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 780,
+        "wires": [
+            [
+                "dc3e2759451be4e3"
+            ]
+        ]
+    },
+    {
+        "id": "dc3e2759451be4e3",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 24",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1) + \" W\"; // One decimal: 45.3\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 780,
+        "wires": [
+            [
+                "11fd1b10c3a46ab3"
+            ]
+        ]
+    },
+    {
+        "id": "11fd1b10c3a46ab3",
+        "type": "ui-text",
+        "z": "e7fd52d4b19f431b",
+        "group": "90ebb2c809166208",
+        "order": 19,
+        "width": 4,
+        "height": 1,
+        "name": "System Power Draw",
+        "label": "System Power Draw:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "38a673b9b0245acf",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 25",
+        "func": "msg.payload = (Math.random() * 100).toFixed(1) + \" W\"; // One decimal: 45.3\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 900,
+        "wires": [
+            [
+                "782f23d838f2481a"
+            ]
+        ]
+    },
+    {
+        "id": "782f23d838f2481a",
+        "type": "ui-text",
+        "z": "e7fd52d4b19f431b",
+        "group": "90ebb2c809166208",
+        "order": 20,
+        "width": 4,
+        "height": null,
+        "name": "System Power Gen",
+        "label": "System Power Gen: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": true,
+        "font": "",
+        "fontSize": "25",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1000,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "31b9e75205d2a5e1",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 690,
+        "y": 840,
+        "wires": [
+            [
+                "38a673b9b0245acf"
+            ]
+        ]
+    },
+    {
+        "id": "ecbda806f21443e0",
+        "type": "inject",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 1020,
+        "wires": [
+            [
+                "7689b035f4bbe587"
+            ]
+        ]
+    },
+    {
+        "id": "7689b035f4bbe587",
+        "type": "function",
+        "z": "e7fd52d4b19f431b",
+        "name": "function 26",
+        "func": "// Get start time from flow context\nlet startTime = flow.get(\"startTime\");\n\n// If no start time, initialize it\nif (!startTime) {\n    startTime = Date.now();\n    flow.set(\"startTime\", startTime);\n}\n\n// Calculate elapsed time\nlet elapsedMs = Date.now() - startTime;\n\n// Convert to minutes + hours\nlet totalMinutes = Math.floor(elapsedMs / 60000);\nlet hours = Math.floor(totalMinutes / 60);\nlet minutes = totalMinutes % 60;\n\n// Format output\nmsg.payload = `${hours} hr ${minutes} min`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "\nif (msg.payload === \"start\") {\n    flow.set(\"startTime\", Date.now());\n}",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1020,
+        "wires": [
+            [
+                "e3096d3bc1c77d81"
+            ]
+        ]
+    },
+    {
+        "id": "e3096d3bc1c77d81",
+        "type": "ui-text",
+        "z": "e7fd52d4b19f431b",
+        "group": "90ebb2c809166208",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "name": "Runtime",
+        "label": "Runtime:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "1354efb4a35fca0a",
+        "type": "ui_thermostat",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "ambientTemperature": 0,
+        "targetTemperature": 0,
+        "hvacState": "off",
+        "hasLeaf": false,
+        "away": false,
+        "minValue": 10,
+        "maxValue": 30,
+        "diameter": 400,
+        "numTicks": 200,
+        "x": 1210,
+        "y": 520,
+        "wires": [
+            []
         ]
     }
 ]
