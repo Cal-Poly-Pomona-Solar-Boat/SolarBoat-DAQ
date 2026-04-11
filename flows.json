@@ -633,7 +633,7 @@
         "type": "ui-text",
         "z": "e7fd52d4b19f431b",
         "group": "87c1c5311cc5382f",
-        "order": 5,
+        "order": 3,
         "width": 2,
         "height": 0,
         "name": "Battery1 Temp",
@@ -651,53 +651,6 @@
         "x": 1220,
         "y": 1000,
         "wires": []
-    },
-    {
-        "id": "06029afeb2effe06",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 1050,
-        "y": 620,
-        "wires": [
-            [
-                "64fe0cd479925a91"
-            ]
-        ]
-    },
-    {
-        "id": "64fe0cd479925a91",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 9",
-        "func": "msg.payload = (Math.random() * 100).toFixed(1); // One decimal: 45.3\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1040,
-        "y": 660,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "36cfc97fb02ac743",
@@ -1073,7 +1026,7 @@
         "type": "ui-text",
         "z": "e7fd52d4b19f431b",
         "group": "87c1c5311cc5382f",
-        "order": 6,
+        "order": 4,
         "width": 2,
         "height": 0,
         "name": "Battery3 Temp",
@@ -1146,7 +1099,7 @@
         "type": "ui-text",
         "z": "e7fd52d4b19f431b",
         "group": "87c1c5311cc5382f",
-        "order": 4,
+        "order": 2,
         "width": 2,
         "height": 0,
         "name": "Battery4 Temp",
@@ -1219,7 +1172,7 @@
         "type": "ui-text",
         "z": "e7fd52d4b19f431b",
         "group": "87c1c5311cc5382f",
-        "order": 7,
+        "order": 5,
         "width": 2,
         "height": 0,
         "name": "Battery5 Temp",
@@ -1292,7 +1245,7 @@
         "type": "ui-text",
         "z": "e7fd52d4b19f431b",
         "group": "87c1c5311cc5382f",
-        "order": 3,
+        "order": 1,
         "width": 2,
         "height": 0,
         "name": "Battery6 Temp",
@@ -1385,53 +1338,6 @@
         "wires": []
     },
     {
-        "id": "dd982bafcc910975",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 830,
-        "y": 500,
-        "wires": [
-            [
-                "d6c4b02668d44ecb"
-            ]
-        ]
-    },
-    {
-        "id": "d6c4b02668d44ecb",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 1",
-        "func": "msg.payload = Math.floor(Math.random() * 51); // 0..50 mph\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 840,
-        "y": 540,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "da017cadd2d429c1",
         "type": "ui-chart",
         "z": "e7fd52d4b19f431b",
@@ -1492,92 +1398,6 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "bfdc3d90719dfe6c",
-        "type": "ui-gauge-classic",
-        "z": "e7fd52d4b19f431b",
-        "name": "Motor L  Speed",
-        "group": "87c1c5311cc5382f",
-        "order": 1,
-        "width": "2",
-        "height": "2",
-        "min": 0,
-        "max": "160",
-        "sectors": [
-            {
-                "start": "0",
-                "color": "white"
-            },
-            {
-                "start": "100",
-                "color": "orange"
-            }
-        ],
-        "major_division": "10",
-        "minor_division": "5",
-        "value_decimal_places": 1,
-        "scale_decimal_places": 0,
-        "label": "",
-        "measurement": "L Speed",
-        "units": "mph",
-        "needles": [
-            {
-                "topic": "",
-                "color": "black",
-                "lengthPercent": "100"
-            }
-        ],
-        "hubcolor": "black",
-        "sweep_angle": "280",
-        "keepwidth": true,
-        "myclass": "",
-        "x": 840,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "98761881329eb225",
-        "type": "ui-gauge-classic",
-        "z": "e7fd52d4b19f431b",
-        "name": "Motor R  Speed",
-        "group": "87c1c5311cc5382f",
-        "order": 2,
-        "width": "0",
-        "height": "0",
-        "min": 0,
-        "max": "160",
-        "sectors": [
-            {
-                "start": "0",
-                "color": "white"
-            },
-            {
-                "start": "100",
-                "color": "orange"
-            }
-        ],
-        "major_division": "10",
-        "minor_division": "5",
-        "value_decimal_places": "0",
-        "scale_decimal_places": 0,
-        "label": "",
-        "measurement": "R speed",
-        "units": "mph",
-        "needles": [
-            {
-                "topic": "",
-                "color": "black",
-                "lengthPercent": "100"
-            }
-        ],
-        "hubcolor": "black",
-        "sweep_angle": "280",
-        "keepwidth": true,
-        "myclass": "",
-        "x": 1060,
-        "y": 700,
-        "wires": []
     },
     {
         "id": "2b1b9e5ba9626f78",
