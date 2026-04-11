@@ -203,8 +203,8 @@
         ],
         "order": 2,
         "className": "",
-        "visible": "true",
-        "disabled": "false"
+        "visible": true,
+        "disabled": false
     },
     {
         "id": "32dc719a9b082399",
