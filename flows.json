@@ -398,35 +398,6 @@
         "l": true
     },
     {
-        "id": "4c7a0e9725e29039",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 850,
-        "y": 240,
-        "wires": [
-            [
-                "f146932021093062"
-            ]
-        ]
-    },
-    {
         "id": "d36866a6bea24079",
         "type": "inject",
         "z": "e7fd52d4b19f431b",
@@ -530,7 +501,7 @@
         "z": "e7fd52d4b19f431b",
         "name": "Rudder input",
         "group": "90ebb2c809166208",
-        "order": 13,
+        "order": 11,
         "value": "payload",
         "valueType": "msg",
         "width": 4,
@@ -592,7 +563,7 @@
         "z": "e7fd52d4b19f431b",
         "name": "Rudder postion",
         "group": "90ebb2c809166208",
-        "order": 11,
+        "order": 9,
         "value": "payload",
         "valueType": "msg",
         "width": 4,
@@ -730,7 +701,7 @@
         "type": "ui-text",
         "z": "e7fd52d4b19f431b",
         "group": "90ebb2c809166208",
-        "order": 12,
+        "order": 10,
         "width": 4,
         "height": 1,
         "name": "Motor L Power Draw",
@@ -803,7 +774,7 @@
         "type": "ui-text",
         "z": "e7fd52d4b19f431b",
         "group": "90ebb2c809166208",
-        "order": 10,
+        "order": 8,
         "width": 4,
         "height": 1,
         "name": "Motor R Power Draw",
@@ -1344,7 +1315,7 @@
         "group": "90ebb2c809166208",
         "name": "Battery temperatures",
         "label": "Battery Temperatures",
-        "order": 16,
+        "order": 14,
         "chartType": "bar",
         "category": "series",
         "categoryType": "property",
@@ -1397,169 +1368,6 @@
         "y": 1040,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "2b1b9e5ba9626f78",
-        "type": "ui-gauge-classic",
-        "z": "e7fd52d4b19f431b",
-        "name": "RPM",
-        "group": "90ebb2c809166208",
-        "order": 8,
-        "width": 3,
-        "height": null,
-        "min": 0,
-        "max": "10",
-        "sectors": [
-            {
-                "start": "0",
-                "color": "white"
-            },
-            {
-                "start": "5.5",
-                "color": "orange"
-            },
-            {
-                "start": "6",
-                "color": "red"
-            }
-        ],
-        "major_division": "1",
-        "minor_division": "1",
-        "value_decimal_places": "1",
-        "scale_decimal_places": 0,
-        "label": "",
-        "measurement": "rpm",
-        "units": "x1000",
-        "needles": [
-            {
-                "topic": "",
-                "color": "black",
-                "lengthPercent": "100"
-            }
-        ],
-        "hubcolor": "black",
-        "sweep_angle": "180",
-        "keepwidth": true,
-        "myclass": "",
-        "x": 850,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "f146932021093062",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 5",
-        "func": "msg.payload = Math.floor(Math.random() * 11); // 0..50 mph\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 840,
-        "y": 280,
-        "wires": [
-            [
-                "2b1b9e5ba9626f78"
-            ]
-        ]
-    },
-    {
-        "id": "ddcc9002db136626",
-        "type": "inject",
-        "z": "e7fd52d4b19f431b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "2",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 1150,
-        "y": 220,
-        "wires": [
-            [
-                "749b3539d9f26d9b"
-            ]
-        ]
-    },
-    {
-        "id": "e24aa1d6060ff6ca",
-        "type": "ui-gauge-classic",
-        "z": "e7fd52d4b19f431b",
-        "name": "RPM",
-        "group": "90ebb2c809166208",
-        "order": 9,
-        "width": 3,
-        "height": null,
-        "min": 0,
-        "max": "10",
-        "sectors": [
-            {
-                "start": "0",
-                "color": "white"
-            },
-            {
-                "start": "5.5",
-                "color": "orange"
-            },
-            {
-                "start": "6",
-                "color": "red"
-            }
-        ],
-        "major_division": "1",
-        "minor_division": "1",
-        "value_decimal_places": "1",
-        "scale_decimal_places": 0,
-        "label": "",
-        "measurement": "rpm",
-        "units": "x1000",
-        "needles": [
-            {
-                "topic": "",
-                "color": "black",
-                "lengthPercent": "100"
-            }
-        ],
-        "hubcolor": "black",
-        "sweep_angle": "180",
-        "keepwidth": true,
-        "myclass": "",
-        "x": 1150,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "749b3539d9f26d9b",
-        "type": "function",
-        "z": "e7fd52d4b19f431b",
-        "name": "function 17",
-        "func": "let throttle = Math.floor(Math.random() * 101);\n\nmsg.payload = throttle;\n\nif (throttle < 30) {\n    msg.color = \"#22c55e\";   // green\n    msg.state = \"LOW\";\n} else if (throttle < 70) {\n    msg.color = \"#f59e0b\";   // amber\n    msg.state = \"CRUISE\";\n} else {\n    msg.color = \"#ef4444\";   // red\n    msg.state = \"HIGH\";\n}\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1150,
-        "y": 260,
-        "wires": [
-            [
-                "e24aa1d6060ff6ca"
-            ]
         ]
     },
     {
@@ -1712,7 +1520,7 @@
         "page": "",
         "ui": "",
         "name": "Aux Battery",
-        "order": 15,
+        "order": 13,
         "width": 6,
         "height": "2",
         "head": "",
@@ -1812,7 +1620,7 @@
         "z": "e7fd52d4b19f431b",
         "name": "Rudder postion",
         "group": "90ebb2c809166208",
-        "order": 14,
+        "order": 12,
         "value": "payload",
         "valueType": "msg",
         "width": 4,
@@ -1955,7 +1763,7 @@
         "type": "ui-text",
         "z": "e7fd52d4b19f431b",
         "group": "90ebb2c809166208",
-        "order": 17,
+        "order": 15,
         "width": 4,
         "height": null,
         "name": "Avg Panel Temp",
@@ -2028,7 +1836,7 @@
         "type": "ui-text",
         "z": "e7fd52d4b19f431b",
         "group": "90ebb2c809166208",
-        "order": 18,
+        "order": 16,
         "width": 4,
         "height": 1,
         "name": "System Power Draw",
@@ -2072,7 +1880,7 @@
         "type": "ui-text",
         "z": "e7fd52d4b19f431b",
         "group": "90ebb2c809166208",
-        "order": 19,
+        "order": 17,
         "width": 4,
         "height": null,
         "name": "System Power Gen",
@@ -2728,7 +2536,7 @@
         "type": "ui-text",
         "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
-        "order": 26,
+        "order": 24,
         "width": "3",
         "height": "3",
         "name": "Motor L",
@@ -2900,7 +2708,7 @@
         "z": "78df372cbc55454b",
         "name": "Rudder input",
         "group": "90ebb2c809166208",
-        "order": 25,
+        "order": 23,
         "value": "payload",
         "valueType": "msg",
         "width": 3,
@@ -2991,7 +2799,7 @@
         "z": "78df372cbc55454b",
         "name": "Rudder postion",
         "group": "90ebb2c809166208",
-        "order": 29,
+        "order": 27,
         "value": "payload",
         "valueType": "msg",
         "width": 3,
@@ -3032,7 +2840,7 @@
         "type": "ui-text",
         "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
-        "order": 20,
+        "order": 18,
         "width": 2,
         "height": 0,
         "name": "Battery1 Temp",
@@ -3056,7 +2864,7 @@
         "type": "ui-text",
         "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
-        "order": 30,
+        "order": 28,
         "width": "3",
         "height": "3",
         "name": "Motor R",
@@ -3129,7 +2937,7 @@
         "type": "ui-text",
         "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
-        "order": 28,
+        "order": 26,
         "width": "3",
         "height": "3",
         "name": "Power Produced",
@@ -3202,7 +3010,7 @@
         "type": "ui-text",
         "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
-        "order": 27,
+        "order": 25,
         "width": "3",
         "height": "3",
         "name": "Motor L Power Draw",
@@ -3348,7 +3156,7 @@
         "type": "ui-text",
         "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
-        "order": 31,
+        "order": 29,
         "width": "3",
         "height": "3",
         "name": "Avg Motor power draw",
@@ -3470,7 +3278,7 @@
         "type": "ui-text",
         "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
-        "order": 21,
+        "order": 19,
         "width": 2,
         "height": 0,
         "name": "Battery2 Temp",
@@ -3616,7 +3424,7 @@
         "type": "ui-text",
         "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
-        "order": 22,
+        "order": 20,
         "width": 2,
         "height": 0,
         "name": "Battery4 Temp",
@@ -3689,7 +3497,7 @@
         "type": "ui-text",
         "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
-        "order": 23,
+        "order": 21,
         "width": 2,
         "height": 0,
         "name": "Battery5 Temp",
@@ -3762,7 +3570,7 @@
         "type": "ui-text",
         "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
-        "order": 24,
+        "order": 22,
         "width": 2,
         "height": 0,
         "name": "Battery6 Temp",
@@ -3835,7 +3643,7 @@
         "type": "ui-text",
         "z": "78df372cbc55454b",
         "group": "90ebb2c809166208",
-        "order": 32,
+        "order": 30,
         "width": 3,
         "height": 0,
         "name": "Panel Temp:",
