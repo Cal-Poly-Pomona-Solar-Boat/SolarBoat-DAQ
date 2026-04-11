@@ -3471,30 +3471,6 @@
         ]
     },
     {
-        "id": "1354efb4a35fca0a",
-        "type": "ui_thermostat",
-        "z": "e7fd52d4b19f431b",
-        "d": true,
-        "name": "",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "ambientTemperature": 0,
-        "targetTemperature": 0,
-        "hvacState": "off",
-        "hasLeaf": false,
-        "away": false,
-        "minValue": 10,
-        "maxValue": 30,
-        "diameter": 400,
-        "numTicks": 200,
-        "x": 1210,
-        "y": 520,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "ddcc9002db136626",
         "type": "inject",
         "z": "e7fd52d4b19f431b",
@@ -4291,5 +4267,28 @@
         "x": 600,
         "y": 1020,
         "wires": []
+    },
+    {
+        "id": "1354efb4a35fca0a",
+        "type": "ui_thermostat",
+        "z": "e7fd52d4b19f431b",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "ambientTemperature": 0,
+        "targetTemperature": 0,
+        "hvacState": "off",
+        "hasLeaf": false,
+        "away": false,
+        "minValue": 10,
+        "maxValue": 30,
+        "diameter": 400,
+        "numTicks": 200,
+        "x": 1210,
+        "y": 520,
+        "wires": [
+            []
+        ]
     }
 ]
