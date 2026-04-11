@@ -1481,7 +1481,7 @@
         "id": "452f1135d92969b8",
         "type": "ui-gauge",
         "z": "78df372cbc55454b",
-        "name": "SteeringAngle1",
+        "name": "Steering",
         "group": "6db9f9b4ba633596",
         "order": 2,
         "value": "payload.degrees",
@@ -1490,7 +1490,7 @@
         "height": 3,
         "gtype": "gauge-half",
         "gstyle": "needle",
-        "title": "Steering Angle1",
+        "title": "Steering",
         "alwaysShowTitle": false,
         "floatingTitlePosition": "top-left",
         "units": "deg",
@@ -1525,7 +1525,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 600,
+        "x": 580,
         "y": 780,
         "wires": [
             []
@@ -1553,47 +1553,47 @@
         "type": "switch",
         "z": "78df372cbc55454b",
         "name": "CAN-Routing",
-        "property": "payload.sensor",
+        "property": "payload.signal",
         "propertyType": "msg",
         "rules": [
             {
                 "t": "eq",
-                "v": "AS5600_1",
+                "v": "steering",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "AS5600_2",
+                "v": "stepper_FeedbackLeft",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "AS5600_3",
+                "v": "stepper_FeedbackRight",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "ADXL345_1",
+                "v": "motor_VibrationLeft",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "ADXL345_2",
+                "v": "motor_VibrationRight",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "hall_rpm_1",
+                "v": "motor_RpmLeft",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "hall_rpm_2",
+                "v": "motor_RpmRight",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "throttle",
+                "v": "throttle_Input",
                 "vt": "str"
             }
         ],
@@ -1633,7 +1633,7 @@
         "id": "2f116d7302809880",
         "type": "ui-gauge",
         "z": "78df372cbc55454b",
-        "name": "SteeringAngle2",
+        "name": "stepper_FeedbackLeft",
         "group": "6db9f9b4ba633596",
         "order": 3,
         "value": "payload.degrees",
@@ -1642,7 +1642,7 @@
         "height": 3,
         "gtype": "gauge-half",
         "gstyle": "needle",
-        "title": "RudderPos1",
+        "title": "stepper_FeedbackLeft",
         "alwaysShowTitle": false,
         "floatingTitlePosition": "top-left",
         "units": "deg",
@@ -1677,7 +1677,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 600,
+        "x": 620,
         "y": 820,
         "wires": [
             []
@@ -1690,7 +1690,7 @@
         "group": "6db9f9b4ba633596",
         "page": "",
         "ui": "",
-        "name": "",
+        "name": "motor_VibrationLeft",
         "order": 8,
         "width": 0,
         "height": 0,
@@ -1701,7 +1701,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 580,
+        "x": 610,
         "y": 900,
         "wires": [
             []
@@ -1714,7 +1714,7 @@
         "group": "6db9f9b4ba633596",
         "page": "",
         "ui": "",
-        "name": "",
+        "name": "motor_VibrationRight",
         "order": 7,
         "width": 0,
         "height": 0,
@@ -1725,7 +1725,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 580,
+        "x": 620,
         "y": 940,
         "wires": [
             []
@@ -1735,7 +1735,7 @@
         "id": "c4150f8241c24b1e",
         "type": "ui-gauge",
         "z": "78df372cbc55454b",
-        "name": "RPM1",
+        "name": "motor_RpmLeft",
         "group": "6db9f9b4ba633596",
         "order": 5,
         "value": "payload.rpm",
@@ -1744,7 +1744,7 @@
         "height": 3,
         "gtype": "gauge-half",
         "gstyle": "needle",
-        "title": "rpm1",
+        "title": "motor_RpmLeft",
         "alwaysShowTitle": false,
         "floatingTitlePosition": "top-left",
         "units": "RPM",
@@ -1779,7 +1779,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 570,
+        "x": 600,
         "y": 980,
         "wires": [
             []
@@ -1789,7 +1789,7 @@
         "id": "c7d7f93d7c8c35ba",
         "type": "ui-gauge",
         "z": "78df372cbc55454b",
-        "name": "SteeringAngle3",
+        "name": "stepper_FeedbackRight",
         "group": "6db9f9b4ba633596",
         "order": 4,
         "value": "payload.degrees",
@@ -1798,7 +1798,7 @@
         "height": 3,
         "gtype": "gauge-half",
         "gstyle": "needle",
-        "title": "RudderPos2",
+        "title": "stepper_FeedbackRight",
         "alwaysShowTitle": false,
         "floatingTitlePosition": "top-left",
         "units": "deg",
@@ -1833,7 +1833,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 600,
+        "x": 630,
         "y": 860,
         "wires": [
             []
@@ -1843,7 +1843,7 @@
         "id": "c5128c03e92f2842",
         "type": "ui-gauge",
         "z": "78df372cbc55454b",
-        "name": "RPM2",
+        "name": "motor_RpmRight",
         "group": "6db9f9b4ba633596",
         "order": 6,
         "value": "payload.rpm",
@@ -1852,7 +1852,7 @@
         "height": 3,
         "gtype": "gauge-half",
         "gstyle": "needle",
-        "title": "rpm2",
+        "title": "motor_RpmRight",
         "alwaysShowTitle": false,
         "floatingTitlePosition": "top-left",
         "units": "RPM",
@@ -1887,7 +1887,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 570,
+        "x": 610,
         "y": 1020,
         "wires": [
             []
@@ -1900,7 +1900,7 @@
         "group": "6db9f9b4ba633596",
         "page": "",
         "ui": "",
-        "name": "throttle",
+        "name": "throttle_Input",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -1911,7 +1911,7 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 570,
+        "x": 590,
         "y": 1060,
         "wires": [
             []
