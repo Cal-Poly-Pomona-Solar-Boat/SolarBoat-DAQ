@@ -389,7 +389,8 @@
         "mode": "link",
         "links": [
             "92efdc59d8c23544",
-            "ebfbf0ef82e34a01"
+            "ebfbf0ef82e34a01",
+            "a4ed38ba03c273a8"
         ],
         "x": 530,
         "y": 200,
@@ -417,8 +418,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 440,
+        "x": 850,
+        "y": 240,
         "wires": [
             [
                 "f146932021093062"
@@ -446,8 +447,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
-        "y": 140,
+        "x": 750,
+        "y": 1000,
         "wires": [
             [
                 "8c89215fc1f13291"
@@ -466,8 +467,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 140,
+        "x": 960,
+        "y": 1000,
         "wires": [
             [
                 "5f6d54ffd707644c"
@@ -495,8 +496,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 150,
-        "y": 40,
+        "x": 1250,
+        "y": 480,
         "wires": [
             [
                 "70622c4cb28e369e"
@@ -515,8 +516,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 40,
+        "x": 1240,
+        "y": 520,
         "wires": [
             [
                 "6dbea43d43f885cf"
@@ -559,8 +560,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 590,
-        "y": 40,
+        "x": 1250,
+        "y": 560,
         "wires": [
             []
         ]
@@ -577,8 +578,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 100,
+        "x": 1260,
+        "y": 640,
         "wires": [
             [
                 "f07ec534d04dada0"
@@ -621,8 +622,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 580,
-        "y": 100,
+        "x": 1260,
+        "y": 680,
         "wires": [
             []
         ]
@@ -647,8 +648,8 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 600,
-        "y": 140,
+        "x": 1220,
+        "y": 1000,
         "wires": []
     },
     {
@@ -672,8 +673,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 560,
+        "x": 1050,
+        "y": 620,
         "wires": [
             [
                 "64fe0cd479925a91"
@@ -692,12 +693,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 560,
+        "x": 1040,
+        "y": 660,
         "wires": [
-            [
-                "98761881329eb225"
-            ]
+            []
         ]
     },
     {
@@ -720,8 +719,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 580,
-        "y": 600,
+        "x": 1060,
+        "y": 820,
         "wires": []
     },
     {
@@ -745,8 +744,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 600,
+        "x": 1050,
+        "y": 740,
         "wires": [
             [
                 "32a2c00dbbf79a03"
@@ -765,8 +764,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 600,
+        "x": 1050,
+        "y": 780,
         "wires": [
             [
                 "36cfc97fb02ac743"
@@ -793,8 +792,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 600,
-        "y": 640,
+        "x": 1060,
+        "y": 940,
         "wires": []
     },
     {
@@ -818,8 +817,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 640,
+        "x": 1050,
+        "y": 860,
         "wires": [
             [
                 "705e6a8f63abe61e"
@@ -838,8 +837,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 640,
+        "x": 1050,
+        "y": 900,
         "wires": [
             [
                 "7fb75a4e069cc289"
@@ -989,8 +988,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
-        "y": 180,
+        "x": 750,
+        "y": 1040,
         "wires": [
             [
                 "2e5e249ca01377db"
@@ -1009,8 +1008,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 180,
+        "x": 960,
+        "y": 1040,
         "wires": [
             [
                 "da017cadd2d429c1"
@@ -1041,8 +1040,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
-        "y": 220,
+        "x": 750,
+        "y": 1080,
         "wires": [
             [
                 "a4c35326401b475b"
@@ -1061,8 +1060,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 220,
+        "x": 960,
+        "y": 1080,
         "wires": [
             [
                 "e3786dfba068ac6e"
@@ -1089,8 +1088,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 780,
-        "y": 220,
+        "x": 1220,
+        "y": 1080,
         "wires": []
     },
     {
@@ -1114,8 +1113,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
-        "y": 260,
+        "x": 750,
+        "y": 1120,
         "wires": [
             [
                 "0cbc15a41e09b2d4"
@@ -1134,8 +1133,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 260,
+        "x": 960,
+        "y": 1120,
         "wires": [
             [
                 "9c6e152fe5fb64b0"
@@ -1162,8 +1161,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 600,
-        "y": 260,
+        "x": 1220,
+        "y": 1120,
         "wires": []
     },
     {
@@ -1187,8 +1186,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
-        "y": 300,
+        "x": 750,
+        "y": 1160,
         "wires": [
             [
                 "6d45e211e859e945"
@@ -1207,8 +1206,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
-        "y": 300,
+        "x": 950,
+        "y": 1160,
         "wires": [
             [
                 "3b8566f4c25c752c"
@@ -1235,8 +1234,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 600,
-        "y": 300,
+        "x": 1220,
+        "y": 1160,
         "wires": []
     },
     {
@@ -1260,8 +1259,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
-        "y": 340,
+        "x": 750,
+        "y": 1200,
         "wires": [
             [
                 "b725393698f379c2"
@@ -1280,8 +1279,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 340,
+        "x": 960,
+        "y": 1200,
         "wires": [
             [
                 "02fc90c74c81f2d4"
@@ -1308,8 +1307,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 600,
-        "y": 340,
+        "x": 1220,
+        "y": 1200,
         "wires": []
     },
     {
@@ -1333,8 +1332,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
-        "y": 380,
+        "x": 750,
+        "y": 1240,
         "wires": [
             [
                 "94b0ec5e94c576d8"
@@ -1353,8 +1352,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 380,
+        "x": 960,
+        "y": 1240,
         "wires": [
             [
                 "b7e3c4d3ce9fa99b"
@@ -1381,8 +1380,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 600,
-        "y": 380,
+        "x": 1220,
+        "y": 1240,
         "wires": []
     },
     {
@@ -1406,7 +1405,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
+        "x": 830,
         "y": 500,
         "wires": [
             [
@@ -1426,12 +1425,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 500,
+        "x": 840,
+        "y": 540,
         "wires": [
-            [
-                "bfdc3d90719dfe6c"
-            ]
+            []
         ]
     },
     {
@@ -1490,8 +1487,8 @@
         "height": "5",
         "className": "",
         "interpolation": "linear",
-        "x": 620,
-        "y": 180,
+        "x": 1240,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -1535,8 +1532,8 @@
         "sweep_angle": "280",
         "keepwidth": true,
         "myclass": "",
-        "x": 580,
-        "y": 500,
+        "x": 840,
+        "y": 580,
         "wires": []
     },
     {
@@ -1578,8 +1575,8 @@
         "sweep_angle": "280",
         "keepwidth": true,
         "myclass": "",
-        "x": 580,
-        "y": 560,
+        "x": 1060,
+        "y": 700,
         "wires": []
     },
     {
@@ -1625,8 +1622,8 @@
         "sweep_angle": "180",
         "keepwidth": true,
         "myclass": "",
-        "x": 670,
-        "y": 440,
+        "x": 850,
+        "y": 320,
         "wires": []
     },
     {
@@ -1641,8 +1638,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 440,
+        "x": 840,
+        "y": 280,
         "wires": [
             [
                 "2b1b9e5ba9626f78"
@@ -1670,8 +1667,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 830,
-        "y": 320,
+        "x": 1150,
+        "y": 220,
         "wires": [
             [
                 "749b3539d9f26d9b"
@@ -1721,8 +1718,8 @@
         "sweep_angle": "180",
         "keepwidth": true,
         "myclass": "",
-        "x": 1390,
-        "y": 320,
+        "x": 1150,
+        "y": 300,
         "wires": []
     },
     {
@@ -1737,8 +1734,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1100,
-        "y": 320,
+        "x": 1150,
+        "y": 260,
         "wires": [
             [
                 "e24aa1d6060ff6ca"
@@ -1766,8 +1763,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 850,
-        "y": 520,
+        "x": 1030,
+        "y": 480,
         "wires": [
             [
                 "f9e3db9bda30b961"
@@ -1795,8 +1792,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 830,
-        "y": 420,
+        "x": 1030,
+        "y": 360,
         "wires": [
             [
                 "cccdd895515375d2"
@@ -1815,8 +1812,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1010,
-        "y": 420,
+        "x": 1030,
+        "y": 400,
         "wires": [
             [
                 "fcf0af7547d28690"
@@ -2010,8 +2007,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 170,
-        "y": 100,
+        "x": 1270,
+        "y": 600,
         "wires": [
             [
                 "14bf5297eb990f76"
@@ -2030,8 +2027,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1110,
-        "y": 120,
+        "x": 1350,
+        "y": 240,
         "wires": [
             [
                 "133b79088a722ed0"
@@ -2074,8 +2071,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1320,
-        "y": 120,
+        "x": 1360,
+        "y": 280,
         "wires": [
             []
         ]
@@ -2101,8 +2098,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 890,
-        "y": 120,
+        "x": 1350,
+        "y": 200,
         "wires": [
             [
                 "8ef5ea9966129be3"
@@ -2127,8 +2124,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 1620,
-        "y": 200,
+        "x": 1240,
+        "y": 440,
         "wires": [
             []
         ]
@@ -2145,8 +2142,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1430,
-        "y": 200,
+        "x": 1230,
+        "y": 400,
         "wires": [
             [
                 "93467be891543aab"
@@ -2174,8 +2171,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1190,
-        "y": 200,
+        "x": 1230,
+        "y": 360,
         "wires": [
             [
                 "8a5e7f9279792038"
@@ -2200,8 +2197,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 1200,
-        "y": 420,
+        "x": 1020,
+        "y": 440,
         "wires": [
             []
         ]
@@ -2315,8 +2312,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 900,
+        "x": 830,
+        "y": 680,
         "wires": [
             [
                 "782f23d838f2481a"
@@ -2343,8 +2340,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 1000,
-        "y": 900,
+        "x": 830,
+        "y": 720,
         "wires": []
     },
     {
@@ -2368,8 +2365,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 690,
-        "y": 840,
+        "x": 830,
+        "y": 640,
         "wires": [
             [
                 "38a673b9b0245acf"
@@ -2397,8 +2394,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 190,
-        "y": 1020,
+        "x": 830,
+        "y": 760,
         "wires": [
             [
                 "7689b035f4bbe587"
@@ -2417,8 +2414,8 @@
         "initialize": "\nif (msg.payload === \"start\") {\n    flow.set(\"startTime\", Date.now());\n}",
         "finalize": "",
         "libs": [],
-        "x": 390,
-        "y": 1020,
+        "x": 830,
+        "y": 800,
         "wires": [
             [
                 "e3096d3bc1c77d81"
@@ -2445,8 +2442,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 600,
-        "y": 1020,
+        "x": 840,
+        "y": 840,
         "wires": []
     },
     {
@@ -2466,8 +2463,448 @@
         "maxValue": 30,
         "diameter": 400,
         "numTicks": 200,
-        "x": 1210,
-        "y": 520,
+        "x": 1030,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bb2b2f6db105a533",
+        "type": "ui-gauge",
+        "z": "e7fd52d4b19f431b",
+        "name": "Steering",
+        "group": "6db9f9b4ba633596",
+        "order": 16,
+        "value": "payload.degrees",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Steering",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "deg",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "180",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "360",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "360",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 580,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a4ed38ba03c273a8",
+        "type": "link in",
+        "z": "e7fd52d4b19f431b",
+        "name": "FlowInput",
+        "links": [
+            "127d4be97d6951c7"
+        ],
+        "x": 80,
+        "y": 320,
+        "wires": [
+            [
+                "2472e0ad061582cd"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "2472e0ad061582cd",
+        "type": "switch",
+        "z": "e7fd52d4b19f431b",
+        "name": "CAN-Routing",
+        "property": "payload.signal",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "steering",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "stepper_FeedbackLeft",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "stepper_FeedbackRight",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "motor_VibrationLeft",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "motor_VibrationRight",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "motor_RpmLeft",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "motor_RpmRight",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "throttle_Input",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 8,
+        "x": 250,
+        "y": 320,
+        "wires": [
+            [
+                "bb2b2f6db105a533"
+            ],
+            [
+                "3cd119f116030df1"
+            ],
+            [
+                "852ad250aad269e4"
+            ],
+            [
+                "8e41ad669f264dcd"
+            ],
+            [
+                "366ceff5decdf7c9"
+            ],
+            [
+                "7e38d505418cf79d"
+            ],
+            [
+                "e5e48ddf155b708d"
+            ],
+            [
+                "4675a07699e26b03"
+            ]
+        ]
+    },
+    {
+        "id": "3cd119f116030df1",
+        "type": "ui-gauge",
+        "z": "e7fd52d4b19f431b",
+        "name": "stepper_FeedbackLeft",
+        "group": "6db9f9b4ba633596",
+        "order": 15,
+        "value": "payload.degrees",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "stepper_FeedbackLeft",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "deg",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "180",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "360",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "360",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 620,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8e41ad669f264dcd",
+        "type": "ui-template",
+        "z": "e7fd52d4b19f431b",
+        "group": "6db9f9b4ba633596",
+        "page": "",
+        "ui": "",
+        "name": "motor_VibrationLeft",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <div style=\"padding: 15px; border-radius: 12px; text-align: center; transition: all 0.4s ease;\" \n         :style=\"{ \n            backgroundColor: msg.payload.is_unsafe ? '#330000' : '#002200',\n            border: msg.payload.is_unsafe ? '2px solid red' : '2px solid green' \n         }\">\n        \n        <h3 style=\"margin: 0 0 15px 0; color: #eee; font-size: 1.1em; letter-spacing: 1px;\">\n            MOTOR 1 VIBRATION\n        </h3>\n        \n        <div style=\"padding: 20px; border-radius: 50%; width: 100px; height: 100px; margin: 0 auto; display: flex; align-items: center; justify-content: center; transition: all 0.3s;\"\n             :style=\"{ \n                backgroundColor: msg.payload.is_unsafe ? 'red' : 'green',\n                boxShadow: msg.payload.is_unsafe ? '0 0 20px red' : '0 0 10px green'\n             }\">\n            <span style=\"color: white; font-size: 2.5em;\">\n                {{ msg.payload.is_unsafe ? '!' : '✓' }}\n            </span>\n        </div>\n\n        <div style=\"margin-top: 20px;\">\n            <div :style=\"{ color: msg.payload.is_unsafe ? '#ff4d4d' : '#4dff4d', fontWeight: 'bold', fontSize: '1.8em' }\">\n                {{ msg.payload.is_unsafe ? 'UNSAFE' : 'SAFE' }}\n            </div>\n            <div style=\"color: #aaa; font-size: 0.9em; margin-top: 5px;\">\n                {{ msg.payload.is_unsafe ? 'High frequency vibration detected' : 'Operating within normal limits' }}\n            </div>\n        </div>\n    </div>\n</template>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 610,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "366ceff5decdf7c9",
+        "type": "ui-template",
+        "z": "e7fd52d4b19f431b",
+        "group": "6db9f9b4ba633596",
+        "page": "",
+        "ui": "",
+        "name": "motor_VibrationRight",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <div style=\"padding: 15px; border-radius: 12px; text-align: center; transition: all 0.4s ease;\" \n         :style=\"{ \n            backgroundColor: msg.payload.is_unsafe ? '#330000' : '#002200',\n            border: msg.payload.is_unsafe ? '2px solid red' : '2px solid green' \n         }\">\n        \n        <h3 style=\"margin: 0 0 15px 0; color: #eee; font-size: 1.1em; letter-spacing: 1px;\">\n            MOTOR 2 VIBRATION\n        </h3>\n        \n        <div style=\"padding: 20px; border-radius: 50%; width: 100px; height: 100px; margin: 0 auto; display: flex; align-items: center; justify-content: center; transition: all 0.3s;\"\n             :style=\"{ \n                backgroundColor: msg.payload.is_unsafe ? 'red' : 'green',\n                boxShadow: msg.payload.is_unsafe ? '0 0 20px red' : '0 0 10px green'\n             }\">\n            <span style=\"color: white; font-size: 2.5em;\">\n                {{ msg.payload.is_unsafe ? '!' : '✓' }}\n            </span>\n        </div>\n\n        <div style=\"margin-top: 20px;\">\n            <div :style=\"{ color: msg.payload.is_unsafe ? '#ff4d4d' : '#4dff4d', fontWeight: 'bold', fontSize: '1.8em' }\">\n                {{ msg.payload.is_unsafe ? 'UNSAFE' : 'SAFE' }}\n            </div>\n            <div style=\"color: #aaa; font-size: 0.9em; margin-top: 5px;\">\n                {{ msg.payload.is_unsafe ? 'High frequency vibration detected' : 'Operating within normal limits' }}\n            </div>\n        </div>\n    </div>\n</template>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 620,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7e38d505418cf79d",
+        "type": "ui-gauge",
+        "z": "e7fd52d4b19f431b",
+        "name": "motor_RpmLeft",
+        "group": "6db9f9b4ba633596",
+        "order": 13,
+        "value": "payload.rpm",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "motor_RpmLeft",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "RPM",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 10,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 600,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "852ad250aad269e4",
+        "type": "ui-gauge",
+        "z": "e7fd52d4b19f431b",
+        "name": "stepper_FeedbackRight",
+        "group": "6db9f9b4ba633596",
+        "order": 14,
+        "value": "payload.degrees",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "stepper_FeedbackRight",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "deg",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "180",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "360",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "360",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 630,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e5e48ddf155b708d",
+        "type": "ui-gauge",
+        "z": "e7fd52d4b19f431b",
+        "name": "motor_RpmRight",
+        "group": "6db9f9b4ba633596",
+        "order": 12,
+        "value": "payload.rpm",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "motor_RpmRight",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "RPM",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 10,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 610,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4675a07699e26b03",
+        "type": "ui-template",
+        "z": "e7fd52d4b19f431b",
+        "group": "6db9f9b4ba633596",
+        "page": "",
+        "ui": "",
+        "name": "throttle_Input",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <div style=\"padding: 16px; text-align: center; font-family: sans-serif;\">\n\n        <div style=\"font-size: 1.1em; font-weight: bold; margin-bottom: 12px;\">\n            Throttle\n        </div>\n\n        <div style=\"font-size: 2em; font-weight: bold; margin-bottom: 16px;\">\n            {{ msg.payload.voltage.toFixed(3) }} V\n        </div>\n\n        <div style=\"\n            width: 60px;\n            height: 200px;\n            background: #f0f0f0;\n            border-radius: 8px;\n            margin: 0 auto;\n            position: relative;\n            overflow: hidden;\n            border: 1px solid #ccc;\n        \">\n            <div :style=\"{\n                position: 'absolute',\n                bottom: '0',\n                left: '0',\n                width: '100%',\n                borderRadius: '8px',\n                transition: 'height 0.3s ease, background-color 0.3s ease',\n                height: (Math.max(0, Math.min(5.0, msg.payload.voltage)) / 5.0 * 100) + '%',\n                backgroundColor: msg.payload.voltage < 2.0 ? '#2196F3' : msg.payload.voltage < 3.75 ? '#FFC107' : '#F44336'\n            }\">\n            </div>\n        </div>\n\n    </div>\n</template>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 590,
+        "y": 540,
         "wires": [
             []
         ]
@@ -3676,7 +4113,7 @@
         "z": "78df372cbc55454b",
         "name": "Steering",
         "group": "6db9f9b4ba633596",
-        "order": 2,
+        "order": 3,
         "value": "payload.degrees",
         "valueType": "msg",
         "width": 3,
@@ -3828,7 +4265,7 @@
         "z": "78df372cbc55454b",
         "name": "stepper_FeedbackLeft",
         "group": "6db9f9b4ba633596",
-        "order": 3,
+        "order": 4,
         "value": "payload.degrees",
         "valueType": "msg",
         "width": 3,
@@ -3908,7 +4345,7 @@
         "page": "",
         "ui": "",
         "name": "motor_VibrationRight",
-        "order": 7,
+        "order": 9,
         "width": 0,
         "height": 0,
         "head": "",
@@ -3930,7 +4367,7 @@
         "z": "78df372cbc55454b",
         "name": "motor_RpmLeft",
         "group": "6db9f9b4ba633596",
-        "order": 5,
+        "order": 6,
         "value": "payload.rpm",
         "valueType": "msg",
         "width": 3,
@@ -3984,7 +4421,7 @@
         "z": "78df372cbc55454b",
         "name": "stepper_FeedbackRight",
         "group": "6db9f9b4ba633596",
-        "order": 4,
+        "order": 5,
         "value": "payload.degrees",
         "valueType": "msg",
         "width": 3,
@@ -4038,7 +4475,7 @@
         "z": "78df372cbc55454b",
         "name": "motor_RpmRight",
         "group": "6db9f9b4ba633596",
-        "order": 6,
+        "order": 7,
         "value": "payload.rpm",
         "valueType": "msg",
         "width": 3,
@@ -4094,7 +4531,7 @@
         "page": "",
         "ui": "",
         "name": "throttle_Input",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "head": "",
