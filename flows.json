@@ -3474,6 +3474,7 @@
         "id": "1354efb4a35fca0a",
         "type": "ui_thermostat",
         "z": "e7fd52d4b19f431b",
+        "d": true,
         "name": "",
         "order": 0,
         "width": 0,
@@ -3682,9 +3683,7 @@
         "x": 1030,
         "y": 520,
         "wires": [
-            [
-                "1354efb4a35fca0a"
-            ]
+            []
         ]
     },
     {
