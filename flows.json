@@ -27,7 +27,7 @@
         "id": "78df372cbc55454b",
         "type": "tab",
         "label": "testBoatDashboard",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
