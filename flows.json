@@ -11,7 +11,7 @@
         "id": "e7fd52d4b19f431b",
         "type": "tab",
         "label": "BoatDashboard",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
