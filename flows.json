@@ -11,7 +11,7 @@
         "id": "b33638248b785f41",
         "type": "tab",
         "label": "piSensors",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
