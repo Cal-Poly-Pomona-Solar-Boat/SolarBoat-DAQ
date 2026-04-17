@@ -11,7 +11,7 @@
         "id": "b33638248b785f41",
         "type": "tab",
         "label": "piSensors",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -445,7 +445,8 @@
         "y": 60,
         "wires": [
             [
-                "ea853c9fa35ea1f7"
+                "ea853c9fa35ea1f7",
+                "7325f9456c236fde"
             ]
         ]
     },
@@ -464,9 +465,7 @@
         "x": 300,
         "y": 220,
         "wires": [
-            [
-                "7325f9456c236fde"
-            ],
+            [],
             [],
             [],
             [],
