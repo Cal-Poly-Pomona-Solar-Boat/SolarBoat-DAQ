@@ -3,7 +3,7 @@
         "id": "8c9a8d8b124faffc",
         "type": "tab",
         "label": "CAN-Decoder",
-        "disabled": false,
+        "disabled": true,
         "info": "This flow will read CAN bus messages\r\ncoming from other microcontrollers\r\nit will then decode those custom \r\nmessages, store it into a database, and \r\noutput live readings into a dashboard.",
         "env": []
     },
@@ -11,7 +11,7 @@
         "id": "d5021122c7687a77",
         "type": "tab",
         "label": "BoatDashboard",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -35,14 +35,6 @@
         "id": "9a918d2fcc176b74",
         "type": "tab",
         "label": "InfluxTEST-falseData",
-        "disabled": true,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "74dc6e2c6f10530c",
-        "type": "tab",
-        "label": "I2C (Positional Speed (6065) / ADC Chip (3008) )",
         "disabled": true,
         "info": "",
         "env": []
@@ -4143,145 +4135,5 @@
         "x": 420,
         "y": 260,
         "wires": []
-    },
-    {
-        "id": "15922a6cfa07c147",
-        "type": "i2c in",
-        "z": "74dc6e2c6f10530c",
-        "name": "Read MPU6050",
-        "busno": "1",
-        "address": 104,
-        "command": 59,
-        "count": 14,
-        "x": 380,
-        "y": 120,
-        "wires": [
-            [
-                "679db7106ce3a0b5"
-            ]
-        ]
-    },
-    {
-        "id": "d9bb0a8f8e4f55e6",
-        "type": "i2c out",
-        "z": "74dc6e2c6f10530c",
-        "name": "Wake MPU6050",
-        "address": 104,
-        "payloadType": "msg",
-        "x": 560,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "679db7106ce3a0b5",
-        "type": "function",
-        "z": "74dc6e2c6f10530c",
-        "name": "process i2c",
-        "func": "var data = msg.payload;\nvar int16 = function(high, low) {\n  var result = (high << 8) | low;\n  return result >> 15 ? ((result ^ 0xFFFF) + 1) * -1 : result;\n};\nmsg.payload = {\n    accelerometer : {\n        x: int16(data[0], data[1]),\n        y: int16(data[2], data[3]),\n        z: int16(data[4], data[5])\n    },\n    temperature : int16(data[6], data[7]),\n    gyro : {\n        x: int16(data[8], data[9]),\n        y: int16(data[10], data[11]),\n        z: int16(data[12], data[13])\n    }\n};\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 570,
-        "y": 120,
-        "wires": [
-            [
-                "00bfafc30ac1e65e"
-            ]
-        ]
-    },
-    {
-        "id": "00bfafc30ac1e65e",
-        "type": "debug",
-        "z": "74dc6e2c6f10530c",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 770,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "85ace04cccb11dea",
-        "type": "inject",
-        "z": "74dc6e2c6f10530c",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "0.5",
-        "topic": "",
-        "payload": "14",
-        "payloadType": "str",
-        "x": 210,
-        "y": 120,
-        "wires": [
-            [
-                "15922a6cfa07c147"
-            ]
-        ]
-    },
-    {
-        "id": "b6d4a002e8bad972",
-        "type": "inject",
-        "z": "74dc6e2c6f10530c",
-        "name": "",
-        "props": [
-            {
-                "p": "payload",
-                "v": "",
-                "vt": "str"
-            },
-            {
-                "p": "topic",
-                "v": "",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "once": false,
-        "payload": "",
-        "payloadType": "none",
-        "x": 210,
-        "y": 180,
-        "wires": [
-            [
-                "d0f080ad5bf01ddb"
-            ]
-        ]
-    },
-    {
-        "id": "d0f080ad5bf01ddb",
-        "type": "function",
-        "z": "74dc6e2c6f10530c",
-        "name": "i2c bytes",
-        "func": "msg.payload = [0x6B, 0x00];\nreturn msg;",
-        "outputs": 1,
-        "x": 360,
-        "y": 180,
-        "wires": [
-            [
-                "d9bb0a8f8e4f55e6"
-            ]
-        ]
     }
 ]
