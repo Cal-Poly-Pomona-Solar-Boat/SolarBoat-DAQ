@@ -11,7 +11,7 @@
         "id": "b33638248b785f41",
         "type": "tab",
         "label": "piSensors",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -435,7 +435,7 @@
         "name": "",
         "topic": "pi/sensors",
         "qos": "2",
-        "datatype": "json",
+        "datatype": "utf8",
         "broker": "55d44773581159e8",
         "nl": false,
         "rap": true,
