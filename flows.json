@@ -27,7 +27,7 @@
         "id": "a2ab62117e01f9b3",
         "type": "tab",
         "label": "InfluxDB_Database",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -1610,6 +1610,7 @@
         "id": "6c1772e8f00913c5",
         "type": "inject",
         "z": "d5021122c7687a77",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -1627,7 +1628,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1650,
+        "x": 1850,
         "y": 320,
         "wires": [
             [
@@ -1639,12 +1640,13 @@
         "id": "2c0ff095e355e9e7",
         "type": "function",
         "z": "d5021122c7687a77",
+        "d": true,
         "name": "function 26",
-        "func": "// Get start time from flow context\nlet startTime = flow.get(\"startTime\");\n\n// If no start time, initialize it\nif (!startTime) {\n    startTime = Date.now();\n    flow.set(\"startTime\", startTime);\n}\n\n// Calculate elapsed time\nlet elapsedMs = Date.now() - startTime;\n\n// Convert to minutes + hours\nlet totalMinutes = Math.floor(elapsedMs / 60000);\nlet hours = Math.floor(totalMinutes / 60);\nlet minutes = totalMinutes % 60;\n\n// Format output\nmsg.payload = `${hours} hr ${minutes} min`;\n\nreturn msg;",
+        "func": "// Get start time from flow context\nlet startTime = flow.get(\"startTime\");\n\nif (msg.payload === \"start\") {\n    flow.set(\"startTime\", Date.now());\n}\n\n// If no start time, initialize it\nif (!startTime) {\n    startTime = Date.now();\n    flow.set(\"startTime\", startTime);\n}\n\n// Calculate elapsed time\nlet elapsedMs = Date.now() - startTime;\n\n// Convert to minutes + hours\nlet totalMinutes = Math.floor(elapsedMs / 60000);\nlet hours = Math.floor(totalMinutes / 60);\nlet minutes = totalMinutes % 60;\n\n// Format output\nmsg.payload = `${hours} hr ${minutes} min`;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
-        "initialize": "\nif (msg.payload === \"start\") {\n    flow.set(\"startTime\", Date.now());\n}",
+        "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 1650,
@@ -1659,6 +1661,7 @@
         "id": "e36d5963688f5ae2",
         "type": "ui-text",
         "z": "d5021122c7687a77",
+        "d": true,
         "group": "90ebb2c809166208",
         "order": 1,
         "width": "3",
