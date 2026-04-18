@@ -613,8 +613,8 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 1240,
-        "y": 840,
+        "x": 1000,
+        "y": 720,
         "wires": []
     },
     {
@@ -2327,7 +2327,7 @@
         "y": 1120,
         "wires": [
             [
-                "127921b124767e00"
+                "62cbd055e6626cff"
             ],
             [
                 "9787e34c71270899"
@@ -3002,8 +3002,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 990,
-        "y": 720,
+        "x": 910,
+        "y": 640,
         "wires": [
             []
         ]
