@@ -3083,7 +3083,6 @@
         "id": "bf1254f5208bb17c",
         "type": "Stackhero-InfluxDB-v2-write",
         "z": "a2ab62117e01f9b3",
-        "d": true,
         "server": "9afdf362c7955a7b",
         "name": "",
         "x": 750,
@@ -3122,7 +3121,7 @@
         "wires": [
             [
                 "b451742323c0f8fc",
-                "fb5910051ef062b0"
+                "bf1254f5208bb17c"
             ]
         ],
         "l": true
