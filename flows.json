@@ -2401,7 +2401,7 @@
         "width": 2,
         "height": 0,
         "name": "Battery2 Temp",
-        "label": "Battery1 Temp: ",
+        "label": "Battery2 Temp: ",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "style": true,
