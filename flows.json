@@ -27,7 +27,7 @@
         "id": "a2ab62117e01f9b3",
         "type": "tab",
         "label": "InfluxDB_Database",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -3018,7 +3018,7 @@
         "z": "a2ab62117e01f9b3",
         "server": "9afdf362c7955a7b",
         "name": "",
-        "x": 670,
+        "x": 730,
         "y": 60,
         "wires": [
             []
@@ -3058,8 +3058,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
-        "y": 180,
+        "x": 360,
+        "y": 280,
         "wires": []
     },
     {
@@ -3083,6 +3083,7 @@
         "id": "bf1254f5208bb17c",
         "type": "Stackhero-InfluxDB-v2-write",
         "z": "a2ab62117e01f9b3",
+        "d": true,
         "server": "9afdf362c7955a7b",
         "name": "",
         "x": 750,
@@ -3120,8 +3121,8 @@
         "y": 460,
         "wires": [
             [
-                "bf1254f5208bb17c",
-                "b451742323c0f8fc"
+                "b451742323c0f8fc",
+                "fb5910051ef062b0"
             ]
         ],
         "l": true
