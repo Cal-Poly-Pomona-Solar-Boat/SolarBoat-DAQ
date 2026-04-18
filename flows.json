@@ -27,7 +27,7 @@
         "id": "a2ab62117e01f9b3",
         "type": "tab",
         "label": "InfluxDB_Database",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
