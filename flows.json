@@ -11,7 +11,7 @@
         "id": "b33638248b785f41",
         "type": "tab",
         "label": "piSensors",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -423,7 +423,7 @@
             "ebfbf0ef82e34a01",
             "9bb87ba5ee248da3"
         ],
-        "x": 530,
+        "x": 570,
         "y": 200,
         "wires": [],
         "l": true
@@ -463,7 +463,7 @@
         "finalize": "",
         "libs": [],
         "x": 300,
-        "y": 220,
+        "y": 420,
         "wires": [
             [],
             [],
@@ -508,7 +508,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
+        "x": 580,
         "y": 100,
         "wires": []
     },
