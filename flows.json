@@ -385,8 +385,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 160,
-        "y": 280,
+        "x": 190,
+        "y": 300,
         "wires": [
             []
         ]
@@ -483,8 +483,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1170,
-        "y": 560,
+        "x": 1450,
+        "y": 440,
         "wires": [
             [
                 "5f60e839da26fb49"
@@ -503,8 +503,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1160,
-        "y": 600,
+        "x": 1440,
+        "y": 480,
         "wires": [
             []
         ]
@@ -637,8 +637,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 1160,
-        "y": 520,
+        "x": 1440,
+        "y": 400,
         "wires": []
     },
     {
@@ -662,8 +662,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1150,
-        "y": 440,
+        "x": 1430,
+        "y": 320,
         "wires": [
             [
                 "92b4c2b30d2e189a"
@@ -682,8 +682,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1150,
-        "y": 480,
+        "x": 1430,
+        "y": 360,
         "wires": [
             [
                 "3deaf8714f2c2d86"
@@ -710,8 +710,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 1400,
-        "y": 640,
+        "x": 1680,
+        "y": 520,
         "wires": []
     },
     {
@@ -735,8 +735,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1390,
-        "y": 560,
+        "x": 1670,
+        "y": 440,
         "wires": [
             [
                 "dd4121505ff3f658"
@@ -755,8 +755,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1390,
-        "y": 600,
+        "x": 1670,
+        "y": 480,
         "wires": [
             [
                 "b05d2dcae86939f0"
@@ -783,8 +783,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 1640,
-        "y": 640,
+        "x": 1920,
+        "y": 520,
         "wires": []
     },
     {
@@ -808,8 +808,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1610,
-        "y": 560,
+        "x": 1890,
+        "y": 440,
         "wires": [
             [
                 "53a532f5e53cd63a"
@@ -828,8 +828,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1610,
-        "y": 600,
+        "x": 1890,
+        "y": 480,
         "wires": [
             [
                 "fe5bdc6f270cc8bd"
@@ -906,8 +906,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1170,
-        "y": 680,
+        "x": 1450,
+        "y": 560,
         "wires": [
             [
                 "c6f8455935ace05c"
@@ -926,8 +926,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1380,
-        "y": 680,
+        "x": 1660,
+        "y": 560,
         "wires": [
             [
                 "a08742988064d104"
@@ -1054,8 +1054,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 930,
-        "y": 440,
+        "x": 1210,
+        "y": 320,
         "wires": [
             [
                 "d59d2bb569d56d4e"
@@ -1074,8 +1074,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 920,
-        "y": 480,
+        "x": 1200,
+        "y": 360,
         "wires": [
             [
                 "130b34572f9f368e"
@@ -1102,8 +1102,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 940,
-        "y": 520,
+        "x": 1220,
+        "y": 400,
         "wires": []
     },
     {
@@ -1162,8 +1162,8 @@
         "height": "5",
         "className": "",
         "interpolation": "linear",
-        "x": 1660,
-        "y": 680,
+        "x": 1940,
+        "y": 560,
         "wires": [
             []
         ]
@@ -1189,8 +1189,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1150,
-        "y": 200,
+        "x": 1430,
+        "y": 80,
         "wires": [
             [
                 "47a705d45befa96b"
@@ -1209,8 +1209,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1150,
-        "y": 240,
+        "x": 1430,
+        "y": 120,
         "wires": [
             [
                 "5cf0b9e2bdf8194b"
@@ -1381,8 +1381,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 1380,
-        "y": 400,
+        "x": 1660,
+        "y": 280,
         "wires": [
             []
         ]
@@ -1399,8 +1399,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1370,
-        "y": 360,
+        "x": 1650,
+        "y": 240,
         "wires": [
             [
                 "0f78b03f61393515"
@@ -1428,8 +1428,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1370,
-        "y": 320,
+        "x": 1650,
+        "y": 200,
         "wires": [
             [
                 "5d762ddd037b38d0"
@@ -1545,8 +1545,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1150,
-        "y": 360,
+        "x": 1430,
+        "y": 240,
         "wires": [
             [
                 "dfce464fd116b161"
@@ -1573,8 +1573,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 1150,
-        "y": 400,
+        "x": 1430,
+        "y": 280,
         "wires": []
     },
     {
@@ -1598,8 +1598,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1150,
-        "y": 320,
+        "x": 1430,
+        "y": 200,
         "wires": [
             [
                 "07d9ef953038d5a1"
@@ -1627,8 +1627,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1370,
-        "y": 440,
+        "x": 1650,
+        "y": 320,
         "wires": [
             [
                 "2c0ff095e355e9e7"
@@ -1647,8 +1647,8 @@
         "initialize": "\nif (msg.payload === \"start\") {\n    flow.set(\"startTime\", Date.now());\n}",
         "finalize": "",
         "libs": [],
-        "x": 1370,
-        "y": 480,
+        "x": 1650,
+        "y": 360,
         "wires": [
             [
                 "e36d5963688f5ae2"
@@ -1675,8 +1675,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 1380,
-        "y": 520,
+        "x": 1660,
+        "y": 400,
         "wires": []
     },
     {
@@ -1696,8 +1696,8 @@
         "maxValue": 30,
         "diameter": 400,
         "numTicks": 200,
-        "x": 1150,
-        "y": 280,
+        "x": 1430,
+        "y": 160,
         "wires": [
             []
         ]
@@ -2407,7 +2407,9 @@
             [
                 "01c7a8c9a8809d54"
             ],
-            []
+            [
+                "e9640f25d952299d"
+            ]
         ]
     },
     {
@@ -2554,8 +2556,8 @@
         "order": 7,
         "width": 2,
         "height": 0,
-        "name": "Battery1 Volt",
-        "label": "Battery1 Volt: ",
+        "name": "In Panel Volt",
+        "label": "In Panel Volt",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "style": true,
@@ -2578,8 +2580,8 @@
         "order": 8,
         "width": 2,
         "height": 0,
-        "name": "Battery2 Volt",
-        "label": "Battery2 Volt: ",
+        "name": "Battery Pack Main Volt",
+        "label": "Battery Pack Main Volt",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "style": true,
@@ -2590,7 +2592,7 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 1250,
+        "x": 1280,
         "y": 1340,
         "wires": []
     },
@@ -2602,8 +2604,8 @@
         "order": 9,
         "width": 2,
         "height": 0,
-        "name": "Battery3 Volt",
-        "label": "Battery3 Volt: ",
+        "name": "Out Panel Volt",
+        "label": "Out Panel Volt",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "style": true,
@@ -2614,7 +2616,7 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 1250,
+        "x": 1260,
         "y": 1380,
         "wires": []
     },
@@ -2626,8 +2628,8 @@
         "order": 10,
         "width": 2,
         "height": 0,
-        "name": "Battery4 Volt",
-        "label": "Battery4 Volt: ",
+        "name": "Motor L Voltage",
+        "label": "Motor L Voltage",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "style": true,
@@ -2638,7 +2640,7 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 1250,
+        "x": 1260,
         "y": 1420,
         "wires": []
     },
@@ -2650,8 +2652,8 @@
         "order": 11,
         "width": 2,
         "height": 0,
-        "name": "Battery5 Volt",
-        "label": "Battery5 Volt: ",
+        "name": "Motor R Volt",
+        "label": "Motor R Volt",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "style": true,
@@ -2674,8 +2676,8 @@
         "order": 12,
         "width": 2,
         "height": 0,
-        "name": "Battery6 Volt",
-        "label": "Battery6 Volt: ",
+        "name": "Maybe not needed Volt: ",
+        "label": "Maybe not needed Volt: ",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "style": true,
@@ -2686,7 +2688,7 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 1250,
+        "x": 1290,
         "y": 1500,
         "wires": []
     },
@@ -2950,8 +2952,71 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 720,
-        "y": 1520,
+        "x": 1240,
+        "y": 1820,
+        "wires": []
+    },
+    {
+        "id": "232dc9dbaab96883",
+        "type": "comment",
+        "z": "d5021122c7687a77",
+        "name": "Pi Sensors",
+        "info": "Everything under are sensors connected\nto the Rasp Pi, the sensor values are \ngiven by: the C code converts the analog\ndata to digital and then that data is \nconverted into a Json file and then that\nfile is parsed and separated into the\nsensor readings that we need.\n\nThe code that parses throught the Json file\nis located at the top of the Pi Sensors\nfunction node.\n\nEverything is a text node to test out the\ncode, the visuals still need to be edited\nbased on the type of reading.\n\nDO NOT trust any of these connections,\nit all depends on how the sensors are\nsodered onto the board.",
+        "x": 980,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "bd88d44f47463ac1",
+        "type": "comment",
+        "z": "d5021122c7687a77",
+        "name": "a/g (x-z)",
+        "info": "These are the readings for the roll and the\npitch of the boat.\n\nThese need to be integrated into the \n\"boat att\" Java code inside the\nnode \"boat att\", to properly display the\nroll and pitch onto the visual.",
+        "x": 1400,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "2218a1f3ad9a26a6",
+        "type": "comment",
+        "z": "d5021122c7687a77",
+        "name": "Panel temps",
+        "info": "Four of these are thermistor sensors for\nthe solar panels, DO NOT TRUST THE NODES,\nthese four thermistor readings need to be\naveraged together and only the average\nneeds to be displayed\n",
+        "x": 1190,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "96f506bc0cbab157",
+        "type": "comment",
+        "z": "d5021122c7687a77",
+        "name": "Battery Temps",
+        "info": "The six battery readings need to be\nintegrated into the battery temp graph\nnode located to the left, do not trust \nthe way the nodes are labeled because\nthis set up was only to test the sensor code\n",
+        "x": 1190,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "ed7ddc945df596b9",
+        "type": "comment",
+        "z": "d5021122c7687a77",
+        "name": "Last Unconnected port",
+        "info": "This port is for the influxDB node so\nso that the data can be uploaded onto\ninfluxDB.\n",
+        "x": 680,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "e9640f25d952299d",
+        "type": "link out",
+        "z": "d5021122c7687a77",
+        "name": "Pi Sensor Influx out",
+        "mode": "link",
+        "links": [
+            "1fb0776e512144ef"
+        ],
+        "x": 575,
+        "y": 1480,
         "wires": []
     },
     {
@@ -3012,11 +3077,58 @@
         "links": [
             "127d4be97d6951c7"
         ],
-        "x": 190,
-        "y": 60,
+        "x": 290,
+        "y": 180,
         "wires": [
             [
                 "9645dfae08d24aef"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "bf1254f5208bb17c",
+        "type": "Stackhero-InfluxDB-v2-write",
+        "z": "a2ab62117e01f9b3",
+        "server": "9afdf362c7955a7b",
+        "name": "",
+        "x": 750,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b451742323c0f8fc",
+        "type": "debug",
+        "z": "a2ab62117e01f9b3",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1fb0776e512144ef",
+        "type": "link in",
+        "z": "a2ab62117e01f9b3",
+        "name": "influxLINK-IN Pi",
+        "links": [
+            "e9640f25d952299d"
+        ],
+        "x": 340,
+        "y": 460,
+        "wires": [
+            [
+                "bf1254f5208bb17c",
+                "b451742323c0f8fc"
             ]
         ],
         "l": true
