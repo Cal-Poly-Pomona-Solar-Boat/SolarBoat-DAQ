@@ -613,8 +613,8 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 1000,
-        "y": 720,
+        "x": 1240,
+        "y": 840,
         "wires": []
     },
     {
@@ -2327,7 +2327,7 @@
         "y": 1120,
         "wires": [
             [
-                "62cbd055e6626cff"
+                "127921b124767e00"
             ],
             [
                 "9787e34c71270899"
@@ -2392,7 +2392,6 @@
             [
                 "6dd17886f091cb56"
             ],
-            [],
             [
                 "9c5c8ffd8a8dd5e7"
             ],
@@ -2407,7 +2406,8 @@
             ],
             [
                 "01c7a8c9a8809d54"
-            ]
+            ],
+            []
         ]
     },
     {
@@ -2953,6 +2953,60 @@
         "x": 720,
         "y": 1520,
         "wires": []
+    },
+    {
+        "id": "127921b124767e00",
+        "type": "ui-gauge",
+        "z": "d5021122c7687a77",
+        "name": "",
+        "group": "6db9f9b4ba633596",
+        "order": 0,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "gauge",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "7",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 10,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 990,
+        "y": 720,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "fb5910051ef062b0",
