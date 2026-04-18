@@ -612,7 +612,7 @@
         "wrapText": false,
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "d.therm1",
-        "valueType": "str",
+        "valueType": "msg",
         "x": 1000,
         "y": 720,
         "wires": []
