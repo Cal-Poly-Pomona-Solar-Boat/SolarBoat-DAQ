@@ -613,8 +613,8 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 820,
-        "y": 840,
+        "x": 1000,
+        "y": 720,
         "wires": []
     },
     {
@@ -957,8 +957,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 820,
-        "y": 920,
+        "x": 1000,
+        "y": 800,
         "wires": []
     },
     {
@@ -981,8 +981,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 820,
-        "y": 960,
+        "x": 1000,
+        "y": 840,
         "wires": []
     },
     {
@@ -1005,8 +1005,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 820,
-        "y": 1000,
+        "x": 1000,
+        "y": 880,
         "wires": []
     },
     {
@@ -1029,8 +1029,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 820,
-        "y": 1040,
+        "x": 1000,
+        "y": 920,
         "wires": []
     },
     {
@@ -2323,7 +2323,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
+        "x": 500,
         "y": 1120,
         "wires": [
             [
@@ -2426,8 +2426,8 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 820,
-        "y": 880,
+        "x": 1000,
+        "y": 760,
         "wires": []
     },
     {
@@ -2450,8 +2450,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 810,
-        "y": 1080,
+        "x": 990,
+        "y": 960,
         "wires": []
     },
     {
@@ -2474,8 +2474,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 810,
-        "y": 1120,
+        "x": 990,
+        "y": 1000,
         "wires": []
     },
     {
@@ -2498,8 +2498,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 810,
-        "y": 1160,
+        "x": 990,
+        "y": 1040,
         "wires": []
     },
     {
@@ -2522,8 +2522,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 810,
-        "y": 1200,
+        "x": 990,
+        "y": 1080,
         "wires": []
     },
     {
@@ -2546,8 +2546,8 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 810,
-        "y": 1240,
+        "x": 1250,
+        "y": 1360,
         "wires": []
     },
     {
@@ -2570,8 +2570,8 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 810,
-        "y": 1280,
+        "x": 1250,
+        "y": 1400,
         "wires": []
     },
     {
@@ -2594,8 +2594,8 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 810,
-        "y": 1320,
+        "x": 1250,
+        "y": 1440,
         "wires": []
     },
     {
@@ -2618,8 +2618,8 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 810,
-        "y": 1360,
+        "x": 1250,
+        "y": 1480,
         "wires": []
     },
     {
@@ -2642,8 +2642,8 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 810,
-        "y": 1400,
+        "x": 1250,
+        "y": 1520,
         "wires": []
     },
     {
@@ -2666,8 +2666,8 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 810,
-        "y": 1440,
+        "x": 1250,
+        "y": 1560,
         "wires": []
     },
     {
@@ -2678,8 +2678,8 @@
         "order": 3,
         "width": 2,
         "height": 0,
-        "name": "Battery1 Volt",
-        "label": "Battery1 Volt: ",
+        "name": "Battery7 Volt",
+        "label": "Battery7 Volt: ",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "style": true,
@@ -2690,8 +2690,8 @@
         "className": "<span class=\"{{msg.className}}\">     {{msg.payload}} °C </span> <style> .normal {     color: green;     font-weight: bold; }  .hot {     color: red;     font-weight: bold;     animation: flash 0.7s infinite; }  @keyframes flash {     0%   { opacity: 1; }     50%  { opacity: 0.2; }     100% { opacity: 1; } } </style>",
         "value": "payload",
         "valueType": "msg",
-        "x": 810,
-        "y": 1480,
+        "x": 1250,
+        "y": 1600,
         "wires": []
     },
     {
