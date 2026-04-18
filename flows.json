@@ -2955,60 +2955,6 @@
         "wires": []
     },
     {
-        "id": "127921b124767e00",
-        "type": "ui-gauge",
-        "z": "d5021122c7687a77",
-        "name": "",
-        "group": "6db9f9b4ba633596",
-        "order": 0,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 3,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "gauge",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "units",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5cd65c",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "4",
-                "color": "#ffc800",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "7",
-                "color": "#ea5353",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": 0,
-        "max": 10,
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 910,
-        "y": 640,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "fb5910051ef062b0",
         "type": "Stackhero-InfluxDB-v2-write",
         "z": "a2ab62117e01f9b3",
